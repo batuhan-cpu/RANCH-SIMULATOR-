@@ -2,157 +2,78 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BATUHAN-CPU // PC GAMING HUB</title>
+    <title>PC GAMING HUB // PRO DATABASE</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: #070a0e; color: #cbd5e1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 10px; }
-        
-        .wrapper { max-width: 750px; margin: 0 auto; background: #0f141c; border: 2px solid #1e293b; border-radius: 12px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-        
-        header { text-align: center; border-bottom: 2px dashed #22d3ee; padding-bottom: 15px; margin-bottom: 20px; }
-        header h1 { color: #22d3ee; font-size: 24px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 15px rgba(34,211,238,0.3); }
-        header p { color: #94a3b8; font-size: 13px; margin-top: 5px; font-weight: bold; }
-
-        /* PC OYUNLARI MENÜSÜ */
-        .game-menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 25px; }
-        .menu-btn { background: #1e293b; color: #94a3b8; border: 1px solid #334155; padding: 12px 5px; font-size: 12px; font-weight: bold; cursor: pointer; border-radius: 6px; transition: all 0.3s; text-align: center; text-transform: uppercase; }
-        .menu-btn:hover { background: #334155; color: #fff; border-color: #22d3ee; }
-        .menu-btn.active { background: #0891b2; color: #fff; border-color: #22d3ee; box-shadow: 0 0 15px rgba(8,145,178,0.5); }
-        .menu-btn.coming-soon { background: #111827; color: #4b5563; border: 1px dashed #374151; cursor: not-allowed; }
-
-        /* İçerik Alanları */
-        .game-content { display: none; animation: fadeIn 0.4s ease-in-out; }
+        body { background: #070a0e; color: #cbd5e1; font-family: 'Segoe UI', sans-serif; padding: 10px; }
+        .wrapper { max-width: 800px; margin: 0 auto; background: #0f141c; border: 2px solid #1e293b; padding: 20px; border-radius: 12px; }
+        .header { text-align: center; color: #22d3ee; margin-bottom: 20px; }
+        .game-menu { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin-bottom: 20px; }
+        .menu-btn { background: #1e293b; color: #fff; border: none; padding: 10px; cursor: pointer; border-radius: 4px; font-size: 11px; font-weight: bold; }
+        .menu-btn.active { background: #0891b2; }
+        .game-content { display: none; }
         .game-content.active { display: block; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Kartlar */
-        .info-section { background: #161e29; border-radius: 8px; padding: 15px; margin-bottom: 15px; border: 1px solid #223147; }
-        .info-section h3 { color: #f1f5f9; font-size: 16px; margin-bottom: 10px; border-left: 4px solid #22d3ee; padding-left: 8px; }
-        
-        .badge { color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: bold; display: inline-block; margin-bottom: 8px; text-transform: uppercase; }
-        .badge.rehber { background: #10b981; }
-        .badge.hile { background: #ef4444; }
-        .badge.bug { background: #f59e0b; }
-        .badge.medya { background: #6366f1; }
-
-        ul { margin-left: 20px; font-size: 14px; color: #94a3b8; }
-        li { margin-bottom: 6px; }
-        li strong { color: #e2e8f0; }
-
-        footer { text-align: center; font-size: 11px; color: #475569; margin-top: 30px; border-top: 1px solid #223147; padding-top: 10px; }
+        .code-block { background: #000; border-left: 4px solid #22d3ee; padding: 15px; margin: 10px 0; font-family: monospace; }
+        .desc { font-size: 14px; color: #94a3b8; margin-top: 5px; }
     </style>
 </head>
 <body>
-
-    <div class="wrapper">
-        <header>
-            <h1>💻 MASTER PC GAMING DATABASE</h1>
-            <p>Eksiksiz Rehberler, Kritik Buglar ve Arka Sokak Taktikleri</p>
-        </header>
-
-        <!-- OYUN BUTONLARI -->
-        <div class="game-menu">
-            <button class="menu-btn active" onclick="switchGame('ranch')">🚜 Ranch Sim</button>
-            <button class="menu-btn" onclick="switchGame('gta5')">💰 GTA V</button>
-            <button class="menu-btn" onclick="switchGame('rdr2')">🤠 RDR 2</button>
-            <button class="menu-btn" onclick="switchGame('cs2')">🎯 CS2</button>
-            <button class="menu-btn coming-soon" style="grid-column: span 2;">⏳ YAKINDA YENİ OYUNLAR...</button>
-        </div>
-
-        <!-- ================= RANCH SIMULATOR ================= -->
-        <div id="game-ranch" class="game-content active">
-            <div class="info-section">
-                <div class="badge rehber">ADIM ADIM REHBER</div>
-                <h3>Sıfırdan Çiftlik İmparatorluğu</h3>
-                <p style="font-size: 14px; color: #94a3b8;">1. Başlangıç çadırını at ve garajdaki parçalarla ilk traktörü canlandır.<br>
-                2. İlk sermaye için hırdavatçıdan tüfek çekip dağlarda geyik avla, kasaba sat.<br>
-                3. Biriken parayla kümes yapıp tavukları diz, pasif geliri başlat.</p>
-            </div>
-            <div class="info-section">
-                <div class="badge bug">BUG / GİZLİ TAKTİK</div>
-                <h3>Lojistik & Kasa Sıkıştırma Bugu</h3>
-                <ul>
-                    <li><strong>Tomruk İstifleme:</strong> Kestiğiniz tomrukları pikabın kasasına dikey açıyla bırakırsanız, oyunun fizik motoru sayesinde kasanın normal sınırından 3 kat daha fazla odun taşıyabilirsiniz.</li>
-                </ul>
-            </div>
-            <div class="info-section">
-                <div class="badge medya">MEDYA DEPOSU</div>
-                <p style="font-size: 13px; color: #4b5563; text-align: center; padding: 15px; border: 2px dashed #223147; border-radius: 6px;">
-                    [Kral, bulduğun Ranch videolarını/fotolarını atınca kodlarını buraya gömeceğim!]
-                </p>
-            </div>
-        </div>
-
-        <!-- ================= GTA V ================= -->
-        <div id="game-gta5" class="game-content">
-            <div class="info-section">
-                <div class="badge hile">HİLE KODLARI (PC)</div>
-                <h3>En Popüler Konsol Komutları</h3>
-                <ul>
-                    <li><strong>PAINKILLER:</strong> 5 dakika boyunca tamamen ölümsüzlük sağlar.</li>
-                    <li><strong>TURTLE:</strong> Can ve zırh değerlerini anında %100 yapar.</li>
-                    <li><strong>TOOLUP:</strong> Tüm güçlü silahları ve mermileri envanterine doldurur.</li>
-                </ul>
-            </div>
-            <div class="info-section">
-                <div class="badge rehber">ONLINE NAKİT REHBERİ</div>
-                <h3>Hızlı Para Kasma Taktikleri</h3>
-                <p style="font-size: 14px; color: #94a3b8;">Kosatka Denizaltısı alarak **Cayo Perico Heist** görevini solo (tek başına) yapmak, GTA Online dünyasında şu an saat başına en yüksek milyon dolarları veren en temiz yöntemdir.</p>
-            </div>
-        </div>
-
-        <!-- ================= RED DEAD REDEMPTION 2 ================= -->
-        <div id="game-rdr2" class="game-content">
-            <div class="info-section">
-                <div class="badge rehber">GİZLİ BAŞLANGIÇ GANYANI</div>
-                <h3>Efsanevi Beyaz Arap Atı Lokasyonu</h3>
-                <p style="font-size: 14px; color: #94a3b8;">Chapter 2'ye geçer geçmez haritanın sol üstündeki **Isabella Gölü (Lake Isabella)** civarına gidin. Karların arasında vahşi halde dolaşan, oyunun en hızlı atlarından olan **Beyaz Arap Atı**'nı evcilleştirip bedavaya kapatın.</p>
-            </div>
-            <div class="info-section">
-                <div class="badge hile">KODLAR</div>
-                <h3>Ayarlar Menüsü Gizli Kelimeleri</h3>
-                <ul>
-                    <li><strong>"I shall be better"</strong> - Dead Eye yeteneğini direkt Seviye 3 yapar.</li>
-                    <li><strong>"Abundance is the desire of every世紀"</strong> - Sınırsız ağır silah mermisi verir.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ================= CS2 ================= -->
-        <div id="game-cs2" class="game-content">
-            <div class="info-section">
-                <div class="badge rehber">REKABETÇİ AYARLARI</div>
-                <h3>Başlatma Seçenekleri ve FPS Yükseltme</h3>
-                <ul>
-                    <li>Steam kütüphanesinden CS2'ye sağ tıklayıp özelliklere girin ve başlatma seçeneklerine şu kodları yazın: <code style="color:#22d3ee;">-novid -high -threads 5</code></li>
-                </ul>
-            </div>
-            <div class="info-section">
-                <div class="badge bug">SUB-TICK TAKTİĞİ</div>
-                <h3>Maksimum Sprey Kontrolü</h3>
-                <p style="font-size: 14px; color: #94a3b8;">CS2'nin yeni sub-tick sistemi yüzünden mermiler tam tıkladığın an gider. AK-47 ile sprey atarken CS:GO'ya kıyasla fareyi ilk 3 mermiden sonra çok hafif daha erken aşağı çekmek mermilerin sekmesini engeller.</p>
-            </div>
-        </div>
-
-        <footer>
-            PC Gaming Network Hub // Developed by batuhan-cpu © 2026
-        </footer>
+<div class="wrapper">
+    <div class="header"><h1>🎮 MASTER GAMING DATABASE V7.0</h1></div>
+    <div class="game-menu">
+        <button class="menu-btn active" onclick="switchGame('ranch')">RANCH</button>
+        <button class="menu-btn" onclick="switchGame('gta5')">GTA V</button>
+        <button class="menu-btn" onclick="switchGame('rdr2')">RDR2</button>
+        <button class="menu-btn" onclick="switchGame('cs2')">CS2</button>
     </div>
 
-    <!-- SİHİRLİ SEKMELİ SCRIPT -->
+    <!-- RANCH -->
+    <div id="game-ranch" class="game-content active">
+        <h3>Ranch Simulator: Verimlilik Kodları</h3>
+        <div class="code-block">
+            <strong>"FİYAT_TABLOSU_GÜNCELLE"</strong>
+            <p class="desc">Bu mantıksal komut, oyunun veri dosyasından o anki market fiyatlarını çeker. Eğer bu kod aktifleşirse, et ve yumurta fiyatlarının anlık değişimlerini (market dalgalanmalarını) takip ederek ticaret yapmanı sağlar; böylece zarar etmezsin.</p>
+        </div>
+    </div>
+
+    <!-- GTA V -->
+    <div id="game-gta5" class="game-content">
+        <h3>GTA V: Dünya Düzenleyici Kodlar</h3>
+        <div class="code-block">
+            <strong>"PAINKILLER"</strong>
+            <p class="desc">Oyunun hasar motorunu 5 dakikalığına tamamen devre dışı bırakır. Bu süre boyunca mermi yesen, uçurumdan düşsen veya patlamaların tam merkezinde olsan bile hiçbir şekilde canın azalmaz. Tam bir "kaos modu" başlatma komutudur.</p>
+        </div>
+        <div class="code-block">
+            <strong>"TURTLE"</strong>
+            <p class="desc">Karakterin yaşam enerjisini (Health) ve çevresel koruma kalkanını (Armor) anında 100 birime sabitler. Eğer çatışma ortasında ağır yaralandıysan, bu kod karakterin vücut bütünlüğünü saniyeler içinde yenileyerek seni savaşa geri döndürür.</p>
+        </div>
+    </div>
+
+    <!-- RDR2 -->
+    <div id="game-rdr2" class="game-content">
+        <h3>RDR2: Vahşi Batı Hakimiyet Kodları</h3>
+        <div class="code-block">
+            <strong>"Abundance is the desire of every世紀"</strong>
+            <p class="desc">Bu gizemli kod, envanterindeki tüm ağır mühimmatı sonsuz döngüye sokar. Normalde bir çatışmada sınırlı olan tüfek ve tabanca mermilerin, bu kod girildikten sonra asla bitmez; yani mermi doldurma (reload) zahmetine girmeden düşmanların üzerine sonsuz mermi yağdırabilirsin.</p>
+        </div>
+    </div>
+
+    <!-- CS2 -->
+    <div id="game-cs2" class="game-content">
+        <h3>CS2: FPS ve Ağ Motoru Optimizasyonu</h3>
+        <div class="code-block">
+            <strong>"-novid -high -threads 5"</strong>
+            <p class="desc">Bu teknik kodlar, oyunun başlangıç ayarlarını kökten değiştirir. '-novid' açılıştaki uzun Valve logosunu atlayarak oyuna anında girmene yarar. '-high' komutu, Windows işletim sistemine "oyunu en yüksek öncelikli görev olarak gör" emrini verir. '-threads 5' ise işlemcinin 5 çekirdeğini sadece oyun performansına odaklayarak FPS takılmalarını minimize eder.</p>
+        </div>
+    </div>
+
     <script>
-        function switchGame(gameId) {
-            const contents = document.querySelectorAll('.game-content');
-            contents.forEach(content => content.classList.remove('active'));
-            
-            const buttons = document.querySelectorAll('.menu-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById('game-' + gameId).classList.add('active');
+        function switchGame(id) {
+            document.querySelectorAll('.game-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('game-' + id).classList.add('active');
             event.currentTarget.classList.add('active');
         }
     </script>
+</div>
 </body>
 </html>
