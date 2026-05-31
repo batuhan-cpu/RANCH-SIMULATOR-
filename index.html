@@ -1,23 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-<title>SİBER OPERASYON</title>
-<style>
-body { background: #000; color: #0f0; font-family: monospace; text-align: center; padding: 50px; }
-.btn { border: 2px solid #0f0; background: none; color: #0f0; padding: 20px; font-size: 24px; cursor: pointer; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GÖLGE AĞI // OPERASYON MERKEZİ</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #000; color: #0f0; font-family: 'Courier New', Courier, monospace; overflow: hidden; position: relative; }
+        
+        /* Matris Yağmuru Arka Planı */
+        #matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.25; width: 100vw; height: 100vh; }
+        
+        .wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+        
+        .hacker-interface { background: rgba(2, 14, 4, 0.9); border: 2px solid #0f0; border-radius: 8px; max-width: 500px; width: 100%; padding: 25px; text-align: center; box-shadow: 0 0 30px rgba(0, 255, 0, 0.3); position: relative; }
+        
+        /* Güvenlik Duvarı Patladığında Ekranın Yanıp Sönmesi */
+        @keyframes alarm-flash { 0%, 100% { border-color: #0f0; box-shadow: 0 0 30px rgba(0,255,0,0.3); } 50% { border-color: #f00; box-shadow: 0 0 50px rgba(255,0,0,0.6); background: rgba(30,0,0,0.9); } }
+        .breached { animation: alarm-flash 0.4s 3 alternate; }
+
+        h1 { font-size: 20px; letter-spacing: 4px; text-shadow: 0 0 10px #0f0; margin-bottom: 20px; color: #fff; }
+        
+        .crypto-display { background: rgba(0,0,0,0.6); border: 1px dashed #0f0; padding: 15px; border-radius: 4px; font-size: 32px; font-weight: bold; color: #fff; text-shadow: 0 0 15px #0f0; margin-bottom: 25px; letter-spacing: 1px; }
+        
+        .btn-cyber { background: transparent; color: #0f0; border: 2px solid #0f0; padding: 15px 30px; font-size: 18px; font-weight: bold; font-family: monospace; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s; width: 100%; border-radius: 4px; box-shadow: inset 0 0 10px rgba(0,255,0,0.2); }
+        .btn-cyber:hover { background: #0f0; color: #000; box-shadow: 0 0 20px #0f0; }
+        .btn-cyber:active { transform: scale(0.98); }
+        
+        /* Canlı Akış Terminali */
+        .terminal-feed { margin-top: 25px; background: #000; border: 1px solid #113311; height: 120px; border-radius: 4px; padding: 10px; text-align: left; font-size: 12px; color: #0c0; overflow-y: hidden; line-height: 1.5; box-shadow: inset 0 0 10px #000; }
+    </style>
 </head>
 <body>
-<h1>SİBER OPERASYON AKTİF</h1>
-<div id="skor">0 BITS</div>
-<br>
-<button class="btn" onclick="hack()">[ HACKLE ]</button>
-<script>
-let b = 0;
-function hack() {
-  b += Math.floor(Math.random() * 1000);
-  document.getElementById('skor').innerText = b + " BITS";
-}
-</script>
+
+    <canvas id="matrix"></canvas>
+
+    <div class="wrapper">
+        <div class="hacker-interface" id="panel">
+            <h1>⚡ CYBER-HEIST: GÖLGE AĞI v11.0</h1>
+            
+            <div class="crypto-display" id="score-box">0.00 BITS</div>
+            
+            <button class="btn-cyber" onclick="triggerBreach()">[ SIZMA HAREKATI BAŞLAT ]</button>
+            
+            <div class="terminal-feed" id="log-box">
+                > Çekirdek yazılım yüklendi...<br>
+                > Güvenli tünel kuruldu. Sızma için sinyal bekleniyor...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ses Efektleri İçin Tarayıcı Sentezleyicisi (Dosya İndirmeden Ses Çalar)
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playBeep(freq, type, duration) {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = type; osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + duration);
+            osc.connect(gain); gain.connect(audioCtx.destination);
+            osc.start(); osc.stop(audioCtx.currentTime + duration);
+        }
+
+        // Matrix Efekti Arka Planı
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*".split("");
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array.from({ length: columns }).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#0f0"; ctx.font = fontSize + "px monospace";
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 40);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        // Oyun Algoritması
+        let totalBits = parseFloat(localStorage.getItem('shadow_net_bits')) || 0;
+        document.getElementById('score-box').innerText = totalBits.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + " BITS";
+
+        function addLog(msg) {
+            const box = document.getElementById('log-box');
+            const time = new Date().toLocaleTimeString();
+            box.innerHTML += `<br>[${time}] > ${msg}`;
+            const lines = box.innerHTML.split('<br>');
+            if (lines.length > 5) { lines.shift(); box.innerHTML = lines.join('<br>'); }
+        }
+
+        function triggerBreach() {
+            const panel = document.getElementById('panel');
+            panel.classList.remove('breached'); // Eski animasyonu sıfırla
+            void panel.offsetWidth; // DOM'u tetikle
+
+            // %70 İhtimalle Başarı, %30 İhtimalle Yakalanma (Düşüş)
+            let luck = Math.random();
+            
+            if (luck > 0.30) {
+                // BAŞARILI SIZMA
+                let gain = Math.floor(Math.random() * 4500) + 500;
+                totalBits += gain;
+                playBeep(880, 'sine', 0.1); // Başarılı bip sesi
+                setTimeout(() => playBeep(1200, 'sine', 0.08), 80);
+                addLog(`SIZMA BAŞARILI: Karşı sunucu delindi. +${gain} BITS siber kasaya çekildi.`);
+            } else {
+                // GÜVENLİK DUVARI (SİSTEM ÇÖKÜŞÜ / AZALMA MANTIĞI)
+                let loss = Math.floor(Math.random() * 3000) + 1000;
+                totalBits -= loss;
+                if (totalBits < 0) totalBits = 0;
+                
+                panel.classList.add('breached'); // Kırmızı alarm animasyonu
+                playBeep(150, 'sawtooth', 0.4); // Hata/Alarm sesi
+                addLog(`<span style="color:#f00;">[X] ACİL DURUM: GÜVENLİK DUVARI LOGU YAKALADI! -${loss} BITS imha edildi.</span>`);
+            }
+
+            // Arayüzü ve Kalıcı Hafızayı Güncelle
+            document.getElementById('score-box').innerText = totalBits.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + " BITS";
+            localStorage.setItem('shadow_net_bits', totalBits);
+        }
+    </script>
 </body>
 </html>
