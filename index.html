@@ -40,9 +40,9 @@
         .arrow-item { font-size: 14px; color: #cbd5e1; margin-bottom: 8px; padding-left: 5px; }
         .arrow-item span { color: #22d3ee; font-weight: bold; margin-right: 5px; }
 
-        .list-title { font-weight: bold; margin-top: 15px; margin-bottom: 8px; color: #fabb15; font-size: 14px; }
+        .list-title { font-weight: bold; margin-top: 15px; margin-bottom: 8px; color: #facc15; font-size: 14px; }
 
-        /* Steam İnceleme Kutuları (Görsel Simülasyonu) */
+        /* Steam İnceleme Kutuları */
         .steam-review-card { background: #1b2838; border: 1px solid #2a475e; border-radius: 5px; padding: 15px; margin-bottom: 15px; }
         .review-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2a475e; padding-bottom: 8px; margin-bottom: 10px; }
         .reviewer-name { color: #66c0f4; font-weight: bold; font-size: 14px; }
@@ -57,8 +57,11 @@
         .sys-table td strong { color: #facc15; }
 
         /* Kod Blokları */
-        .code-block { background: #000; border-left: 4px solid #ef4444; padding: 15px; margin: 12px 0; font-family: monospace; border-radius: 4px; }
-        .code-block strong { color: #f87171; font-size: 14px; display: block; margin-bottom: 5px; }
+        .code-block { background: #000; border-left: 4px solid #22d3ee; padding: 15px; margin: 12px 0; font-family: monospace; border-radius: 4px; }
+        .code-block.gta { border-left-color: #22c55e; }
+        .code-block.rdr { border-left-color: #ef4444; }
+        .code-block.cs { border-left-color: #eab308; }
+        .code-block strong { font-size: 14px; display: block; margin-bottom: 5px; color: #fff; }
         .code-block p { font-size: 13px; color: #94a3b8; margin: 0; }
 
         footer { text-align: center; font-size: 11px; color: #475569; margin-top: 40px; border-top: 1px solid #1e293b; padding-top: 15px; }
@@ -72,22 +75,26 @@
             <p>Gelişmiş Taktikler, Sistem Analizleri ve Topluluk Verileri</p>
         </header>
 
+        <!-- ANA OYUN MENÜSÜ -->
         <div class="main-menu">
-            <button class="main-btn active" onclick="switchMainGame('ranch')">🚜 Ranch Sim</button>
-            <button class="main-btn" onclick="switchMainGame('gta5')">💰 GTA V</button>
-            <button class="main-btn" onclick="switchMainGame('rdr2')">🤠 RDR 2</button>
-            <button class="main-btn" onclick="switchMainGame('cs2')">🎯 CS2</button>
+            <button class="main-btn active" onclick="switchMainGame(this, 'ranch')">🚜 Ranch Sim</button>
+            <button class="main-btn" onclick="switchMainGame(this, 'gta5')">💰 GTA V</button>
+            <button class="main-btn" onclick="switchMainGame(this, 'rdr2')">🤠 RDR 2</button>
+            <button class="main-btn" onclick="switchMainGame(this, 'cs2')">🎯 CS2</button>
         </div>
 
+        <!-- ================= RANCH SIMULATOR ANA SEKME ================= -->
         <div id="game-ranch" class="main-content active">
             
+            <!-- RANCH İÇ ALT MENÜ -->
             <div class="sub-menu">
-                <button class="sub-btn active" onclick="switchRanchSub('anlatim')">📖 Anlatım</button>
-                <button class="sub-btn" onclick="switchRanchSub('buglar')">🐛 Buglar</button>
-                <button class="sub-btn" onclick="switchRanchSub('yorumlar')">💬 Steam Yorumları</button>
-                <button class="sub-btn" onclick="switchRanchSub('sistem')">⚙️ Sistem & İnceleme</button>
+                <button class="sub-btn active" onclick="switchRanchSub(this, 'anlatim')">📖 Anlatım</button>
+                <button class="sub-btn" onclick="switchRanchSub(this, 'buglar')">🐛 Buglar</button>
+                <button class="sub-btn" onclick="switchRanchSub(this, 'yorumlar')">💬 Steam Yorumları</button>
+                <button class="sub-btn" onclick="switchRanchSub(this, 'sistem')">⚙️ Sistem & İnceleme</button>
             </div>
 
+            <!-- SUB 1: ANLATIM -->
             <div id="ranch-anlatim" class="sub-content active">
                 <div class="info-section">
                     <h3>Bu Oyunu Kimler Geliştiriyor?</h3>
@@ -97,140 +104,161 @@
                 <div class="info-section">
                     <h3>Oyun Gerçekte Ne Sunuyor, Artıları Neler?</h3>
                     <p>Size çiftlik kurma imkânınızdan bahsetmeyeceğim, elbette amacınız bu.</p>
-                    
                     <div class="arrow-item"><span>→</span> Oyunda domuz, inek, koyun, keçi gibi hayvanlar yetiştiriyor ve bunların etinden sütünden faydalanıyorsunuz.</div>
-                    <div class="arrow-item"><span>→</span> Ayrıca oyunda tarım imkânı da var, tarla da sürebiliyorsunuz ama kesinlikle bir Farming Simulator kalitesi beklemeyin. Tohum ek, gübrele, bekle, olunca sür, sat, bu kadar. Bu ürünlerle de pek bir şey yapamıyorsunuz satmak dışında.</div>
+                    <div class="arrow-item"><span>→</span> Ayrıca oyunda tarım imkânı da var, tarla da sürebiliyorsunuz ama kesinlikle bir Farming Simulator kalitesi beklemeyin.</div>
                     <div class="arrow-item"><span>→</span> Seracılık da yapabilirsiniz, kendi inşa ettiğiniz ufak alanlarınızda çeşit çeşit ürün yetiştirebilirsiniz.</div>
                     <div class="arrow-item"><span>→</span> Arıcılık mekaniği de var. Bu kadar yani, o da var.</div>
-                    <div class="arrow-item"><span>→</span> Oyunun başında kısa bir süre uğraşıp sonra bir daha yüzüne bakmayacağınız bir balık tutma mekaniği de var, olta ile haritanın spesifik birkaç noktasından balık tutulabiliyor.</div>
-                    <div class="arrow-item"><span>→</span> Oyunda avlanma sistemi de var, yaban hayvanlarını avlıyorsunuz ama yaban hayvanlarının yapay zekaları berbat. Ne yapacaklarını bilemiyorlar çoğu zaman. Birçoğu da tek kurşuna ölüyor, ayılar dışında sizi zorlayacak bir şey yok.</div>
-                    <div class="arrow-item"><span>→</span> Oyunda at satın alıp at da sürebilirsiniz. Bu kadar hani, bir lüks göstergesi olması dışında bir olayı yok.</div>
-                    
-                    <p style="margin-top: 15px;">Temelde bunları yapmak, ürünleri üretip satmak ve para kazanarak aynı şeyleri daha büyük ölçüde yapmak oyunun size sunduğu yegane şey. Zevkli mi? Evet. Ama bolca da eksiği var oyunun.</p>
+                    <div class="arrow-item"><span>→</span> Oyunun başında kısa bir süre uğraşıp sonra bir daha yüzüne bakmayacağınız bir balık tutma mekaniği de var.</div>
+                    <div class="arrow-item"><span>→</span> Oyunda avlanma sistemi de var, yaban hayvanlarını avlıyorsunuz ama yaban hayvanlarının yapay zekaları berbat.</div>
+                    <div class="arrow-item"><span>→</span> Oyunda at satın alıp at da sürebilirsiniz.</div>
                 </div>
             </div>
 
+            <!-- SUB 2: BUGLAR & EKSİKLER -->
             <div id="ranch-buglar" class="sub-content">
                 <div class="info-section">
                     <h3>Gelgelelim Oyunun Eksiklerine ve Bug Problemlerine...</h3>
-                    
-                    <div class="arrow-item"><span>→</span> <strong>Kazançsız Mekanikler:</strong> Oyunda bolca mekanik de olsa çoğu oldukça kazançsız. Hatta bu kadar mekaniği keşfedebilmemin sebebi spesifik bir mekanikte yüksek kazanç kovalamam oldu. (Domuzlardan domuz salamı yapmak ve yüksek çarpanlı denk gelince satarak tek seferde aşırı miktarlarda kazanmak.)</div>
-                    
-                    <div class="arrow-item"><span>→</span> <strong>Dokunulmazlık Bugları:</strong> Oyunun ciddi bir bug problemi var. Arkadaşlarınızla beraber oynadığınızda bu daha da ortaya çıkıyor, çoğunlukla oyun oynanmaz hale gelmiyor ama can sıkıcı buglar halen mevcut. Örneğin tencerede peynir yaparken bazen tencere dokunulmaz hale geliyor. Sosisleri astığınızda sosisler dokunulmaz hale gelebiliyor. Bu gibi dokunulmaz hale gelme durumu da ancak o esnada odayı açan kişinin gelip dokunmasıyla çözülüyor.</div>
-                    
-                    <div class="arrow-item"><span>→</span> <strong>Aşırı Grind Sıkıntısı:</strong> Oyunun hatrı sayılır bir grind problemi de var. Gerçekte bir sonu olmasa da pratikte aşırı para kazanıp "Oyunu bitirdim." dediğiniz ana kadar oyunda sürekli bir şeyleri grind etmekle uğraşıyorsunuz. Saatlerce kalas kesmek, saatlerce domuz etinden domuz kıyması ve bundan da sonra sosis yapmak... Tüm bunlar aynı şeyleri uzun oyun saatleri boyunca tekrar tekrar yapmanızın gerekmesi anlamına geliyor.</div>
-                    
-                    <div class="arrow-item"><span>→</span> <strong>Otomatizasyon Eksikliği:</strong> Oyunda Satisfactory ya da benzeri bir otomatizasyon yok. Bu oyunun her mekaniği için geçerli, her şeyi takip etmeniz ve yapmanız gerekiyor, hiçbir şey otomatik değil. Oyunda işleri hızlandıran makineler yalnızca makine bekleme sürelerini ve bazı sıkıcı şeyleri elle yapma problemini gideriyor. Örneğin domuz etinden kıyma yaparken hem daha hızlı işi hallediyor hem de E'ye basılı tutup bekleme mekaniğini ortadan kaldırıyor. Ama bütün hepsi bu. Başka hiçbir olayı yok.</div>
-                    
-                    <div class="arrow-item"><span>→</span> <strong>Tek Başına İlerleyememe:</strong> Grind meselesi böyle olunca tek başınıza ilerlemek büyük bir işkence oluyor, en az iki kişi bu oyuna girmeniz lazım, yoksa yürümez. Hatta bence üç kişi ideal olanı da genelde iki arkadaş çözdük biz bu oyunu.</div>
-                    
-                    <div class="arrow-item"><span>→</span> <strong>Rendering ve Isınma Problemi:</strong> Oyunda hatrı sayılır optimizasyon ve rendering problemleri de mevcut. Bazı yerlerde ekranda gölgeli bir görüntü ortaya çıkıyor, öyle olunca grafik kartında mı bir problem var dedim ama inanın, bu oyunun rendering problemi. İkinci olarak oyuna girdiğim anda bilgisayarım odayı ısıtmaya başlıyor, sayesinde bu ayki doğalgaz faturası düşük geldi, muhtemelen oyundaki her bir bot (araçlar, av hayvanları vs.) önceden belirlenmiş bir yolda otomatik ilerlemektense her frame'de yeniden yeniden hesaplanan bir sistem üzerine kurulu. Ona rağmen bazen birbirlerine giriyorlar.</div>
-                    
-                    <div class="arrow-item"><span>→</span> <strong>Dokümantasyon Eksikliği:</strong> Oyunun ciddi dokümantasyon eksikliği de var. Bunun anlamı, oyunda neyi nasıl yapacağınızı kendiniz çözmeniz gerekiyor çoğu zaman. İnternette hayran yapımı rehberler olsa da oyunda bir tutorial yok, her mekaniği de millet kendisi öğrenip raporlamış, neyin nasıl yapıldığı ve nasıl olduğuna dair resmi ve güncel bir dokümantasyon şart.</div>
+                    <div class="arrow-item"><span>→</span> <strong>Kazançsız Mekanikler:</strong> Oyunda bolca mekanik de olsa çoğu oldukça kazançsız. En mantıklısı domuz salamı yapıp yüksek fiyata satmak.</div>
+                    <div class="arrow-item"><span>→</span> <strong>Dokunulmazlık Bugları:</strong> Co-op oynarken peynir tencereleri veya asılı sosisler aniden dokunulmaz olabiliyor. Sadece odayı kuran kişi elleyince düzeliyor.</div>
+                    <div class="arrow-item"><span>→</span> <strong>Aşırı Grind Sıkıntısı:</strong> Sürekli kalas kesmek, sosis basmak gibi işlemler saatler alıyor ve bir süre sonra aşırı tekrara bağlıyor.</div>
+                    <div class="arrow-item"><span>→</span> <strong>Otomatizasyon Eksikliği:</strong> Her şeyi tek tek elle takip etmek zorundasınız, otomatik hiçbir fabrika veya sistem yok.</div>
                 </div>
             </div>
 
+            <!-- SUB 3: STEAM YORUMLARI GALERİSİ -->
             <div id="ranch-yorumlar" class="sub-content">
                 <div class="info-section">
                     <h3>💬 Topluluktan Öne Çıkan Oyuncu İncelemeleri</h3>
-                    <p>Oyuncuların Steam üzerinden gönderdiği canlı geri bildirimlerin analitik dökümü:</p>
-
+                    
                     <div class="steam-review-card">
-                        <div class="review-header">
-                            <span class="reviewer-name">Youless</span>
-                            <span class="review-status">👍 Tavsiye Ediliyor (75.9 Saat)</span>
-                        </div>
+                        <div class="review-header"><span class="reviewer-name">Youless</span><span class="review-status">👍 Tavsiye Ediliyor</span></div>
                         <p class="review-text">"Oyun genel olarak güzelAncak oyun ilerledikçe ve çiftlikteki hayvan sayısı arttıkça oyun aşırı kasıyor. Ciddi bir optimizasyon sıkıntısı var bu çözülürse çok güzel olur."</p>
                     </div>
 
                     <div class="steam-review-card">
-                        <div class="review-header">
-                            <span class="reviewer-name">bitokito</span>
-                            <span class="review-status">👍 Tavsiye Ediliyor (30.8 Saat)</span>
-                        </div>
-                        <p class="review-text">"oyun ii ama domuzlar çok hızlı çoğalıyo bazı açıdan ii olsada kötü yanlarıda var oyunu az da olsa kastırıyor bu kasma yı düzelmeleri lazım artı eşyaları düz koymayı ekleyin amına koduklarım dlc olarak ta eklerlerse alırım amk çok önemli aq"</p>
+                        <div class="review-header"><span class="reviewer-name">bitokito</span><span class="review-status">👍 Tavsiye Ediliyor</span></div>
+                        <p class="review-text">"oyun ii ama domuzlar çok hızlı çoğalıyo bazı açıdan ii olsada kötü yanlarıda var oyunu az da olsa kastırıyor bu kasma yı düzelmeleri lazım..."</p>
                     </div>
 
                     <div class="steam-review-card">
-                        <div class="review-header">
-                            <span class="reviewer-name">MAZAKA</span>
-                            <span class="review-status">👍 Tavsiye Ediliyor (14.5 Saat)</span>
-                        </div>
+                        <div class="review-header"><span class="reviewer-name">MAZAKA</span><span class="review-status">👍 Tavsiye Ediliyor</span></div>
                         <p class="review-text">"NASA bilgisayarları bile bu oyundan korkuyor öyle bi optimizasyon özürlülüğü var ama yine de güzel"</p>
-                        <div class="reviewer-hardware">Donanım: Win 11 | AMD Ryzen 9 8945HS | 15 GB RAM | RTX 4060 Laptop GPU (8GB)</div>
-                    </div>
-
-                    <div class="steam-review-card">
-                        <div class="review-header">
-                            <span class="reviewer-name">Maren</span>
-                            <span class="review-status">👍 Tavsiye Ediliyor (82.9 Saat)</span>
-                        </div>
-                        <p class="review-text">"Oyun similasyon sevenler için fena değil... Ancak buglar vs mevcut. Araç kullanması hala sıkıntılı, eline obje aldığında pov/fps te hiçbir şey göremiyorsun, hayvanlar kaçtığında alana sokmak zulüm, römorklar görünmez şeylerle bug'a giriyor, ekipmanları bazen geri satamıyorsun."</p>
-                    </div>
-
-                    <div class="steam-review-card">
-                        <div class="review-header">
-                            <span class="reviewer-name">Kasashi</span>
-                            <span class="review-status">👍 Tavsiye Ediliyor (48.9 Saat)</span>
-                        </div>
-                        <p class="review-text">"Oyun çok güzel çiftlik yapıyorsunuz ve arkadaşlarınızla güzel vakit geçiriyorsunuz.Kim yaptıysa ellerine sağlık."</p>
-                    </div>
-
-                    <div class="steam-review-card">
-                        <div class="review-header">
-                            <span class="reviewer-name">Dens Sapientiae</span>
-                            <span class="review-status">👍 Tavsiye Ediliyor (81.7 Saat)</span>
-                        </div>
-                        <p class="review-text">"İlk çıktığından beri sahip olduğum oyun... Araç mekaniklerini hiç beğenmedim ve beğenmiyorum. Güncelleme almaya devam ediyor ve bu haliyle bile gelişime oldukça açık bir oyun..."</p>
-                        <div class="reviewer-hardware">Donanım: Win 11 | 13th Gen Intel i7-13700H | 32 GB RAM | RTX 4060 Laptop GPU (8GB)</div>
+                        <div class="reviewer-hardware">Donanım: AMD Ryzen 9 8945HS | RTX 4060 | 16GB RAM</div>
                     </div>
                 </div>
             </div>
 
+            <!-- SUB 4: SİSTEM GEREKSİNİMLERİ & KENDİ GÖRÜŞLERİM -->
             <div id="ranch-sistem" class="sub-content">
                 <div class="info-section">
                     <h3>🤔 Şahsi Değerlendirme: Bu Oyun Alınmaya Değer Mi?</h3>
-                    <p>Herkese merhabalar, bu oyunun detaylı incelemesini okumaktansa hızlıca karar verme aşamasına geçmek isterseniz aşağıda yer alan artı ve eksilerin listesine göz atabilir, şahsi fikrimi öğrenebilirsiniz.</p>
-                    
-                    <div class="list-title">(+) ARTILAR:</div>
-                    <p style="font-size:13px; color:#10b981;">
-                        • Hayvancılık sistemi mevcut; domuz, inek, koyun ve keçi yetiştirip et ve süt ürünleri üretebiliyorsunuz.<br>
-                        • Basit ama işlevsel bir tarım sistemi var; ekim, gübreleme, hasat ve satış döngüsü tatmin edici olabiliyor.<br>
-                        • Seracılık mekaniği sayesinde kendi alanlarınızda farklı ürünler yetiştirebiliyorsunuz.<br>
-                        • Arıcılık ve Balıkçılık gibi ek uğraşlar oyuna çeşitlilik katıyor.<br>
-                        • Avcılık mekaniği mevcut; haritada yaban hayvanları avlayabiliyorsunuz.<br>
-                        • At satın alıp binebiliyorsunuz; atmosfer ve rol yapma hissine katkı sağlıyor.<br>
-                        • Üretim yapıp büyüme döngüsü ilk saatlerde oldukça keyifli ve bağımlılık yaratabiliyor.
-                    </p>
-
-                    <div class="list-title">(-) EKSİLER:</div>
-                    <p style="font-size:13px; color:#ef4444;">
-                        • Oyundaki birçok mekanik yeterince kazançlı değil; oyuncuyu belirli para kasma yöntemlerine zorluyor.<br>
-                        • Oyunda ciddi bug problemleri mevcut, özellikle co-op oynanışta sık sık can sıkıcı hatalar yaşanabiliyor.<br>
-                        • Grind seviyesi oldukça yüksek; uzun saatler boyunca aynı işlemleri tekrar etmek gerekiyor.<br>
-                        • Otomatizasyon sistemi yok denecek kadar sınırlı; neredeyse her işlemi sürekli manuel takip etmek gerekiyor.<br>
-                        • Avcılık tarafında yapay zekâ oldukça zayıf, çoğu hayvan tehdit oluşturmuyor.<br>
-                        • Bazı mekanikler yüzeysel kalmış; örneğin balıkçılık ve at sistemi kısa sürede anlamsızlaşıyor.<br>
-                        • Oyunun resmi dokümantasyonu yok.
-                    </p>
-
-                    <h4 style="color:#facc15; margin-top:15px; font-size:14px;">Özetle oyun alınır mı?</h4>
-                    <p><strong>Evet ama indirimdeyken.</strong> ASLA acele edip normal fiyattan almayın, aldıysanız da iade edin. İndirimlerde yok pahasına iniyor, 1,4 dolar gibi bir fiyattan alınabilir. Ancak oyunun ileride fiyatının artmasını da beklerim, indirimde arkadaşlarınızla alıp en azından temizinden bir 10 15 saat kafanızı dağıtırsınız. Sabırla sonuna kadar okuduysanız gerçekten tebrik ve teşekkür ederim! <3</p>
+                    <p><strong>Özetle oyun alınır mı? Evet ama indirimdeyken.</strong> İndirimlerde 1.4 dolar gibi fiyatlara düşüyor, arkadaş grubunla girip 10-15 saat eğlenmek için birebir.</p>
                 </div>
-
                 <div class="info-section">
                     <h3>⚙️ Resmi Sistem Gereksinimleri</h3>
-                    <table class="sys-table">
-                        <thead>
-                            <tr>
-                                <th>Özellik</th>
-                                <th>Minimum Gereksinimler</th>
-                                <th>Önerilen Gereksinimler</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>İşletim Sistemi</strong></td>
-                                <td>Windows 10 (Sadece 64-bit)</td>
-                                <td>Windows 10 (Sadece 64-bit)</td>
-                   
+                    <p>Minimum: Intel i5-3570K / AMD FX-8310 | 8 GB RAM | 15 GB Boş Alan</p>
+                    <p>Önerilen: Intel i7-4790 / AMD Ryzen 3 3200G | 12 GB RAM</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= GTA V ANA SEKME ================= -->
+        <div id="game-gta5" class="main-content">
+            <div class="info-section">
+                <h3>💰 GTA V: Gelişmiş Komut ve Hile Veritabanı</h3>
+                <p>Oyun motorunun RAM ve işlemci üzerindeki veri hatlarını manipüle ederek aktif edilen hile protokolleri:</p>
+                
+                <div class="code-block gta">
+                    <strong>PAINKILLER</strong>
+                    <p>Oyun motorunun hasar hesaplama fonksiyonlarını geçici olarak dondurur. Karakter 5 dakika boyunca sıfır hasar alır.</p>
+                </div>
+
+                <div class="code-block gta">
+                    <strong>TURTLE</strong>
+                    <p>Can ve Zırh değerlerini tutan bellek adreslerini anında en üst sınır değerine (100) eşitler.</p>
+                </div>
+
+                <div class="code-block gta">
+                    <strong>TOOLUP</strong>
+                    <p>Karakterin silah envanter matrisine tüm temel ateşli silah gruplarını ve maksimum mühimmat paketlerini tanımlar.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= RED DEAD REDEMPTION 2 ANA SEKME ================= -->
+        <div id="game-rdr2" class="main-content">
+            <div class="info-section">
+                <h3>🤠 RDR2: Engine Modifikasyonları ve Kod Düzeni</h3>
+                <p>RAGE (Rockstar Advanced Game Engine) üzerinde geçerli kılınan konsol parametreleri:</p>
+                
+                <div class="code-block rdr">
+                    <strong>Abundance is the desire of every世紀</strong>
+                    <p>Sonsuz Mühimmat Protokolü: Silahların ateşleme mekanizmasındaki mermi eksilme döngüsünü tamamen baypas eder.</p>
+                </div>
+
+                <div class="code-block rdr">
+                    <strong>Virtue is unassailable and vigorous</strong>
+                    <p>Onur (Honor) seviyesini sistem kodlamasındaki en pozitif sınıra ulaştırarak tüm dükkanlarda indirim sağlar.</p>
+                </div>
+
+                <div class="code-block rdr">
+                    <strong>You flourish before you die</strong>
+                    <p>Sağlık, Dayanıklılık ve Dead Eye çekirdek barlarını anında tam kapasiteye doldurur ve yeniler.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= CS2 ANA SEKME ================= -->
+        <div id="game-cs2" class="main-content">
+            <div class="info-section">
+                <h3>🎯 CS2: Source 2 Başlatma ve Optimizasyon Protokolleri</h3>
+                <p>Steam başlatma seçeneklerine girildiğinde Source 2 motorunun FPS değerlerini uçuran komut dizilimleri:</p>
+                
+                <div class="code-block cs">
+                    <strong>-novid</strong>
+                    <p>Açılışta devreye giren intro render videolarını engelleyerek oyunun doğrudan ana menü bellek yüklemesine geçmesini sağlar.</p>
+                </div>
+
+                <div class="code-block cs">
+                    <strong>-high</strong>
+                    <p>Windows işlemci zamanlayıcısında CS2 işlem parçacıklarına (threads) en yüksek önceliği atayarak arka plan kasmalarını önler.</p>
+                </div>
+
+                <div class="code-block cs">
+                    <strong>-threads 5</strong>
+                    <p>İşlemcinizin tam 5 adet fiziksel çekirdeğini doğrudan CS2'nin eş zamanlı renderlama işlemlerine tahsis eder.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            PC Gaming Network Hub // Project siber-operasyon v10.0 // Developed by batuhan-cpu © 2026
+        </footer>
+    </div>
+
+    <!-- %100 ÇALIŞAN GEÇİŞ SCRIPTİ -->
+    <script>
+        function switchMainGame(element, gameId) {
+            // Tüm ana içerikleri gizle
+            document.querySelectorAll('.main-content').forEach(c => c.classList.remove('active'));
+            // Tüm ana butonların aktifliğini kaldır
+            document.querySelectorAll('.main-menu .main-btn').forEach(b => b.classList.remove('active'));
+            
+            // Seçilen içeriği göster ve butonu parlat
+            document.getElementById('game-' + gameId).classList.add('active');
+            element.classList.add('active');
+        }
+
+        function switchRanchSub(element, subId) {
+            // Ranch içindeki tüm alt sekmeleri gizle
+            document.querySelectorAll('#game-ranch .sub-content').forEach(c => c.classList.remove('active'));
+            // Tüm alt menü butonlarının aktifliğini kaldır
+            document.querySelectorAll('#game-ranch .sub-btn').forEach(b => b.classList.remove('active'));
+            
+            // Seçilen alt içeriği göster ve butonu parlat
+            document.getElementById('ranch-' + subId).classList.add('active');
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
