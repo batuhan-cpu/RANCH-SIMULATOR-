@@ -28,80 +28,166 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
         /* ========================================================
-           1000071643.png GÖRSELİNDEN UYARLANAN RANCH SIMULATOR TASARIMI
+           1000071643.png GÖRSELİNİN TIPATIP AYNISI OLAN WEB TASARIMI
            ======================================================== */
-        .ranch-showcase { background: linear-gradient(to bottom, #111827, #070a0f); border-radius: 10px; overflow: hidden; border: 1px solid #1f2937; margin-bottom: 25px; }
-        
-        /* Üst Mini Navigasyon */
-        .ranch-nav { display: flex; justify-content: space-between; align-items: center; background: rgba(0, 0, 0, 0.4); padding: 15px 30px; border-bottom: 1px solid #1f2937; }
-        .ranch-logo { font-weight: 900; font-size: 20px; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
-        .ranch-logo span { color: #facc15; }
-        .ranch-links { display: flex; gap: 20px; list-style: none; }
-        .ranch-links a { color: #9ca3af; text-decoration: none; font-size: 13px; font-weight: bold; text-transform: uppercase; transition: color 0.2s; }
-        .ranch-links a:hover { color: #fff; }
-        .buy-now-btn { background: #d97706; color: #fff; border: none; padding: 8px 16px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase; transition: background 0.2s; }
-        .buy-now-btn:hover { background: #b45309; }
+        .ranch-exact-clone { 
+            background: #0f0d0b url('https://images.unsplash.com/photo-1534951009808-df43b552f3dc?auto=format&fit=crop&w=1200&q=80') repeat; 
+            border-radius: 8px; 
+            overflow: hidden; 
+            border: 1px solid #2d2319;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+            font-family: 'Arial Black', 'Impact', sans-serif;
+        }
 
-        /* Kahraman Alanı (Hero Banner) */
-        .ranch-hero { position: relative; padding: 60px 40px; background: linear-gradient(135deg, rgba(17,24,39,0.95) 40%, rgba(17,24,39,0.4)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; border-bottom: 1px solid #1f2937; }
-        .ranch-title { font-size: 48px; font-weight: 900; color: #fff; text-transform: uppercase; line-height: 1; margin-bottom: 15px; letter-spacing: -1px; }
-        .ranch-title text { display: block; color: #facc15; font-size: 24px; letter-spacing: 2px; }
-        .ranch-desc { max-width: 550px; color: #d1d5db; font-size: 15px; line-height: 1.6; margin-bottom: 25px; }
-        .hero-buttons { display: flex; gap: 15px; }
-        .btn-orange { background: #d97706; color: #fff; padding: 12px 24px; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; text-transform: uppercase; }
-        .btn-orange:hover { background: #b45309; }
-        .btn-dark { background: rgba(0,0,0,0.6); color: #fff; padding: 12px 24px; font-weight: bold; border: 1px solid #374151; border-radius: 4px; cursor: pointer; text-transform: uppercase; }
-        .btn-dark:hover { background: rgba(0,0,0,0.8); }
-
-        /* Özellik İkonları Grid Yapısı */
-        .ranch-features { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: #1f2937; }
-        .feature-box { background: #111827; padding: 20px; text-align: left; transition: background 0.2s; }
-        .feature-box:hover { background: #141e30; }
-        .feature-box h4 { color: #facc15; font-size: 13px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 0.5px; }
-        .feature-box p { color: #9ca3af; font-size: 12px; line-height: 1.4; }
-
-        /* Detay İnceleme ve Yorum Split Düzeni */
-        .ranch-grid-details { display: grid; grid-template-columns: 1.2fr 1fr; gap: 25px; padding: 30px; border-bottom: 1px solid #1f2937; }
+        /* Üst Menü / Navbar */
+        .ranch-navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: rgba(10, 8, 6, 0.85); 
+            padding: 18px 40px; 
+            border-bottom: 1px solid #231b14;
+        }
+        .ranch-nav-logo img { height: 45px; display: block; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); }
+        .ranch-nav-menu { display: flex; gap: 25px; list-style: none; }
+        .ranch-nav-menu a { 
+            color: #bfa88f; 
+            text-decoration: none; 
+            font-size: 13px; 
+            font-weight: bold; 
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+        .ranch-nav-menu a:hover { color: #f97316; }
         
-        .about-text h3 { color: #fff; font-size: 22px; text-transform: uppercase; margin-bottom: 15px; border-left: 4px solid #d97706; padding-left: 10px; }
-        .about-text p { color: #9ca3af; font-size: 14px; line-height: 1.7; margin-bottom: 15px; }
-        
-        /* Görseldeki Yorum Kutuları */
-        .steam-mini-reviews { display: flex; flex-direction: column; gap: 12px; }
-        .steam-mini-reviews h3 { color: #fff; font-size: 18px; text-transform: uppercase; margin-bottom: 5px; }
-        .mini-review-card { background: #18202c; border: 1px solid #283548; padding: 15px; border-radius: 4px; }
-        .mini-review-header { display: flex; justify-content: space-between; font-size: 12px; font-weight: bold; margin-bottom: 6px; color: #38bdf8; }
-        .mini-review-text { color: #94a3b8; font-size: 13px; line-height: 1.5; }
+        .ranch-nav-right { display: flex; align-items: center; gap: 15px; }
+        .btn-top-buy { 
+            background: #ca8a04; 
+            color: #000; 
+            text-decoration: none;
+            padding: 10px 20px; 
+            font-size: 12px; 
+            font-weight: 900; 
+            border-radius: 3px; 
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            transition: background 0.2s;
+        }
+        .btn-top-buy:hover { background: #eab308; }
+        .cart-icon { color: #ca8a04; font-size: 18px; cursor: pointer; }
 
-        /* Söz ve İstatistik Bandı */
-        .ranch-quote-bar { display: grid; grid-template-columns: 1.3fr 2fr; gap: 20px; background: #0b0f17; padding: 25px 30px; border-bottom: 1px solid #1f2937; align-items: center; }
-        .quote-box { border-left: 3px solid #facc15; padding-left: 15px; }
-        .quote-box p { font-style: italic; color: #e2e8f0; font-size: 14px; line-height: 1.5; }
-        .quote-box span { display: block; margin-top: 5px; color: #64748b; font-size: 12px; font-weight: bold; }
+        /* Ana Hero Alanı */
+        .ranch-hero-banner { 
+            position: relative; 
+            padding: 80px 50px; 
+            background: linear-gradient(to right, rgba(15,13,11,0.95) 35%, rgba(15,13,11,0.2)), 
+                        url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1200&q=80'); 
+            background-size: cover; 
+            background-position: center;
+        }
+        .ranch-main-logo { width: 320px; margin-bottom: 20px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.9)); }
+        .ranch-hero-text { max-width: 500px; color: #d6c5b3; font-family: 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; margin-bottom: 30px; }
+        .ranch-hero-actions { display: flex; gap: 15px; }
         
-        /* Sayısal Veriler */
-        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; text-align: center; }
-        .stat-item h5 { color: #facc15; font-size: 24px; font-weight: 900; }
-        .stat-item p { color: #94a3b8; font-size: 12px; text-transform: uppercase; font-weight: bold; margin-top: 2px; }
+        .btn-action-buy { 
+            background: #d97706; 
+            color: #000; 
+            text-decoration: none;
+            padding: 14px 28px; 
+            font-size: 14px; 
+            font-weight: 900; 
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+        }
+        .btn-action-buy:hover { background: #f59e0b; }
+        .btn-action-watch { 
+            background: rgba(26, 22, 18, 0.8); 
+            color: #fff; 
+            text-decoration: none;
+            padding: 14px 28px; 
+            font-size: 14px; 
+            font-weight: 900; 
+            border-radius: 4px;
+            border: 1px solid #453424;
+        }
+        .btn-action-watch:hover { background: rgba(0,0,0,0.9); }
 
-        /* Teknik Detaylar / Akordeon Menü Yapısı */
-        .technical-tabs { padding: 30px; background: #0e141f; }
-        .tech-section-title { color: #facc15; font-size: 16px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
+        /* 6'lı Özellik Şeridi */
+        .ranch-features-strip { 
+            display: grid; 
+            grid-template-columns: repeat(6, 1fr); 
+            background: rgba(10, 8, 6, 0.9); 
+            border-top: 1px solid #231b14; 
+            border-bottom: 1px solid #231b14;
+        }
+        .feature-strip-item { padding: 25px 20px; border-right: 1px solid #1c1510; }
+        .feature-strip-item:last-child { border-right: none; }
+        .feature-strip-item h4 { color: #ca8a04; font-size: 13px; font-weight: 900; margin-bottom: 6px; letter-spacing: 0.5px; }
+        .feature-strip-item p { color: #8c7e70; font-family: 'Segoe UI', sans-serif; font-size: 11px; line-height: 1.4; }
+
+        /* 4'lü Galeri Görselleri Düzeni */
+        .ranch-gallery-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #1c1510; }
+        .ranch-gallery-row img { width: 100%; height: 180px; object-fit: cover; display: block; filter: brightness(0.85); transition: filter 0.2s; }
+        .ranch-gallery-row img:hover { filter: brightness(1); }
+
+        /* Orta Bölüm: Nedir ve Steam Yorumları Split */
+        .ranch-split-body { 
+            display: grid; 
+            grid-template-columns: 1.1fr 1.3fr; 
+            gap: 40px; 
+            padding: 45px 40px; 
+            background: rgba(12, 10, 8, 0.95);
+        }
         
-        /* Klasik Bilgilerimiz */
+        .ranch-about-col h3 { color: #fff; font-size: 20px; font-weight: 900; margin-bottom: 15px; letter-spacing: 0.5px; }
+        .ranch-about-col p { color: #a39281; font-family: 'Segoe UI', sans-serif; font-size: 13px; line-height: 1.7; margin-bottom: 15px; }
+        .ranch-mini-banner { width: 100%; border: 1px solid #2d2319; border-radius: 4px; margin-top: 15px; }
+
+        .ranch-reviews-col { position: relative; }
+        .reviews-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .reviews-header-row h3 { color: #fff; font-size: 18px; font-weight: 900; }
+        .all-reviews-link { color: #38bdf8; text-decoration: none; font-size: 11px; font-family: 'Segoe UI', sans-serif; font-weight: bold; }
+        
+        .reviews-grid-exact { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .exact-review-card { background: #10151e; border: 1px solid #1b2838; padding: 15px; border-radius: 3px; }
+        .exact-review-card.full-width { grid-column: span 2; }
+        .exact-review-meta { font-size: 11px; font-family: 'Segoe UI', sans-serif; color: #66c0f4; font-weight: bold; margin-bottom: 5px; }
+        .exact-review-date { float: right; color: #4b5563; font-size: 10px; }
+        .exact-review-text { color: #acb2b8; font-family: 'Segoe UI', sans-serif; font-size: 12px; line-height: 1.5; clear: both; }
+
+        /* Alt Kısım: Keçi ve İstatistik Bandı */
+        .ranch-footer-band { 
+            display: grid; 
+            grid-template-columns: 1fr 1.5fr; 
+            gap: 30px; 
+            background: #080605; 
+            padding: 35px 40px; 
+            align-items: center; 
+            border-top: 1px solid #231b14;
+        }
+        .quote-with-goat { display: flex; align-items: center; gap: 15px; }
+        .goat-avatar { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #ca8a04; }
+        .quote-text-style { color: #e2e8f0; font-family: 'Segoe UI', sans-serif; font-size: 13px; line-height: 1.5; font-style: italic; }
+        .quote-text-style span { display: block; margin-top: 4px; color: #8c7e70; font-size: 11px; font-style: normal; font-weight: bold; }
+
+        .exact-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: center; }
+        .exact-stat-box h4 { color: #ca8a04; font-size: 24px; font-weight: 900; }
+        .exact-stat-box p { color: #6b5f52; font-size: 10px; font-weight: bold; text-transform: uppercase; margin-top: 2px; }
+
+        /* Teknik Detay Veritabanı Alanı */
+        .database-logs { padding: 40px; background: #0c111a; border-top: 2px solid #1e293b; }
         .info-section { background: #131924; border-radius: 8px; padding: 25px; margin-bottom: 20px; border: 1px solid #202d3f; }
         .info-section h3 { color: #f1f5f9; font-size: 19px; margin-bottom: 15px; border-left: 4px solid #22d3ee; padding-left: 12px; }
         .info-section p { font-size: 15px; color: #94a3b8; line-height: 1.8; margin-bottom: 15px; }
-        .arrow-item { font-size: 15px; color: #cbd5e1; margin-bottom: 10px; padding-left: 5px; line-height: 1.7; }
-        .arrow-item span { color: #22d3ee; font-weight: bold; margin-right: 8px; }
-
-        /* Sistem Gereksinimleri Tablosu */
         .sys-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px; }
         .sys-table th, .sys-table td { padding: 12px; border: 1px solid #202d3f; text-align: left; }
         .sys-table th { background: #1e293b; color: #22d3ee; font-weight: bold; }
         .sys-table td strong { color: #facc15; }
 
-        /* Kod Blokları (Diğer Oyunlar) */
+        /* Diğer Oyun Komut Blokları */
         .code-block { background: #000; border-left: 4px solid #22d3ee; padding: 15px; margin: 15px 0; font-family: monospace; border-radius: 4px; }
         .code-block.gta { border-left-color: #22c55e; }
         .code-block.rdr { border-left-color: #ef4444; }
@@ -128,183 +214,127 @@
             <button class="main-btn" onclick="switchMainGame(this, 'cs2')">🎯 CS2</button>
         </div>
 
-        <!-- ================= RANCH SIMULATOR ANA SEKME (1000071643.png STİLİ) ================= -->
+        <!-- ================= RANCH SIMULATOR TIPATIP KLON SEKME ================= -->
         <div id="game-ranch" class="main-content active">
             
-            <div class="ranch-showcase">
-                <!-- Üst Mini Navigasyon Şeridi -->
-                <div class="ranch-nav">
-                    <div class="ranch-logo">RANCH <span>SIMULATOR</span></div>
-                    <ul class="ranch-links">
-                        <li><a href="#ranch-detay">ANASAYFA</a></li>
-                        <li><a href="#ranch-detay">ÖZELLİKLER</a></li>
-                        <li><a href="#ranch-detay">HAYVANLAR</a></li>
-                        <li><a href="#ranch-detay">ARAÇLAR</a></li>
-                        <li><a href="#ranch-detay">TOPLULUK</a></li>
+            <div class="ranch-exact-clone">
+                <!-- Üst Navbar Şeridi -->
+                <div class="ranch-navbar">
+                    <div class="ranch-nav-logo">
+                        <!-- Ranch Simulator Orijinal Logoyu Temsilen Yazı Düzeni -->
+                        <span style="color:#fff; font-size:24px; font-weight:900; letter-spacing:-1px;">RANCH <span style="color:#ca8a04; font-size:14px; display:block; margin-top:-8px; letter-spacing:4px;">SIMULATOR</span></span>
+                    </div>
+                    <ul class="ranch-nav-menu">
+                        <li><a href="#">ANASAYFA</a></li>
+                        <li><a href="#">ÖZELLİKLER</a></li>
+                        <li><a href="#">GALERİ</a></li>
+                        <li><a href="#">HAYVANLAR</a></li>
+                        <li><a href="#">ARAÇLAR</a></li>
+                        <li><a href="#">HARİTA</a></li>
+                        <li><a href="#">TOPLULUK</a></li>
                     </ul>
-                    <button class="buy-now-btn">HEMEN SATIN AL 🛒</button>
-                </div>
-
-                <!-- Kahraman Karşılama Paneli (Hero) -->
-                <div class="ranch-hero">
-                    <h2 class="ranch-title"><text>YENİ NESİL ÇİFTLİK SİMÜLASYONU</text>RANCH SIMULATOR</h2>
-                    <p class="ranch-desc">Terk edilmiş çiftliğini sıfırdan kur, hayvanlarını yetiştir, tarlalarını ek ve en büyük ranch'in sahibi ol. Tek başına veya arkadaşlarınla birlikte sınırsız bir çiftlik hayatı seni bekliyor!</p>
-                    <div class="hero-buttons">
-                        <button class="btn-orange">HEMEN SATIN AL 🛒</button>
-                        <button class="btn-dark">VİDEOYU İZLE ▶</button>
+                    <div class="ranch-nav-right">
+                        <a href="https://store.steampowered.com/app/1119730/Ranch_Simulator/" target="_blank" class="btn-top-buy">HEMEN SATIN AL</a>
+                        <span class="cart-icon">🛒</span>
                     </div>
                 </div>
 
-                <!-- 5'li Özellik Kutuları Kutusu -->
-                <div class="ranch-features">
-                    <div class="feature-box">
-                        <h4>🏡 ÇİFTLİĞİNİ KUR</h4>
+                <!-- Kahraman Alanı (Hero) -->
+                <div class="ranch-hero-banner">
+                    <!-- Başlık Logosu Alanı -->
+                    <h2 style="font-size: 52px; color: #fff; font-weight: 900; line-height: 0.9; margin-bottom: 20px; letter-spacing: -2px;">RANCH<br><span style="color:#ca8a04; font-size:24px; letter-spacing:4px; display:block; margin-top:5px;">SIMULATOR</span></h2>
+                    
+                    <p class="ranch-hero-text">Terk edilmiş çiftliğini sıfırdan kur, hayvanlarını yetiştir, tarlalarını ek ve en büyük ranch'in sahibi ol. Tek başına veya arkadaşlarınla birlikte sınırsız bir çiftlik hayatı seni bekliyor!</p>
+                    
+                    <div class="ranch-hero-actions">
+                        <a href="https://store.steampowered.com/app/1119730/Ranch_Simulator/" target="_blank" class="btn-action-buy">HEMEN SATIN AL 🛒</a>
+                        <a href="#" class="btn-action-watch">VİDEOYU İZLE ▷</a>
+                    </div>
+                </div>
+
+                <!-- 6'lı Özellik İkon Alanları -->
+                <div class="ranch-features-strip">
+                    <div class="feature-strip-item">
+                        <h4>🏰 ÇİFTLİĞİNİ KUR</h4>
                         <p>Yeni yapılar inşa et, çiftliğini geliştir ve büyüt.</p>
                     </div>
-                    <div class="feature-box">
+                    <div class="feature-strip-item">
                         <h4>🐄 HAYVANLAR</h4>
                         <p>İnek, tavuk, domuz, keçi ve daha fazlasını yetiştir.</p>
                     </div>
-                    <div class="feature-box">
+                    <div class="feature-strip-item">
                         <h4>🌾 TARIM</h4>
                         <p>Tarlalarını ek, ürünlerini yetiştir ve kârını artır.</p>
                     </div>
-                    <div class="feature-box">
+                    <div class="feature-strip-item">
                         <h4>🦬 AVCILIK</h4>
                         <p>Vahşi doğaya çık, avlan ve gelir elde et.</p>
                     </div>
-                    <div class="feature-box">
+                    <div class="feature-strip-item">
                         <h4>🚜 ARAÇLAR</h4>
-                        <p>Traktörler, kamyonetler ve daha fazlasıyla işleri kolaylaştır.</p>
+                        <p>Traktörler, kamyonetler ve daha fazlasıyla işlerini kolaylaştır.</p>
+                    </div>
+                    <div class="feature-strip-item">
+                        <h4>👥 ÇOK OYUNCULU</h4>
+                        <p>Arkadaşlarınla birlikte çalış, büyük projeleri tamamla.</p>
                     </div>
                 </div>
 
-                <!-- Tanıtım ve Steam Yorumları Bölümü -->
-                <div id="ranch-detay" class="ranch-grid-details">
-                    <div class="about-text">
+                <!-- 4'lü Galeri Şeridi -->
+                <div class="ranch-gallery-row">
+                    <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=400&q=80" alt="Ranch 1">
+                    <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=400&q=80" alt="Ranch 2">
+                    <img src="https://images.unsplash.com/photo-1574359411659-15573a27f812?auto=format&fit=crop&w=400&q=80" alt="Ranch 3">
+                    <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=400&q=80" alt="Ranch 4">
+                </div>
+
+                <!-- Alt Detay Gövdesi -->
+                <div class="ranch-split-body">
+                    <div class="ranch-about-col">
                         <h3>RANCH SIMULATOR NEDİR?</h3>
                         <p>Ranch Simulator, açık dünya yapısına sahip bir çiftlik simülasyonu ve hayatta kalma oyunudur. Terk edilmiş bir çiftliği devralarak başlayan yolculuğunuzda; hayvanlar yetiştirir, tarlalar ekersiniz, yapılar inşa eder ve çiftliğinizi büyütürsünüz.</p>
                         <p>Gerçekçi ekonomi sistemi, detaylı hayvancılık, tarım, avcılık mekanikleri ve çok oyunculu desteği ile benzersiz bir deneyim sunar. Doğayı keşfedin, avlanın, araçlarınızı kullanın ve kendi ranch imparatorluğunuzu kurun!</p>
-                    </div>
-
-                    <!-- Sağ Taraf: Canlı Topluluk Yorum Girişleri -->
-                    <div class="steam-mini-reviews">
-                        <h3>STEAM YORUMLARI</h3>
-                        <div class="mini-review-card">
-                            <div class="mini-review-header"><span>👍 Tavsiye Ediliyor (87.5 Saat)</span><span>Yayınlanma: 2 Mayıs</span></div>
-                            <div class="mini-review-text">"Harika bir oyun! Çiftlik kurmak, hayvanlarla ilgilenmek ve arkadaşlarla birlikte oynamak çok keyifli."</div>
-                        </div>
-                        <div class="mini-review-card">
-                            <div class="mini-review-header"><span>👍 Tavsiye Ediliyor (123.6 Saat)</span><span>Yayınlanma: 15 Nisan</span></div>
-                            <div class="mini-review-text">"Gerçekten bağımlılık yapıyor. Sabahın köründe kalkıp ineğime su veriyorum resmen :)"</div>
+                        
+                        <!-- Görseldeki Küçük Ranch Kutusu -->
+                        <div style="background:#1c1510; border: 1px solid #36291e; padding:20px; text-align:center; border-radius:4px; margin-top:20px;">
+                            <span style="color:#fff; font-size:20px; font-weight:900; letter-spacing:2px;">RANCH SIMULATOR</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- Meşhur Söz & Alt İstatistik Paneli -->
-                <div class="ranch-quote-bar">
-                    <div class="quote-box">
-                        <p>"İnsanlar sanal ortamda bile sabahın köründe hayvan besleyip traktör sürmek istiyor. Şehir hayatı o kadar yorucu ki..."</p>
-                        <span>— Topluluk Özeti Alıntısı</span>
-                    </div>
-                    <div class="stats-row">
-                        <div class="stat-item"><h5>%92</h5><p>Olumlu İnceleme</p></div>
-                        <div class="stat-item"><h5>10.000+</h5><p>Güncel Oyuncu</p></div>
-                        <div class="stat-item"><h5>1M+</h5><p>Toplam Satış</p></div>
-                        <div class="stat-item"><h5>2021</h5><p>Çıkış Tarihi</p></div>
-                    </div>
-                </div>
+                    <div class="ranch-reviews-col">
+                        <div class="reviews-header-row">
+                            <h3>STEAM YORUMLARI</h3>
+                            <a href="https://store.steampowered.com/app/1119730/Ranch_Simulator/" target="_blank" class="all-reviews-link">TÜM YORUMLARI GÖR</a>
+                        </div>
 
-                <!-- Teknik Arka Plan Veritabanı Analizleri -->
-                <div class="technical-tabs">
-                    <h3 class="tech-section-title">⚙️ DERİNLEMESİNE DATABASE ANALİZİ & BUGLAR</h3>
-                    
-                    <div class="info-section">
-                        <h3>Geliştirici Profil Raporu</h3>
-                        <p>Oyun Rus menşeili iki indie developer tarafından geliştiriliyor. Geliştirmeler küçük ölçeklerde ufak tefek iyileştirmeler şeklinde ilerliyor, içerik hızı düşük olduğu için belirgin mekanik boşlukları bulunuyor.</p>
-                    </div>
-
-                    <div class="info-section">
-                        <h3>Kritik Hatalar & Bug Raporları</h3>
-                        <div class="arrow-item"><span>→</span> <strong>Dokunulmazlık Hataları:</strong> Co-op oturumlarda tencere ve sosisler ansızın dokunulmaz hale gelebiliyor. Çözümü için odayı kuran (host) oyuncunun nesneye müdahale etmesi gerekiyor.</div>
-                        <div class="arrow-item"><span>→</span> <strong>Optimizasyon ve Rendering Problemi:</strong> Ekran genelinde gölgeli rendering kusurları mevcut. İşlemci her frame üzerinde bot rotalarını sıfırdan hesapladığı için GPU yükünü aşırı artırıp sistemi ısıtıyor.</div>
-                        <div class="arrow-item"><span>→</span> <strong>Grind ve Otomatizasyon Eksikliği:</strong> Satisfactory tarzı bir otomatizasyon sistemi yok. Her şey manuel yapılıyor; saatlerce kalas kesmek, sosis basmak tek kişilik oyun modunda aşırı grind yükü oluşturuyor.</div>
-                    </div>
-
-                    <div class="info-section">
-                        <h3>Sistem Gereksinim Veritabanı</h3>
-                        <table class="sys-table">
-                            <thead>
-                                <tr><th>Özellik</th><th>Minimum</th><th>Önerilen</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><strong>İşlemci</strong></td><td>Intel i5-3570K / AMD FX-8310</td><td>Intel i7-4790 / AMD Ryzen 3 3200G</td></tr>
-                                <tr><td><strong>Bellek</strong></td><td>8 GB RAM</td><td>12 GB RAM</td></tr>
-                                <tr><td><strong>Ekran Kartı</strong></td><td>GTX 760 / Radeon R9 280X</td><td>GTX 1060 / Radeon RX 590</td></tr>
-                                <tr><td><strong>Depolama</strong></td><td>15 GB Alan</td><td>15 GB Alan</td></tr>
-                            </tbody>
-                        </table>
+                        <div class="reviews-grid-exact">
+                            <div class="exact-review-card">
+                                <div class="exact-review-meta">👍 Tavsiye Ediliyor <span class="exact-review-date">Kayıtlarda 87.5 saat</span></div>
+                                <div class="exact-review-text">Harika bir oyun! Çiftlik kurmak, hayvanlarla ilgilenmek ve arkadaşlarla birlikte oynamak çok keyifli.<br><span style="color:#555; font-size:10px;">Yayınlanma: 2 Mayıs</span></div>
+                            </div>
+                            <div class="exact-review-card">
+                                <div class="exact-review-meta">👍 Tavsiye Ediliyor <span class="exact-review-date">Kayıtlarda 42.3 saat</span></div>
+                                <div class="exact-review-text">Grafikler, atmosfer ve oynanış mükemmel. Sürekli yeni şeyler yapacak bir şey buluyorsunuz.<br><span style="color:#555; font-size:10px;">Yayınlanma: 28 Nisan</span></div>
+                            </div>
+                            <div class="exact-review-card full-width">
+                                <div class="exact-review-meta">👍 Tavsiye Ediliyor <span class="exact-review-date">Kayıtlarda 123.6 saat</span></div>
+                                <div class="exact-review-text">Gerçekten bağımlılık yapıyor. Sabahın köründe kalkıp ineğime su veriyorum resmen :)<br><span style="color:#555; font-size:10px;">Yayınlanma: 15 Nisan</span></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+                <!-- Meşhur Keçi ve İstatistik Bandı -->
+                <div class="ranch-footer-band">
+                    <div class="quote-with-goat">
+                        <!-- Temsili Keçi Görseli Portresi -->
+                        <img class="goat-avatar" src="https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=150&q=80" alt="Keçi">
+                        <div class="quote-text-style">
+                            "İnsanlar sanal ortamda bile sabahın köründe hayvan besleyip traktör sürmek istiyor. Şehir hayatı o kadar yorucu ki, piksel ineklere bakmak terapi olmuş durumda."
+                            <span>— Topluluk Sözü Analizi</span>
+                        </div>
+                    </div>
 
-        <!-- ================= GTA V ANA SEKME ================= -->
-        <div id="game-gta5" class="main-content">
-            <div class="info-section">
-                <h3>💰 GTA V: Gelişmiş Komut ve Hile Veritabanı</h3>
-                <div class="code-block gta">
-                    <strong>PAINKILLER</strong>
-                    <p>5 dakika boyunca mutlak ölümsüzlük protokolünü tetikler.</p>
-                </div>
-                <div class="code-block gta">
-                    <strong>TURTLE</strong>
-                    <p>Can ve Zırh değerlerini tek döngüde %100 seviyesine getirir.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= RED DEAD REDEMPTION 2 ANA SEKME ================= -->
-        <div id="game-rdr2" class="main-content">
-            <div class="info-section">
-                <h3>🤠 RDR2: Engine Modifikasyonları ve Kod Düzeni</h3>
-                <div class="code-block rdr">
-                    <strong>Abundance is the desire of every世紀</strong>
-                    <p>Sonsuz Mühimmat Protokolü: Silahların mermi eksilme döngüsünü tamamen devre dışı bırakır.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= CS2 ANA SEKME ================= -->
-        <div id="game-cs2" class="main-content">
-            <div class="info-section">
-                <h3>🎯 CS2: Source 2 Başlatma ve Optimizasyon Protokolleri</h3>
-                <div class="code-block cs">
-                    <strong>-novid</strong>
-                    <p>Açılış introsunu engelleyerek doğrudan ana menü yüklemesine geçiş sağlar.</p>
-                </div>
-                <div class="code-block cs">
-                    <strong>-high</strong>
-                    <p>Windows işlemci zamanlayıcısında oyuna en üst düzey önceliği atar.</p>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            PC Gaming Network Hub // Project siber-operasyon v13.0 // Developed by batuhan-cpu © 2026
-        </footer>
-    </div>
-
-    <!-- SCRIPT GEÇİŞ KODLARI -->
-    <script>
-        function switchMainGame(element, gameId) {
-            document.querySelectorAll('.main-content').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.main-menu .main-btn').forEach(b => b.classList.remove('active'));
-            
-            document.getElementById('game-' + gameId).classList.add('active');
-            element.classList.add('active');
-        }
-    </script>
-</body>
-</html>
+                    <div class="exact-stats-row">
+                        <div class="exact-sta
+                         
