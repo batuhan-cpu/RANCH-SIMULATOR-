@@ -16,15 +16,18 @@
         header h1 { color: #a3e635; font-size: 24px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
         header p { color: #84cc16; font-size: 13px; font-weight: bold; margin-top: 5px; }
 
+        /* Steam Video Alanı */
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px; border: 2px solid #3f6212; margin-bottom: 25px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
         /* Sıra Sıra Rehber Kartları */
         .step-card { background: #192415; border-left: 5px solid #a3e635; border-radius: 6px; padding: 15px; margin-bottom: 20px; border-top: 1px solid #273e15; border-right: 1px solid #273e15; border-bottom: 1px solid #273e15; }
         .step-num { background: #a3e635; color: #000; font-weight: bold; padding: 2px 10px; border-radius: 4px; font-size: 12px; display: inline-block; margin-bottom: 10px; }
         .step-card h2 { color: #fff; font-size: 18px; margin-bottom: 8px; }
-        .step-card p { font-size: 14px; color: #cbd5e1; }
+        .step-card p { font-size: 14px; color: #cbd5e1; margin-bottom: 12px; }
         
-        /* Resim Alanları (Fotoğrafları Atınca Buralar Şenlenecek) */
-        .image-placeholder { background: #090d07; border: 2px dashed #3f6212; border-radius: 6px; height: 180px; margin: 12px 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #65a30d; text-align: center; font-size: 13px; padding: 10px; }
-        .image-placeholder span { font-size: 24px; margin-bottom: 5px; }
+        /* Canlı Steam Resimleri */
+        .game-img { width: 100%; max-height: 350px; object-fit: cover; border-radius: 6px; border: 1px solid #3f6212; margin-top: 5px; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
 
         /* Bilgi Tablosu */
         .info-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 13px; background: #090d07; }
@@ -44,34 +47,33 @@
             <p>Sıfırdan Zirveye Çiftlik Kurma ve Hayatta Kalma Rehberi</p>
         </header>
 
+        <h3 style="color: #a3e635; font-size: 14px; margin-bottom: 8px; text-transform: uppercase;">🎬 Resmî Tanıtım Fragmanı</h3>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/S26A_N7rX_4" allowfullscreen></iframe>
+        </div>
+
         <div class="step-card">
             <div class="step-num">ADIM #01</div>
-            <h2>Dengeli Başlangıç ve Traktör Tamiri</h2>
-            <p>Oyuna ilk girdiğinde dedenden kalan eski çiftlik evindesin. İlk iş olarak etraftaki çadırı kur ve radyodaki görevleri takip et. Garajda duran eski külüstür traktörü tamir etmek için etraftaki parçaları birleştir. Bu traktör senin ilk lojistik aracın olacak!</p>
+            <h2>Dengeli Başlangıç ve İlk Ev</h2>
+            <p>Oyuna ilk girdiğinde dedenden kalan eski harabe bir çiftlik evindesin. İlk iş olarak radyodaki görevleri takip etmeli ve sana verilen temel malzemelerle küçük çadırını kurmalısın. Etraftaki çöpleri temizlemek inşaat alanı için çok önemlidir!</p>
             
-            <div class="image-placeholder">
-                <span>📸</span>
-                <b>[BURAYA İLK ARACIN VEYA EVİN FOTOSUNU KOYACAĞIZ]</b><br>
-                Görseli bana attığında buraya yerleştireceğim kral.
-            </div>
+            <img class="game-img" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1119730/ss_2b7cae6be952f400711903698048680c6550746b.1920x1080.jpg" alt="Ranch Ev İnşaatı">
         </div>
 
         <div class="step-card">
             <div class="step-num">ADIM #02</div>
-            <h2>Hırdavatçı Dükkanı ve İlk Sermaye</h2>
-            <p>Traktörü çalıştırdıktan sonra haritadaki Hırdavatçıya (Hardware Store) git. İlk görevlerden gelen parayla mutlaka **Eski Av Tüfeği** ve **Mermi** al. Dağlardaki geyikleri avlayarak kasaba (Burger dükkanının arkasına) satmak, oyundaki en hızlı para kazanma yöntemidir.</p>
+            <h2>Lojistik ve Araç Yönetimi</h2>
+            <p>Eski garajda duran o külüstür traktörü veya pikabı parçaları birleştirerek çalıştır. Araçlar, hırdavatçıdan çiftliğe metal levha, ahşap ve yem taşımak; ayrıca avladığın etleri burgerciye götürmek için hayati önem taşır.</p>
+            
+            <img class="game-img" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1119730/ss_99182310b14644a49edcc979d36371c6ec97f744.1920x1080.jpg" alt="Ranch Araçlar">
         </div>
 
         <div class="step-card">
             <div class="step-num">ADIM #03</div>
-            <h2>Kümes Kurulumu ve Hayvancılık</h2>
-            <p>Biraz para biriktirdikten sonra dükkandan metal ve ahşap alarak ilk kümesini inşa et. Gıda otomatından 2 adet tavuk ve bolca yem al. Tavuklar yumurtladıkça yumurtaları sepetlere dizip toplu satarak pasif gelir elde edeceksin.</p>
+            <h2>Avcılık ve İlk Sermaye</h2>
+            <p>Hırdavatçı dükkanından mutlaka bir av tüfeği ve mermi edin. Haritanın derinliklerindeki geyikleri ve vahşi ayıları avlayarak etlerini Burger dükkanının arkasındaki kasaba sat. Çiftliği büyütmek için gereken en hızlı parayı bu şekilde kazanacaksın.</p>
             
-            <div class="image-placeholder">
-                <span>🐓</span>
-                <b>[BURAYA ÇİFTLİĞİN VEYA KÜMESİN FOTOSUNU KOYACAĞIZ]</b><br>
-                Tavukların veya çiftliğin ekran görüntüsünü buraya çakacağız.
-            </div>
+            <img class="game-img" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1119730/ss_cd070dfb6079989fe780521e056976f5ff9900c1.1920x1080.jpg" alt="Ranch Avcılık">
         </div>
 
         <h2 style="color: #a3e635; font-size: 16px; margin: 25px 0 10px 0; text-transform: uppercase; letter-spacing: 1px;">📋 ÖNEMLİ MATERYAL VE FİYAT TABLOSU</h2>
@@ -108,9 +110,10 @@
         </table>
 
         <footer>
-            Ranch Simulator Fan Bölümü // batuhan-cpu tarafından sevgiyle geliştirildi. © 2026
+            Ranch Simulator Fan Bölümü // batuhan-cpu tarafından geliştirildi. © 2026
         </footer>
     </div>
 
 </body>
 </html>
+
