@@ -3,237 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RANCH SIMULATOR // MARKET VE ÜRETİM</title>
+    <title>RANCH SIMULATOR // REHBER VE OPERASYON MERKEZİ</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: #0f140d; color: #e2e8f0; font-family: monospace; padding: 10px; }
+        body { background: #0c0f0a; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 10px; }
         
-        .container { max-width: 650px; margin: 0 auto; background: #172214; border: 2px solid #4d7c0f; border-radius: 8px; padding: 15px; box-shadow: 0 0 20px rgba(0,0,0,0.6); }
-        h1 { text-align: center; color: #a3e635; font-size: 18px; margin-bottom: 15px; letter-spacing: 1px; border-bottom: 1px solid #4d7c0f; padding-bottom: 5px; }
+        /* Ana Konteyner */
+        .wrapper { max-width: 700px; margin: 0 auto; background: #131a10; border: 2px solid #4d7c0f; border-radius: 12px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
         
-        .hud { background: #090d08; padding: 15px; text-align: center; border-radius: 4px; margin-bottom: 15px; border: 1px solid #273e15; }
-        .balance { font-size: 32px; color: #22c55e; font-weight: bold; }
+        /* Başlık Alanı */
+        header { text-align: center; border-bottom: 2px dashed #4d7c0f; padding-bottom: 15px; margin-bottom: 25px; }
+        header h1 { color: #a3e635; font-size: 24px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        header p { color: #84cc16; font-size: 13px; font-weight: bold; margin-top: 5px; }
+
+        /* Sıra Sıra Rehber Kartları */
+        .step-card { background: #192415; border-left: 5px solid #a3e635; border-radius: 6px; padding: 15px; margin-bottom: 20px; border-top: 1px solid #273e15; border-right: 1px solid #273e15; border-bottom: 1px solid #273e15; }
+        .step-num { background: #a3e635; color: #000; font-weight: bold; padding: 2px 10px; border-radius: 4px; font-size: 12px; display: inline-block; margin-bottom: 10px; }
+        .step-card h2 { color: #fff; font-size: 18px; margin-bottom: 8px; }
+        .step-card p { font-size: 14px; color: #cbd5e1; }
         
-        /* Envanter Alanı */
-        .inventory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 15px; }
-        .inv-box { background: #111a0e; border: 1px solid #273e15; padding: 8px; text-align: center; font-size: 12px; border-radius: 4px; }
-        .inv-box span { display: block; font-size: 16px; color: #facc15; font-weight: bold; margin-top: 2px; }
-        
-        /* Piyasa Tablosu */
-        .market-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 13px; background: #090d08; border-radius: 4px; overflow: hidden; }
-        .market-table th, .market-table td { padding: 8px; text-align: center; border: 1px solid #1b2e16; }
-        .market-table th { background: #1e2f19; color: #a3e635; }
-        .up { color: #22c55e; font-weight: bold; }
-        .down { color: #ef4444; font-weight: bold; }
-        
-        /* Butonlar */
-        .action-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 15px; }
-        .btn { background: #273e15; color: #fff; border: 1px solid #4d7c0f; padding: 10px; font-family: monospace; font-size: 12px; cursor: pointer; border-radius: 4px; font-weight: bold; }
-        .btn:hover { background: #365314; border-color: #a3e635; }
-        .btn-sell { border-color: #b45309; color: #f97316; }
-        .btn-sell:hover { background: #451a03; }
-        
-        .terminal { background: #050704; border: 1px solid #1b2e16; height: 90px; padding: 8px; font-size: 11px; color: #86efac; overflow-y: hidden; border-radius: 4px; }
+        /* Resim Alanları (Fotoğrafları Atınca Buralar Şenlenecek) */
+        .image-placeholder { background: #090d07; border: 2px dashed #3f6212; border-radius: 6px; height: 180px; margin: 12px 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #65a30d; text-align: center; font-size: 13px; padding: 10px; }
+        .image-placeholder span { font-size: 24px; margin-bottom: 5px; }
+
+        /* Bilgi Tablosu */
+        .info-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 13px; background: #090d07; }
+        .info-table th, .info-table td { padding: 10px; text-align: left; border: 1px solid #1e2f17; }
+        .info-table th { background: #223718; color: #a3e635; }
+        .info-table td strong { color: #facc15; }
+
+        /* Alt Bilgi */
+        footer { text-align: center; font-size: 11px; color: #4d7c0f; margin-top: 30px; border-top: 1px solid #273e15; padding-top: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>🚜 RANCH CO. // MAĞAZA VE BORSA SİSTEMİ</h1>
-        
-        <div class="hud">
-            <div style="font-size: 11px; color: #a3e635;">KASA</div>
-            <div class="balance" id="money">0.00 TL</div>
+    <div class="wrapper">
+        <header>
+            <h1>🚜 RANCH SIMULATOR ÖĞRENME MERKEZİ</h1>
+            <p>Sıfırdan Zirveye Çiftlik Kurma ve Hayatta Kalma Rehberi</p>
+        </header>
+
+        <div class="step-card">
+            <div class="step-num">ADIM #01</div>
+            <h2>Dengeli Başlangıç ve Traktör Tamiri</h2>
+            <p>Oyuna ilk girdiğinde dedenden kalan eski çiftlik evindesin. İlk iş olarak etraftaki çadırı kur ve radyodaki görevleri takip et. Garajda duran eski külüstür traktörü tamir etmek için etraftaki parçaları birleştir. Bu traktör senin ilk lojistik aracın olacak!</p>
+            
+            <div class="image-placeholder">
+                <span>📸</span>
+                <b>[BURAYA İLK ARACIN VEYA EVİN FOTOSUNU KOYACAĞIZ]</b><br>
+                Görseli bana attığında buraya yerleştireceğim kral.
+            </div>
         </div>
 
-        <div class="inventory-grid">
-            <div class="inv-box">🐓 TAVUK <span id="inv-chicken">2</span></div>
-            <div class="inv-box">🪵 KERESTE <span id="inv-wood">0</span></div>
-            <div class="inv-box">🔩 METAL <span id="inv-metal">0</span></div>
-            <div class="inv-box">🥚 YUMURTA <span id="inv-egg">0</span></div>
-            <div class="inv-box">🥩 ET <span id="inv-meat">0</span></div>
-            <div class="inv-box">🌾 YEM <span id="inv-feed">5</span></div>
+        <div class="step-card">
+            <div class="step-num">ADIM #02</div>
+            <h2>Hırdavatçı Dükkanı ve İlk Sermaye</h2>
+            <p>Traktörü çalıştırdıktan sonra haritadaki Hırdavatçıya (Hardware Store) git. İlk görevlerden gelen parayla mutlaka **Eski Av Tüfeği** ve **Mermi** al. Dağlardaki geyikleri avlayarak kasaba (Burger dükkanının arkasına) satmak, oyundaki en hızlı para kazanma yöntemidir.</p>
         </div>
 
-        <table class="market-table">
+        <div class="step-card">
+            <div class="step-num">ADIM #03</div>
+            <h2>Kümes Kurulumu ve Hayvancılık</h2>
+            <p>Biraz para biriktirdikten sonra dükkandan metal ve ahşap alarak ilk kümesini inşa et. Gıda otomatından 2 adet tavuk ve bolca yem al. Tavuklar yumurtladıkça yumurtaları sepetlere dizip toplu satarak pasif gelir elde edeceksin.</p>
+            
+            <div class="image-placeholder">
+                <span>🐓</span>
+                <b>[BURAYA ÇİFTLİĞİN VEYA KÜMESİN FOTOSUNU KOYACAĞIZ]</b><br>
+                Tavukların veya çiftliğin ekran görüntüsünü buraya çakacağız.
+            </div>
+        </div>
+
+        <h2 style="color: #a3e635; font-size: 16px; margin: 25px 0 10px 0; text-transform: uppercase; letter-spacing: 1px;">📋 ÖNEMLİ MATERYAL VE FİYAT TABLOSU</h2>
+        <table class="info-table">
             <thead>
                 <tr>
-                    <th>MALZEME</th>
-                    <th>ALIŞ FİYATI</th>
-                    <th>SATIŞ FİYATI</th>
-                    <th>TREND</th>
+                    <th>Materyal / Canlı</th>
+                    <th>Nereden Bulunur?</th>
+                    <th>En İyi Kullanım Amacı</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>🪵 Kereste</td>
-                    <td>--</td>
-                    <td id="sell-wood">50 TL</td>
-                    <td id="trend-wood" class="up">▲ %0</td>
+                    <td><strong>🪵 Tomruk / Kereste</strong></td>
+                    <td>Etraftaki ağaçları keserek</td>
+                    <td>Ev, Kümes ve Ahır inşaatlarında temel malzemedir.</td>
                 </tr>
                 <tr>
-                    <td>🔩 Metal Levha</td>
-                    <td id="buy-metal">100 TL</td>
-                    <td id="sell-metal">40 TL</td>
-                    <td id="trend-metal" class="down">▼ %0</td>
+                    <td><strong>🥩 Av Eti (Geyik/Ayı)</strong></td>
+                    <td>Dağlık ve ormanlık alanlarda</td>
+                    <td>Burgerciye yüksek fiyattan satılarak hızlı nakit sağlar.</td>
                 </tr>
                 <tr>
-                    <td>🥚 Yumurta</td>
-                    <td>--</td>
-                    <td id="sell-egg">15 TL</td>
-                    <td id="trend-egg" class="up">▲ %0</td>
+                    <td><strong>🔩 Metal Levha</strong></td>
+                    <td>Hırdavat Mağazasından satın alınır</td>
+                    <td>Gelişmiş binalar ve otomatik makineler için şarttır.</td>
                 </tr>
                 <tr>
-                    <td>🥩 Av Eti</td>
-                    <td>--</td>
-                    <td id="sell-meat">250 TL</td>
-                    <td id="trend-meat" class="up">▲ %0</td>
+                    <td><strong>🐻 Ayı (Tehlike!)</strong></td>
+                    <td>Genelde haritanın güney ormanlarında</td>
+                    <td>Sana saldırabilir! Tetikte ol, tüfeğin yoksa yaklaşma.</td>
                 </tr>
             </tbody>
         </table>
 
-        <div class="action-group">
-            <button class="btn" onclick="work('cut')">🪓 Ormana Git (Odun Kes)</button>
-            <button class="btn" onclick="work('hunt')">🏹 Avlan (Et Getir)</button>
-            <button class="btn" onclick="work('collect')">🐓 Kümesi Ara (Yumurta)</button>
-            <button class="btn" onclick="buyFeed()">🌾 Yem Satın Al (30 TL)</button>
-        </div>
-
-        <div class="action-group" style="grid-template-columns: repeat(3, 1fr);">
-            <button class="btn btn-sell" onclick="sellAll('wood')">🪵 Kereste Sat</button>
-            <button class="btn btn-sell" onclick="sellAll('egg')">🥚 Yumurta Sat</button>
-            <button class="btn btn-sell" onclick="sellAll('meat')">🥩 Etleri Sat</button>
-        </div>
-        
-        <div class="action-group">
-            <button class="btn" onclick="buyMetal()" style="border-color: #0284c7; color: #38bdf8;">🔩 Mağazadan Metal Al</button>
-            <button class="btn" onclick="buildCoop()" style="border-color: #eab308; color: #facc15;">🔨 Büyük Kümes İnşa Et (5 Metal + 10 Kereste)</button>
-        </div>
-
-        <div class="terminal" id="log">
-            > Hırdavat dükkanı ve borsa bağlantısı aktif.<br>
-            > Tavuklar kümeste yem bekliyor.
-        </div>
+        <footer>
+            Ranch Simulator Fan Bölümü // batuhan-cpu tarafından sevgiyle geliştirildi. © 2026
+        </footer>
     </div>
 
-    <script>
-        // Veritabanı ve Kalıcı Hafıza
-        let ranch = {
-            money: parseFloat(localStorage.getItem('r_money')) || 600,
-            chicken: parseInt(localStorage.getItem('r_chicken')) || 2,
-            wood: parseInt(localStorage.getItem('r_wood')) || 0,
-            metal: parseInt(localStorage.getItem('r_metal')) || 0,
-            egg: parseInt(localStorage.getItem('r_egg')) || 0,
-            meat: parseInt(localStorage.getItem('r_meat')) || 0,
-            feed: parseInt(localStorage.getItem('r_feed')) || 5
-        };
-
-        // Borsadaki dinamik fiyatlar
-        let prices = {
-            wood: 50, metalBuy: 100, metalSell: 40, egg: 15, meat: 250
-        };
-
-        function log(msg) {
-            let box = document.getElementById('log');
-            box.innerHTML += `<br>> ${msg}`;
-            let lines = box.innerHTML.split('<br>');
-            if(lines.length > 4) { lines.shift(); box.innerHTML = lines.join('<br>'); }
-        }
-
-        function updateUI() {
-            document.getElementById('money').innerText = ranch.money.toLocaleString('tr-TR') + " TL";
-            document.getElementById('inv-chicken').innerText = ranch.chicken;
-            document.getElementById('inv-wood').innerText = ranch.wood;
-            document.getElementById('inv-metal').innerText = ranch.metal;
-            document.getElementById('inv-egg').innerText = ranch.egg;
-            document.getElementById('inv-meat').innerText = ranch.meat;
-            document.getElementById('inv-feed').innerText = ranch.feed;
-
-            document.getElementById('sell-wood').innerText = Math.floor(prices.wood) + " TL";
-            document.getElementById('buy-metal').innerText = Math.floor(prices.metalBuy) + " TL";
-            document.getElementById('sell-metal').innerText = Math.floor(prices.metalSell) + " TL";
-            document.getElementById('sell-egg').innerText = Math.floor(prices.egg) + " TL";
-            document.getElementById('sell-meat').innerText = Math.floor(prices.meat) + " TL";
-
-            for(let key in ranch) { localStorage.setItem('r_' + key, ranch[key]); }
-        }
-
-        function work(type) {
-            if(type === 'cut') {
-                ranch.wood += Math.floor(Math.random() * 3) + 1;
-                log("Ormandan ağaç kestin, kereste stoğuna eklendi.");
-            } else if(type === 'hunt') {
-                if(Math.random() > 0.4) {
-                    ranch.meat += Math.floor(Math.random() * 2) + 1;
-                    log("Başarılı av! Geyik indirdin, çiğ et kazandın.");
-                } else {
-                    log("<span style='color:#ef4444;'>Avı kaçırdın, mermi boşa gitti!</span>");
-                }
-            } else if(type === 'collect') {
-                if(ranch.feed > 0) {
-                    ranch.feed--;
-                    let produced = ranch.chicken * Math.floor(Math.random() * 2 + 1);
-                    ranch.egg += produced;
-                    log(`Tavukları yemledin, ${produced} adet taze yumurta topladın.`);
-                } else {
-                    log("<span style='color:#ef4444;'>Kümes aç! Tavukların yumurtlaması için yem satın almalısın.</span>");
-                }
-            }
-            updateUI();
-        }
-
-        function buyFeed() {
-            if(ranch.money >= 30) { ranch.money -= 30; ranch.feed += 5; log("Otomat makinesinden 5 paket yem aldın."); } 
-            else { log("<span style='color:#ef4444;'>Yem alacak yeterli paran yok!</span>"); }
-            updateUI();
-        }
-
-        function buyMetal() {
-            if(ranch.money >= prices.metalBuy) { ranch.money -= prices.metalBuy; ranch.metal++; log("Hırdavatçıdan 1 adet metal levha satın aldın."); }
-            else { log("<span style='color:#ef4444;'>Borsadaki güncel fiyata paran yetmiyor!</span>"); }
-            updateUI();
-        }
-
-        function sellAll(type) {
-            if(type === 'wood' && ranch.wood > 0) {
-                let cash = ranch.wood * prices.wood; ranch.money += cash; log(`${ranch.wood} adet kereste satıldı: +${cash} TL`); ranch.wood = 0;
-            } else if(type === 'egg' && ranch.egg > 0) {
-                let cash = ranch.egg * prices.egg; ranch.money += cash; log(`${ranch.egg} adet yumurta satıldı: +${cash} TL`); ranch.egg = 0;
-            } else if(type === 'meat' && ranch.meat > 0) {
-                let cash = ranch.meat * prices.meat; ranch.money += cash; log(`${ranch.meat} adet av eti satıldı: +${cash} TL`); ranch.meat = 0;
-            } else { log("Satacak malzemen yok kral!"); }
-            updateUI();
-        }
-
-        function buildCoop() {
-            if(ranch.metal >= 5 && ranch.wood >= 10) {
-                ranch.metal -= 5; ranch.wood -= 10; ranch.chicken += 3;
-                log("<span style='color:#facc15;'>🔨 TEBRİKLER! Büyük kümesi tamamladın, çiftliğe 3 yeni tavuk katıldı!</span>");
-            } else { log("<span style='color:#ef4444;'>İnşaat başarısız: Yetersiz malzeme (5 Metal, 10 Kereste gerekli).</span>"); }
-            updateUI();
-        }
-
-        // Canlı Borsa Dalgalanması (5 Saniyede Bir)
-        setInterval(() => {
-            let changeKeys = ['wood', 'metalBuy', 'egg', 'meat'];
-            changeKeys.forEach(key => {
-                let changePercent = (Math.random() * 20) - 10; // %10 düşebilir veya çıkabilir
-                let isUp = changePercent >= 0;
-                
-                if(key === 'wood') { prices.wood += prices.wood * (changePercent/100); if(prices.wood < 20) prices.wood = 20; document.getElementById('trend-wood').innerText = `${isUp?'▲':'▼'} %${Math.abs(changePercent).toFixed(0)}`; document.getElementById('trend-wood').className = isUp?'up':'down'; }
-                if(key === 'egg') { prices.egg += prices.egg * (changePercent/100); if(prices.egg < 5) prices.egg = 5; document.getElementById('trend-egg').innerText = `${isUp?'▲':'▼'} %${Math.abs(changePercent).toFixed(0)}`; document.getElementById('trend-egg').className = isUp?'up':'down'; }
-                if(key === 'meat') { prices.meat += prices.meat * (changePercent/100); if(prices.meat < 100) prices.meat = 100; document.getElementById('trend-meat').innerText = `${isUp?'▲':'▼'} %${Math.abs(changePercent).toFixed(0)}`; document.getElementById('trend-meat').className = isUp?'up':'down'; }
-                if(key === 'metalBuy') { 
-                    prices.metalBuy += prices.metalBuy * (changePercent/100); if(prices.metalBuy < 60) prices.metalBuy = 60;
-                    prices.metalSell = prices.metalBuy * 0.4; // Satış fiyatı alışın %40'ı
-                    document.getElementById('trend-metal').innerText = `${isUp?'▲':'▼'} %${Math.abs(changePercent).toFixed(0)}`; 
-                    document.getElementById('trend-metal').className = isUp?'up':'down'; 
-                }
-            });
-            updateUI();
-        }, 5000);
-
-        window.onload = updateUI;
-    </script>
 </body>
 </html>
