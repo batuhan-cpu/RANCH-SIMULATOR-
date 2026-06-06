@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ranch Simulator</title>
+    <title>Ranch Simulator Türkçe Rehber & Fan Sitesi</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /* CSS RESET & TEMEL YAPI */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        html { scroll-behavior: smooth; } /* Menüye basınca yumuşak kayma sağlar */
         body { 
             background-color: #050505; 
             color: #bcbbba; 
@@ -17,7 +18,6 @@
             overflow-x: hidden;
         }
 
-        /* GÖRSELDEKİ BİREBİR YAN YANA TASARIM KUTUSU */
         .wrapper { 
             width: 100%; 
             max-width: 1440px; 
@@ -25,7 +25,7 @@
             position: relative;
         }
 
-        /* ANA ARKA PLAN VE JENERİK GÖRSELİNİZ */
+        /* ANA HERO ARKA PLANI */
         .main-hero-bg {
             background: linear-gradient(to right, rgba(13,11,9,0.95) 25%, rgba(13,11,9,0.4) 60%, rgba(13,11,9,0.1) 100%), 
                         url('1000071593.jpg') no-repeat center center;
@@ -38,17 +38,20 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 70px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-            border-bottom: 1px solid rgba(255,255,255,0.03);
+            background: rgba(0,0,0,0.85);
+            border-bottom: 1px solid rgba(215, 163, 61, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
         .logo-block { display: flex; flex-direction: column; align-items: center; line-height: 1; }
         .logo-main { color: #ffffff; font-size: 22px; font-weight: 900; letter-spacing: -1px; font-family: 'Oswald', sans-serif; font-style: italic; }
-        .logo-sub { color: #d6d4d2; font-size: 9px; letter-spacing: 3px; margin-top: 1px; font-weight: bold; }
+        .logo-sub { color: #d7a33d; font-size: 9px; letter-spacing: 3px; margin-top: 1px; font-weight: bold; }
         
         nav { display: flex; gap: 28px; list-style: none; }
-        nav a { color: #a1a09f; text-decoration: none; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
-        nav a:hover, nav a.active { color: #ffffff; }
+        nav a { color: #a1a09f; text-decoration: none; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
+        nav a:hover, nav a.active { color: #d7a33d; }
         
         .header-right { display: flex; align-items: center; gap: 1px; }
         .btn-nav-buy { 
@@ -75,7 +78,7 @@
         /* 2. DEV LOGOLU HERO ALANI */
         .hero-section {
             position: relative;
-            padding: 100px 70px 120px 70px;
+            padding: 120px 70px 140px 70px;
         }
 
         .giant-title {
@@ -96,24 +99,15 @@
             letter-spacing: 5px;
             margin-top: 4px;
             text-shadow: 2px 2px 0px #000;
-        }
-        
-        /* Şablondaki Rüzgar Gülü Logosu */
-        .windmill-svg {
-            position: absolute;
-            top: 5px;
-            left: 232px;
-            width: 35px;
-            height: 35px;
+            color: #d7a33d;
         }
 
         .hero-text {
-            max-width: 440px;
+            max-width: 500px;
             color: #b0afae;
-            font-size: 12.5px;
-            line-height: 1.6;
+            font-size: 13px;
+            line-height: 1.7;
             margin-bottom: 35px;
-            font-weight: bold;
         }
         
         .hero-btns { display: flex; gap: 12px; }
@@ -129,146 +123,82 @@
             align-items: center;
             gap: 8px;
         }
-        .btn-main-video {
-            background: rgba(36, 31, 26, 0.7);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 13px 24px;
-            font-size: 11px;
-            font-weight: 700;
-            border-radius: 4px;
-            border: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
 
-        /* 3. 6'LI ÖZELLİK IŞIK ŞERİDİ */
-        .features-strip {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            background: rgba(14, 12, 10, 0.95);
-            border-top: 1px solid rgba(255,255,255,0.03);
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-            padding: 0 50px;
+        /* REHBER SEKSİYON TASARIMLARI */
+        .section-heading {
+            font-family: 'Oswald', sans-serif;
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
-        .feature-box {
-            padding: 25px 20px;
-            border-right: 1px solid rgba(255,255,255,0.02);
-            display: flex;
-            gap: 12px;
-        }
-        .feature-box:last-child { border-right: none; }
-        .feature-box svg { width: 24px; height: 24px; fill: #d7a33d; flex-shrink: 0; margin-top: 2px; }
-        .feature-box h4 { color: #d7a33d; font-size: 12px; font-weight: 700; margin-bottom: 3px; text-transform: uppercase; }
-        .feature-box p { color: #756f67; font-size: 11px; line-height: 1.4; font-weight: bold; }
+        .section-heading span { color: #d7a33d; }
+        .section-sub { color: #756f67; font-size: 13px; margin-bottom: 30px; font-weight: bold; }
 
-        /* 4. 4'LÜ GERÇEK FOTOĞRAF GALERİSİ */
+        /* 3. 4'LÜ GERÇEK OYUN GALERİSİ */
+        .gallery-section { padding: 40px 70px; background: #060504; }
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 12px;
-            padding: 25px 70px;
-            background: #080706;
         }
         .gallery-grid .img-wrapper {
             width: 100%;
-            height: 160px;
+            height: 180px;
             overflow: hidden;
-            border-radius: 2px;
+            border-radius: 4px;
+            border: 1px solid #1a1510;
         }
-        .gallery-grid img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.85);
-        }
+        .gallery-grid img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); transition: 0.3s; }
+        .gallery-grid img:hover { filter: brightness(1); transform: scale(1.03); }
 
-        /* 5. GÖVDE: HAKKINDA VE STEAM YORUMLARI */
-        .split-content {
+        /* 4. HAYVANLAR VE ARAÇLAR İÇİN KART SİSTEMİ */
+        .cards-section { padding: 60px 70px; background: #080706; border-top: 1px solid rgba(255,255,255,0.02); }
+        .cards-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 50px;
-            padding: 35px 70px 45px 70px;
-            background: #080706;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
-
-        .about-block h3 { color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 15px; font-family: 'Oswald', sans-serif; }
-        .about-block p { color: #878685; font-size: 12px; line-height: 1.7; margin-bottom: 15px; font-weight: bold; }
-        
-        /* GÖRSELDEKİ ORTA DETAY KUTUSU */
-        .embedded-map-box {
-            width: 100%;
-            height: 170px;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('1000071621.jpg') center center;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid #1a1714;
-            border-radius: 3px;
+        .info-card {
+            background: #110f0d;
+            border: 1px solid #241e17;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: 0.3s;
         }
-        .map-box-title { font-size: 36px; font-weight: 700; color: #ffffff; letter-spacing: -1px; line-height: 1; font-family: 'Oswald', sans-serif; }
-        .map-box-sub { font-size: 11px; color: #ffffff; letter-spacing: 5px; margin-top: 2px; font-weight: bold; }
+        .info-card:hover { border-color: #d7a33d; transform: translateY(-5px); }
+        .info-card img { width: 100%; height: 200px; object-fit: cover; background-color: #222; }
+        .card-content { padding: 20px; }
+        .card-content h4 { font-family: 'Oswald', sans-serif; font-size: 20px; color: #fff; margin-bottom: 8px; }
+        .card-content p { font-size: 12px; line-height: 1.6; color: #a1a09f; margin-bottom: 12px; }
+        .card-badge { display: inline-block; background: #241e17; color: #d7a33d; font-size: 11px; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
 
-        /* SAĞ SÜTUN: KUSURSUZ STEAM KARTLARI */
-        .reviews-block { display: flex; flex-direction: column; }
-        .reviews-header-zone { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .reviews-header-zone h3 { color: #ffffff; font-size: 16px; font-weight: 700; font-family: 'Oswald', sans-serif; }
-        .btn-steam-link { color: #4faae0; text-decoration: none; font-size: 11px; font-weight: bold; }
+        /* 5. HARİTA BÖLÜMÜ */
+        .map-section { padding: 60px 70px; background: #060504; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+        .map-image-box { width: 100%; height: 350px; border-radius: 6px; overflow: hidden; border: 1px solid #241e17; }
+        .map-image-box img { width: 100%; height: 100%; object-fit: cover; }
+        .map-details h3 { font-family: 'Oswald', sans-serif; font-size: 28px; color: #fff; margin-bottom: 15px; }
+        .map-details p { font-size: 13px; line-height: 1.7; color: #878685; margin-bottom: 15px; }
 
-        .reviews-grid-layout {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-        .steam-card {
-            background: #0f1620;
-            border: 1px solid #1c2838;
-            padding: 15px;
-            border-radius: 2px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .steam-card.full-width { grid-column: span 2; }
-        
-        .card-meta { display: flex; justify-content: space-between; font-size: 11px; font-weight: bold; color: #66c0f4; margin-bottom: 6px; }
-        .card-meta span.hours { color: #8ba2b9; font-weight: normal; font-size: 10px; }
-        .card-body-text { color: #acb2b8; font-size: 11.5px; line-height: 1.5; margin-bottom: 10px; }
-        .card-date { color: #566574; font-size: 10px; }
+        /* 6. STEAM YORUMLARI KARTLARI */
+        .reviews-section { padding: 60px 70px; background: #080706; }
+        .reviews-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .steam-card { background: #0f1620; border: 1px solid #1c2838; padding: 20px; border-radius: 4px; }
+        .card-meta { display: flex; justify-content: space-between; font-size: 11px; font-weight: bold; color: #66c0f4; margin-bottom: 8px; }
+        .card-body-text { color: #acb2b8; font-size: 12px; line-height: 1.6; }
 
-        /* 6. ALT BANT: MEŞHUR KEÇİ VE İSTATİSTİKLER */
+        /* FOOTER */
         footer {
-            display: grid;
-            grid-template-columns: 1.1fr 1.3fr;
-            gap: 30px;
             background: #040404;
-            padding: 35px 70px;
+            padding: 40px 70px;
             border-top: 1px solid rgba(255,255,255,0.02);
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            text-align: left;
         }
-        .goat-profile { display: flex; align-items: center; gap: 15px; }
-        
-        .goat-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid #d7a33d;
-            flex-shrink: 0;
-        }
-        .goat-avatar img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .goat-quote { color: #d6d4d2; font-size: 12px; line-height: 1.6; font-style: italic; }
-        .goat-quote span { display: block; font-style: normal; font-size: 10px; color: #615f5c; margin-top: 4px; font-weight: bold; }
-
-        /* DATA SAYI KUTULARI */
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: center; }
-        .stat-box-val { color: #d7a33d; font-size: 24px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 4px; font-family: 'Oswald', sans-serif; }
-        .stat-box-lbl { color: #52504d; font-size: 10px; font-weight: 900; text-transform: uppercase; margin-top: 2px; letter-spacing: 0.5px; }
+        .footer-logo { font-family: 'Oswald', sans-serif; font-size: 20px; color: #fff; font-style: italic; }
+        .footer-logo span { color: #d7a33d; }
+        footer p { color: #52504d; font-size: 11px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -282,146 +212,150 @@
                     <div class="logo-sub">SIMULATOR</div>
                 </div>
                 <nav>
-                    <a href="#" class="active">Ana Sayfa</a>
-                    <a href="#">Oyun</a>
-                    <a href="#">Hayvanlar</a>
-                    <a href="#">Araçlar</a>
-                    <a href="#">Harita</a>
-                    <a href="#">Yorumlar</a>
+                    <a href="#anasayfa" class="active">Ana Sayfa</a>
+                    <a href="#galeri">Galeri</a>
+                    <a href="#hayvanlar">Hayvanlar</a>
+                    <a href="#araclar">Araçlar</a>
+                    <a href="#harita">Harita</a>
+                    <a href="#yorumlar">Yorumlar</a>
                 </nav>
                 <div class="header-right">
-                    <a href="https://store.steampowered.com/app/1119730/Ranch_Simulator/" target="_blank" class="btn-nav-buy">HEMEN SATIN AL</a>
-                    <div class="btn-nav-cart">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="#d7a33d"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                    </div>
+                    <a href="https://store.steampowered.com/app/1119730/Ranch_Simulator/" target="_blank" class="btn-nav-buy">STEAM'DE İNCELE</a>
                 </div>
             </header>
 
-            <section class="hero-section">
+            <section class="hero-section" id="anasayfa">
                 <div class="giant-title">
                     RANCH
-                    <svg class="windmill-svg" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="6" fill="#fff"/>
-                        <line x1="50" y1="50" x2="50" y2="10" stroke="#fff" stroke-width="4"/>
-                        <line x1="50" y1="50" x2="50" y2="90" stroke="#fff" stroke-width="4"/>
-                        <line x1="50" y1="50" x2="10" y2="50" stroke="#fff" stroke-width="4"/>
-                        <line x1="50" y1="50" x2="90" y2="50" stroke="#fff" stroke-width="4"/>
-                        <polygon points="50,10 60,25 50,25" fill="#fff"/>
-                        <polygon points="50,90 40,75 50,75" fill="#fff"/>
-                        <polygon points="10,50 25,40 25,50" fill="#fff"/>
-                        <polygon points="90,50 75,60 75,50" fill="#fff"/>
-                    </svg>
-                    <span>SIMULATOR</span>
+                    <span>SIMULATOR TÜRKİYE</span>
                 </div>
-                
                 <p class="hero-text">
-                    Terk edilmiş çiftliğini sıfırdan kur, hayvanlarını yetiştir, tarlalarını ek ve en büyük ranch'in sahibi ol. Tek başına veya arkadaşlarınla birlikte sınırsız bir çiftlik hayatı seni bekliyor!
+                    Büyükbabanızdan kalan çökmüş çiftliği devralın. Sıfırdan inşa edin, hayvancılık yapın, tarlalarınızı sürün ve arkadaşlarınızla kooperatif modda devasa bir imparatorluk kurun. En karlı taktikler ve rehberler burada!
                 </p>
-                
                 <div class="hero-btns">
-                    <a href="https://store.steampowered.com/app/1119730/Ranch_Simulator/" target="_blank" class="btn-main-buy">
-                        HEMEN SATIN AL 
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="#110e0a"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                    </a>
-                    <a href="#" class="btn-main-video">
-                        VİDEOYU İZLE 
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-                    </a>
+                    <a href="https://store.steampowered.com/app/1119730/Ranch_Simulator/" target="_blank" class="btn-main-buy">HEMEN SATIN AL (STEAM)</a>
                 </div>
             </section>
 
-        </div> <section class="features-strip">
-            <div class="feature-box">
-                <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                <div class="feature-info"><h4>ÇİFTLİĞİNİ KUR</h4><p>Yeni yapılar inşa et, çiftliğini geliştir.</p></div>
-            </div>
-            <div class="feature-item feature-box">
-                <svg viewBox="0 0 24 24"><path d="M22 11h-4.17l3.24-3.24-1.41-1.42L15 10.17V6h-2v6h6v2h-4v3h2v2h-4v3h-2v-3H9v-2h2v-3H7v-2H1v2h4.17l-3.24 3.24 1.41 1.42L8 13.83V18h2v-6H4v-2h4v-3H6V5h4V2h2v3h4V2h2v3h4v4h-2V7h-2v3h4v2z"/></svg>
-                <div class="feature-info"><h4>HAYVANLAR</h4><p>İnek, tavuk, domuz, keçi yetiştir.</p></div>
-            </div>
-            <div class="feature-box">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L12 15v5z"/></svg>
-                <div class="feature-info"><h4>TARIM</h4><p>Tarlalarını ek, ürünlerini büyüt.</p></div>
-            </div>
-            <div class="feature-box">
-                <svg viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l2.79-2.79C10.09 18.66 11.03 19 12 19c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-                <div class="feature-info"><h4>AVCILIK</h4><p>Vahşi doğaya çık, avlanmaya başla.</p></div>
-            </div>
-            <div class="feature-box">
-                <svg viewBox="0 0 24 24"><path d="M20 8H4V6h16v2zm-2 5H6v-2h12v2zm-3 5H9v-2h6v2z"/></svg>
-                <div class="feature-info"><h4>ARAÇLAR</h4><p>Traktörler ve kamyonetler kullan.</p></div>
-            </div>
-            <div class="feature-box">
-                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 1.34 5 3s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                <div class="feature-info"><h4>ÇOK OYUNCULU</h4><p>Arkadaşlarınla birlikte çalış.</p></div>
+        </div>
+
+        <section class="gallery-section" id="galeri">
+            <h3 class="section-heading">RANCH LIFE <span>GALERİSİ</span></h3>
+            <p class="section-sub">Sizden gelen gerçek oyun içi kesitler ve çiftlik hayatı.</p>
+            <div class="gallery-grid">
+                <div class="img-wrapper"><img src="1000071617.jpg" alt="Ranch Görsel 1"></div>
+                <div class="img-wrapper"><img src="1000071619.jpg" alt="Ranch Görsel 2"></div>
+                <div class="img-wrapper"><img src="1000071623.jpg" alt="Ranch Görsel 3"></div>
+                <div class="img-wrapper"><img src="1000071625.jpg" alt="Ranch Görsel 4"></div>
             </div>
         </section>
 
-        <section class="gallery-grid">
-            <div class="img-wrapper"><img src="1000071617.jpg" alt="Ekran 1"></div>
-            <div class="img-wrapper"><img src="1000071619.jpg" alt="Ekran 2"></div>
-            <div class="img-wrapper"><img src="1000071623.jpg" alt="Ekran 3"></div>
-            <div class="img-wrapper"><img src="1000071625.jpg" alt="Ekran 4"></div>
-        </section>
-
-        <section class="split-content">
-            <div class="about-block">
-                <h3>RANCH SIMULATOR HAKKINDA</h3>
-                <p>Ranch Simulator, açık dünya yapısına sahip bir çiftlik simülasyonu ve hayatta kalma oyunudur. Terk edilmiş bir çiftliği devralarak başlayan yolculuğunuzda; hayvanlar yetiştirir, tarlalar ekersiniz, yapılar inşa eder ve çiftliğinizi büyütürsünüz.</p>
-                <p>Gerçekçi ekonomi sistemi, detaylı hayvancılık, tarım, avcılık mekanikleri ve çok oyunculu desteği ile benzersiz bir deneyim sunar.</p>
+        <section class="cards-section" id="hayvanlar">
+            <h3 class="section-heading">HAYVANLAR <span>& EN KARLI YETİŞTİRME</span></h3>
+            <p class="section-sub">Hangi hayvan ne kadar kazandırır? Çiftliğin ekonomisini uçuracak rehber.</p>
+            <div class="cards-grid">
                 
-                <div class="embedded-map-box">
-                    <div class="map-box-title">RANCH</div>
-                    <div class="map-box-sub">SIMULATOR</div>
+                <div class="info-card">
+                    <img src="inek.jpg" alt="İnekler">
+                    <div class="card-content">
+                        <h4>İnekler & Süt Üretimi</h4>
+                        <p>Süt ve peynir üretimi için idealdir. Düzenli ve stabil bir günlük gelir akışı sağlamak isteyen ranch sahiplerinin ilk tercihidir.</p>
+                        <span class="card-badge">💰 Yüksek Kazanç</span>
+                    </div>
                 </div>
+
+                <div class="info-card">
+                    <img src="tavuk.jpg" alt="Tavuklar">
+                    <div class="card-content">
+                        <h4>Tavuklar & Yumurta</h4>
+                        <p>Oyuna yeni başlayanlar için en ucuz sermayeli hayvandır. Hızlı ürerler ve yumurtaları fırıncılıkta veya doğrudan satılarak hızlı nakit sağlar.</p>
+                        <span class="card-badge">⚡ Hızlı Başlangıç</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <img src="domuz.jpg" alt="Domuzlar">
+                    <div class="card-content">
+                        <h4>Domuzlar & Et Sektörü</h4>
+                        <p>Çiftliğin en masraflı ama büyüdüğünde eti en pahalıya satılan hayvanıdır. Büyük mezbahalar kurarak tek seferde devasa paralar kazanabilirsiniz.</p>
+                        <span class="card-badge">💎 Maksimum Gelir</span>
+                    </div>
+                </div>
+
             </div>
+        </section>
 
-            <div class="reviews-block">
-                <div class="reviews-header-zone">
-                    <h3>STEAM YORUMLARI</h3>
-                    <a href="https://store.steampowered.com/app/1119730/Ranch_Simulator/" target="_blank" class="btn-steam-link">TÜM YORUMLARI GÖR</a>
+        <section class="cards-section" id="araclar" style="background: #060504;">
+            <h3 class="section-heading">GELİŞMİŞ <span>ARAÇLAR & EKİPMANLAR</span></h3>
+            <p class="section-sub">İşlerinizi hızlandıracak, ağır yükleri taşıyacak en iyi traktör ve kamyonetler.</p>
+            <div class="cards-grid">
+                
+                <div class="info-card">
+                    <img src="pickup.jpg" alt="Kamyonet">
+                    <div class="card-content">
+                        <h4>4x4 Kamyonet (Pikap)</h4>
+                        <p>Kasasında domuz, inek taşıyabileceğiniz, hırdavatçıdan aldığınız kalasları ve çimentoları çiftliğe nakletmenin en hızlı yolu.</p>
+                        <span class="card-badge">📦 Lojistik Desteği</span>
+                    </div>
                 </div>
 
-                <div class="reviews-grid-layout">
-                    <div class="steam-card">
-                        <div>
-                            <div class="card-meta"><span>👍 Tavsiye Ediliyor</span><span class="hours">87.5 saat</span></div>
-                            <div class="card-body-text">Harika bir oyun! Çiftlik kurmak ve arkadaşlarla oynamak çok keyifli.</div>
-                        </div>
-                        <div class="card-date">Yayınlanma: 2 Mayıs</div>
+                <div class="info-card">
+                    <img src="tractor.jpg" alt="Traktör">
+                    <div class="card-content">
+                        <h4>Büyük Tarım Traktörü</h4>
+                        <p>Geniş arazileri saniyeler içinde sürmek, tohum ekmek ve hasat toplamak için arkasına bağlanan aparatlarla çiftliğin vazgeçilmezidir.</p>
+                        <span class="card-badge">🌾 Tarla Uzmanı</span>
                     </div>
+                </div>
 
-                    <div class="steam-card">
-                        <div>
-                            <div class="card-meta"><span>👍 Tavsiye Ediliyor</span><span class="hours">42.3 saat</span></div>
-                            <div class="card-body-text">Grafikler, atmosfer ve oynanış mükemmel. Sürekli yapacak bir şey var.</div>
-                        </div>
-                        <div class="card-date">Yayınlanma: 28 Nisan</div>
+                <div class="info-card">
+                    <img src="atv.jpg" alt="ATV">
+                    <div class="card-content">
+                        <h4>ATV & Keşif Motoru</h4>
+                        <p>Vahşi doğada avlanmaya çıkarken veya haritanın diğer ucundaki dükkanlara hızlıca gidip gelirken yakıttan tasarruf ettiren çevik araç.</p>
+                        <span class="card-badge">🏎️ Hızlı Ulaşım</span>
                     </div>
+                </div>
 
-                    <div class="steam-card full-width">
-                        <div>
-                            <div class="card-meta"><span>👍 Tavsiye Ediliyor</span><span class="hours">123.6 saat</span></div>
-                            <div class="card-body-text">Gerçekten bağımlılık yapıyor. Çiftlik simülasyonu sevenler için kesinlikle önerilir.</div>
-                        </div>
-                        <div class="card-date">Yayınlanma: 15 Nisan</div>
-                    </div>
+            </div>
+        </section>
+
+        <section class="map-section" id="harita">
+            <div class="map-image-box">
+                <img src="1000071621.jpg" alt="Ranch Simulator Harita">
+            </div>
+            <div class="map-details">
+                <h3>BÜYÜK HARİTA <span>VE KEŞİF NOKTALARI</span></h3>
+                <p>Ranch Simulator haritası sadece sizin çiftliğinizden ibaret değil! Haritanın derinliklerinde avlayabileceğiniz geyikler, ayılar ve kurtlar sizi bekliyor.</p>
+                <p>Ayrıca hırdavatçı, araba galerisi ve et/süt ürünlerinizi en yüksek fiyata satabileceğiniz yerel burger restoranı gibi kritik ticaret noktalarının konumlarını bu harita rehberimizle ezberleyin.</p>
+            </div>
+        </section>
+
+        <section class="reviews-section" id="yorumlar">
+            <h3 class="section-heading">OYUNCU <span>YORUMLARI</span></h3>
+            <p class="section-sub">Steam topluluğunun Ranch Simulator hakkında yaptığı en popüler incelemeler.</p>
+            <div class="reviews-layout">
+                <div class="steam-card">
+                    <div class="card-meta"><span>👍 Tavsiye Ediliyor</span><span>87 Saat</span></div>
+                    <p class="card-body-text">"Arkadaş ekibiyle girildiğinde zamanın nasıl geçtiğini anlamıyorsunuz. Çiftliği büyütmek inanılmaz tatmin edici."</p>
+                </div>
+                <div class="steam-card">
+                    <div class="card-meta"><span>👍 Tavsiye Ediliyor</span><span>120 Saat</span></div>
+                    <p class="card-body-text">"Gerçekçi peynir ve et yapma mekanikleri çok iyi düşünülmüş. Kamyonete inek yükleyip satmaya gitmek tam bir esnaflık simülasyonu!"</p>
+                </div>
+                <div class="steam-card">
+                    <div class="card-meta"><span>👍 Tavsiye Ediliyor</span><span>45 Saat</span></div>
+                    <p class="card-body-text">"Grafikleri ve atmosferi çok samimi. Akşam işten/okuldan gelip kafa dağıtmak, iki tavuk yemlemek için birebir."</p>
                 </div>
             </div>
         </section>
 
         <footer>
-            <div class="goat-profile">
-                <div class="goat-avatar">
-                    <img src="1000071627.jpg" alt="Ranch Goat">
-                </div>
-                <div class="goat-quote">
-                    "İnsanlar sanal ortamda bile sabahın köründe hayvan besleyip traktör sürmek istiyor. Piksel ineklere bakmak terapi olmuş durumda."
-                    <span>— Topluluk İnceleme Analizi</span>
-                </div>
-            </div>
+            <div class="footer-logo">RANCH <span>SIMULATOR</span></div>
+            <p>© 2026 Tüm Hakları Saklıdır. Ranch Simulator Türkiye Fan & Rehber Portalı.</p>
+        </footer>
 
-            <div class="stats-grid">
-                <div>
-                    <div class="stat-box-val">👍 %92</div>
-                    <div class="stat-box-lbl">Olumlu İncel
+    </div>
+
+</body>
+</html>
