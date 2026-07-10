@@ -156,7 +156,7 @@
             font-weight: 300;
         }
 
-        /* CORE GRID - ECOSYSTEM */
+        /* SECTION STYLES */
         .section-padding {
             padding: 90px 60px;
         }
@@ -192,6 +192,13 @@
             gap: 30px;
         }
 
+        /* YENİ PREMIUM OYUNLAR SEKTÖRÜ (4 KOLONLU ŞIK GRID) */
+        .grid-games {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
         .premium-card {
             background: #0c0c0c;
             border: 1px solid #161616;
@@ -209,7 +216,7 @@
 
         .card-img-holder {
             width: 100%;
-            height: 240px;
+            height: 220px;
             overflow: hidden;
             position: relative;
         }
@@ -240,11 +247,11 @@
         }
 
         .card-body {
-            padding: 30px;
+            padding: 25px;
         }
 
         .card-body h3 {
-            font-size: 20px;
+            font-size: 18px;
             color: #ffffff;
             margin-bottom: 12px;
             font-weight: 700;
@@ -252,7 +259,7 @@
         }
 
         .card-body p {
-            font-size: 13px;
+            font-size: 12px;
             color: #888888;
             line-height: 1.6;
             margin-bottom: 20px;
@@ -276,7 +283,7 @@
             color: #ffffff;
         }
 
-        /* ELITE HARDWARE BANNER DETAYI */
+        /* HARDWARE ZONE */
         .hardware-showcase {
             background: linear-gradient(to right, #090909 40%, rgba(9,9,9,0.2) 100%), url('hardware.jpg') no-repeat center center;
             background-size: cover;
@@ -344,7 +351,8 @@
             </div>
             <nav>
                 <a href="#home" class="active">KULÜP</a>
-                <a href="#games">PREMIUM OYUNLAR</a>
+                <a href="#premium-games">PREMIUM OYUNLAR</a>
+                <a href="#hubs">KATEGORİLER</a>
                 <a href="#hardware">ELITE HARDWARE</a>
                 <a href="#lifestyle">LIFESTYLE</a>
             </nav>
@@ -356,33 +364,97 @@
             <div class="hero-tag">Sadece En İyiler İçin</div>
             <h1 class="hero-title">Oyun Dünyasının Üst Segment Deneyimi</h1>
             <p class="hero-desc">
-                Sıradan platformları geride bırakın. En yüksek FPS optimizasyonları, yeni nesil donanım analizleri ve en prestijli PC oyunlarına dair elit strateji rehberleri tek bir çatı altında toplandı.
+                Sıradan platformları geride bırakın. En yüksek FPS optimizasyonları, yeni nesil donanım analizleri ve en prestijli AAA oyunlarına dair elit incelemeler tek bir çatı altında toplandı.
             </p>
         </section>
 
-        <!-- PREMIUM GAMES HUB -->
-        <section class="section-padding" id="games">
+        <!-- HARİCİ BÖLÜM: PREMIUM OYUNLAR SEKTÖRÜ -->
+        <section class="section-padding" id="premium-games" style="background: #050505; border-bottom: 1px solid #111;">
             <div class="section-header">
-                <h2>PREMIUM <span>PC PORTALI</span></h2>
-                <p>En Yüksek Grafikler, En Derin Simülasyonlar</p>
+                <h2>PREMIUM <span>OYUN ARŞİVİ</span></h2>
+                <p>Sınırları Zorlayan Grafik Ve Hikayeler (Yeni Eklenenler)</p>
             </div>
 
-            <div class="grid-premium">
+            <div class="grid-games">
                 
-                <!-- CARD 1: PC DONANIM & ULTRA PERFORMANS -->
+                <!-- OYUN 1: RDR2 -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="hardware.jpg" alt="Next Gen PC Hardware">
-                        <span class="card-overlay-tag">DONANIM</span>
+                        <img src="rdr2.jpg" alt="Red Dead Redemption 2">
+                        <span class="card-overlay-tag">AAA</span>
                     </div>
                     <div class="card-body">
-                        <h3>Yeni Nesil PC Mimari İncelemeleri</h3>
-                        <p>En son çıkan üst segment ekran kartları ve işlemcilerin oyunlardaki darboğaz testleri, güç gereksinimleri ve sınırları zorlayan overclock rehberleri.</p>
+                        <h3>Red Dead Redemption 2</h3>
+                        <p>Vahşi batının son dönemlerinde geçen, ultra gerçekçi grafikler ve açık dünya mekanikleri ile sınırları zorlayan başyapıt.</p>
                         <a href="#" class="card-link">İncele →</a>
                     </div>
                 </div>
 
-                <!-- CARD 2: RANCH SIMULATOR -->
+                <!-- OYUN 2: GTA 5 -->
+                <div class="premium-card">
+                    <div class="card-img-holder">
+                        <img src="gta5.jpg" alt="GTA 5">
+                        <span class="card-overlay-tag">AKSİYON</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Grand Theft Auto V</h3>
+                        <p>Los Santos sokaklarında geçen, bitmeyen aksiyonu ve devasa online moduyla PC dünyasının eskimeyen lideri.</p>
+                        <a href="#" class="card-link">İncele →</a>
+                    </div>
+                </div>
+
+                <!-- OYUN 3: GOD OF WAR RAGNAROK -->
+                <div class="premium-card">
+                    <div class="card-img-holder">
+                        <img src="gow.jpg" alt="God of War Ragnarök">
+                        <span class="card-overlay-tag">MİTOLOJİ</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>God of War Ragnarök</h3>
+                        <p>Kratos ve Atreus'un İskandinav mitolojisindeki kıyamet savaşını konu alan, muazzam dövüş hissiyatlı yeni nesil PC deneyimi.</p>
+                        <a href="#" class="card-link">İncele →</a>
+                    </div>
+                </div>
+
+                <!-- OYUN 4: RESIDENT EVIL SERISI -->
+                <div class="premium-card">
+                    <div class="card-img-holder">
+                        <img src="re.jpg" alt="Resident Evil">
+                        <span class="card-overlay-tag">KORKU</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Resident Evil Serisi</h3>
+                        <p>RE Engine motorunun gücüyle yeniden doğan hayatta kalma-korku klasiği. En derin analizler ve bulmaca çözümleri.</p>
+                        <a href="#" class="card-link">İncele →</a>
+                    </div>
+                </div>
+
+                <!-- OYUN 5: TOMB RAIDER -->
+                <div class="premium-card">
+                    <div class="card-img-holder">
+                        <img src="tombraider.jpg" alt="Tomb Raider">
+                        <span class="card-overlay-tag">MACERA</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Tomb Raider</h3>
+                        <p>Lara Croft ile antik mezarlıkları, tehlikeli tapınakları keşfettiğimiz, sinematik aksiyonu en üst düzeyde yaşatan efsane seri.</p>
+                        <a href="#" class="card-link">İncele →</a>
+                    </div>
+                </div>
+
+                <!-- NOT: Buraya ileride yeni oyunlar geldikçe aynı kart yapısını kopyalayıp ekleyebilirsin reis -->
+
+            </div>
+        </section>
+
+        <!-- GENEL KATEGORİ HUB (ESKİ SİSTEMLER VE DİĞERLERİ) -->
+        <section class="section-padding" id="hubs">
+            <div class="section-header">
+                <h2>GENEL KULÜP <span>PORTALI</span></h2>
+                <p>Simülasyon, Mobil Ve Donanım Girişleri</p>
+            </div>
+
+            <div class="grid-premium">
                 <div class="premium-card">
                     <div class="card-img-holder">
                         <img src="ranch.jpg" alt="Ranch Simulator Profit">
@@ -395,7 +467,18 @@
                     </div>
                 </div>
 
-                <!-- CARD 3: OPEN WORLD SANDBOX -->
+                <div class="premium-card">
+                    <div class="card-img-holder">
+                        <img src="pubg.jpg" alt="PUBG Mobile">
+                        <span class="card-overlay-tag">MOBİL</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>PUBG Mobile Arena</h3>
+                        <p>Cihaz sınırlarını zorlayan 120 FPS akıcılık ayarları, en net ses kasma equalizer frekansları ve hassasiyet kodları.</p>
+                        <a href="#" class="card-link">İncele →</a>
+                    </div>
+                </div>
+
                 <div class="premium-card">
                     <div class="card-img-holder">
                         <img src="hero-bg.jpg" alt="Sandbox Open World">
@@ -407,7 +490,6 @@
                         <a href="#" class="card-link">İncele →</a>
                     </div>
                 </div>
-
             </div>
         </section>
 
