@@ -3,458 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELITE GAMING CLUB | Premium Web Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Ranch Simulator Türkiye | En Kapsamlı Rehber & Taktik Portalı</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        /* LUXURY ELITE THEME BASE */
+        /* MODERN VE DİNAMİK GAMING TEMA */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { 
-            background-color: #030303; 
-            color: #d1d1d1; 
-            overflow-x: hidden;
-        }
+        body { background-color: #0d0f12; color: #e2e8f0; line-height: 1.6; }
 
-        /* CUSTOM SCROLLBAR */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #bba15c; border-radius: 4px; }
+        /* ÖZEL KAYDIRMA ÇUBUĞU */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0d0f12; }
+        ::-webkit-scrollbar-thumb { background: #ff9f43; border-radius: 5px; }
 
-        .container {
-            width: 100%;
-            max-width: 1440px;
-            margin: 0 auto;
-            background: #070707;
-            box-shadow: 0 0 50px rgba(0,0,0,0.8);
-        }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* NAVIGATION BAR */
+        /* MENÜ (HEADER) */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 60px;
-            background: rgba(5, 5, 5, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(187, 161, 92, 0.15);
+            background-color: #141820;
+            border-bottom: 3px solid #ff9f43;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
-        .logo-area {
+        .header-container {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 10px;
+            padding: 20px 0;
         }
 
-        .logo-text {
-            font-family: 'Cinzel', serif;
-            font-size: 24px;
-            font-weight: 700;
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 26px;
+            font-weight: 900;
             color: #ffffff;
-            letter-spacing: 2px;
-        }
-
-        .logo-text span {
-            color: #bba15c;
-            text-shadow: 0 0 10px rgba(187, 161, 92, 0.3);
-        }
-
-        nav {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-
-        nav a {
-            color: #999999;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
             text-transform: uppercase;
-            transition: all 0.4s ease;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: #ff9f43; }
+
+        nav { display: flex; gap: 25px; list-style: none; }
+        nav a {
+            color: #b2bec3;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        nav a:hover, nav a.active { color: #ff9f43; }
+
+        /* HERO BANNER */
+        .hero {
+            background: linear-gradient(rgba(20, 24, 32, 0.85), rgba(13, 15, 18, 0.95)), url('hero-bg.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 1px solid #1e2530;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 span { color: #ff9f43; }
+
+        .hero p { font-size: 18px; color: #c8d6e5; max-width: 700px; margin: 0 auto 30px; font-weight: 600; }
+
+        .btn-main {
+            display: inline-block;
+            background-color: #ff9f43;
+            color: #141820;
+            padding: 15px 35px;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 5px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 159, 67, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-main:hover { transform: translateY(-3px); background-color: #ffaa54; }
+
+        /* REHBER IÇERIK ALANI */
+        .main-content { padding: 60px 0; }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 40px;
             position: relative;
-            padding: 5px 0;
+            padding-bottom: 10px;
         }
 
-        nav a:hover, nav a.active {
-            color: #bba15c;
-        }
-
-        nav a::after {
+        .section-title::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 0;
-            height: 1px;
-            background: #bba15c;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .vip-badge {
-            border: 1px solid #bba15c;
-            padding: 10px 20px;
-            border-radius: 3px;
-            color: #bba15c;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-decoration: none;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .vip-badge:hover {
-            background: #bba15c;
-            color: #030303;
-            box-shadow: 0 0 15px rgba(187, 161, 92, 0.4);
-        }
-
-        /* HERO PREMIUM BANNER */
-        .hero {
-            height: 75vh;
-            background: linear-gradient(to top, #070707 5%, rgba(7,7,7,0.4) 60%, rgba(7,7,7,0.8) 100%), 
-                        url('hero-bg.jpg') no-repeat center center;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 60px;
-            border-bottom: 1px solid rgba(255,255,255,0.02);
-        }
-
-        .hero-tag {
-            font-size: 12px;
-            font-weight: 800;
-            color: #bba15c;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        .hero-title {
-            font-family: 'Cinzel', serif;
-            font-size: 64px;
-            color: #ffffff;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            max-width: 800px;
-        }
-
-        .hero-desc {
-            font-size: 14px;
-            color: #aaaaaa;
-            max-width: 550px;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        /* CORE GRID - ECOSYSTEM */
-        .section-padding {
-            padding: 90px 60px;
-        }
-
-        .section-header {
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .section-header h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 36px;
-            color: #ffffff;
-            letter-spacing: 1px;
-        }
-
-        .section-header h2 span {
-            color: #bba15c;
-        }
-
-        .section-header p {
-            font-size: 13px;
-            color: #555555;
-            margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-
-        .grid-premium {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .premium-card {
-            background: #0c0c0c;
-            border: 1px solid #161616;
-            border-radius: 4px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-        }
-
-        .premium-card:hover {
-            transform: translateY(-8px);
-            border-color: #bba15c;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-        }
-
-        .card-img-holder {
-            width: 100%;
-            height: 240px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .card-img-holder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .premium-card:hover .card-img-holder img {
-            transform: scale(1.05);
-        }
-
-        .card-overlay-tag {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(3, 3, 3, 0.85);
-            border: 1px solid #bba15c;
-            color: #bba15c;
-            font-size: 10px;
-            font-weight: 800;
-            padding: 4px 10px;
-            letter-spacing: 1px;
+            width: 60px;
+            height: 4px;
+            background-color: #ff9f43;
             border-radius: 2px;
         }
 
-        .card-body {
-            padding: 30px;
+        /* GRID SISTEMI */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        .card-body h3 {
-            font-size: 20px;
-            color: #ffffff;
-            margin-bottom: 12px;
+        .guide-card {
+            background-color: #141820;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 1px solid #1e2530;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff9f43;
+        }
+
+        .card-img { width: 100%; height: 200px; object-fit: cover; }
+
+        .card-body { padding: 25px; }
+        .card-tag {
+            display: inline-block;
+            background-color: rgba(255, 159, 67, 0.1);
+            color: #ff9f43;
+            padding: 5px 12px;
+            font-size: 12px;
             font-weight: 700;
-            letter-spacing: 0.5px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
-        .card-body p {
-            font-size: 13px;
-            color: #888888;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
+        .card-body h3 { font-size: 22px; color: #ffffff; margin-bottom: 12px; }
+        .card-body p { color: #a0aec0; font-size: 14px; margin-bottom: 20px; }
 
-        .card-link {
-            font-size: 11px;
-            color: #bba15c;
+        .card-btn {
+            color: #ff9f43;
             text-decoration: none;
             font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            font-size: 14px;
             display: flex;
             align-items: center;
             gap: 5px;
-            transition: color 0.3s;
         }
+        .card-btn:hover { text-decoration: underline; }
 
-        .card-link:hover {
-            color: #ffffff;
-        }
+        /* REHBER DETAY TABLOSU */
+        .table-section { background-color: #141820; padding: 40px; border-radius: 8px; border: 1px solid #1e2530; margin-top: 50px; }
+        .table-section h3 { font-family: 'Poppins', sans-serif; font-size: 24px; color: #ffffff; margin-bottom: 20px; }
+        
+        table { width: 100%; border-collapse: collapse; text-align: left; margin-top: 15px; }
+        th { background-color: #1e2530; color: #ff9f43; padding: 15px; font-weight: 700; }
+        td { padding: 15px; border-bottom: 1px solid #1e2530; color: #cbd5e1; font-weight: 600; }
+        tr:hover td { background-color: rgba(255,255,255,0.02); }
 
-        /* ELITE HARDWARE BANNER DETAYI */
-        .hardware-showcase {
-            background: linear-gradient(to right, #090909 40%, rgba(9,9,9,0.2) 100%), url('hardware.jpg') no-repeat center center;
-            background-size: cover;
-            border: 1px solid #161616;
-            border-radius: 4px;
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-top: 40px;
-        }
-
-        .hw-title {
-            font-family: 'Cinzel', serif;
-            font-size: 28px;
-            color: #fff;
-            margin-bottom: 15px;
-        }
-
-        .hw-title span { color: #bba15c; }
-
-        .hw-desc {
-            font-size: 13px;
-            color: #888888;
-            max-width: 500px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        /* FOOTER DEKORASYON */
-        footer {
-            background: #040404;
-            padding: 50px 60px;
-            border-top: 1px solid rgba(187, 161, 92, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-logo {
-            font-family: 'Cinzel', serif;
-            font-size: 18px;
-            color: #ffffff;
-            letter-spacing: 1px;
-        }
-
-        .footer-logo span { color: #bba15c; }
-
-        footer p {
-            font-size: 11px;
-            color: #444444;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
+        /* FOOTER */
+        footer { background-color: #090b0e; padding: 30px 0; border-top: 1px solid #141820; margin-top: 60px; text-align: center; }
+        footer p { color: #718096; font-size: 14px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-
-        <!-- HEADER NAV -->
-        <header>
-            <div class="logo-area">
-                <div class="logo-text">ELITE<span>GCLUB</span></div>
-            </div>
+    <!-- MENÜ -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">RANCH<span>TR</span></div>
             <nav>
-                <a href="#home" class="active">KULÜP</a>
-                <a href="#games">PREMIUM OYUNLAR</a>
-                <a href="#hardware">ELITE HARDWARE</a>
-                <a href="#lifestyle">LIFESTYLE</a>
+                <a href="#home" class="active">Ana Sayfa</a>
+                <a href="#guides">Rehberler</a>
+                <a href="#market">Fiyat Listesi</a>
             </nav>
-            <a href="#" class="vip-badge">VIP PORTAL</a>
-        </header>
+        </div>
+    </header>
 
-        <!-- HERO SECTION -->
-        <section class="hero" id="home">
-            <div class="hero-tag">Sadece En İyiler İçin</div>
-            <h1 class="hero-title">Oyun Dünyasının Üst Segment Deneyimi</h1>
-            <p class="hero-desc">
-                Sıradan platformları geride bırakın. En yüksek FPS optimizasyonları, yeni nesil donanım analizleri ve en prestijli oyun dünyalarına dair elit strateji rehberleri tek bir çatı altında toplandı.
-            </p>
-        </section>
+    <!-- HERO BANNER -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Ranch Simulator <span>Hayallerini Büyüt</span></h1>
+            <p>Vahşi doğada kendi çiftliğini sıfırdan kur, devasa hayvancılık ekonomisini yönet ve en hızlı para kazanma yollarını keşfet!</p>
+            <a href="#guides" class="btn-main">Taktikleri İncele</a>
+        </div>
+    </section>
 
-        <!-- PREMIUM GAMES HUB -->
-        <section class="section-padding" id="games">
-            <div class="section-header">
-                <h2>PREMIUM <span>OYUN HUB'I</span></h2>
-                <p>En Çok Konuşulan, En Çok Tercih Edilen Dünyalar</p>
-            </div>
-
-            <div class="grid-premium">
-                
-                <!-- CARD 1: PUBG MOBILE -->
-                <div class="premium-card">
-                    <div class="card-img-holder">
-                        <img src="pubg.jpg" alt="PUBG Mobile Premium">
-                        <span class="card-overlay-tag">90/120 FPS</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>PUBG Mobile Elite Arena</h3>
-                        <p>Profesyonel espor ayarları, hassasiyet kodları ve cihazınızdan maksimum kare hızını alabilmeniz için özel hazırlanan gizli config taktikleri.</p>
-                        <a href="#" class="card-link">İncele →</a>
-                    </div>
-                </div>
-
-                <!-- CARD 2: RANCH SIMULATOR -->
-                <div class="premium-card">
-                    <div class="card-img-holder">
-                        <img src="ranch.jpg" alt="Ranch Simulator Profit">
-                        <span class="card-overlay-tag">EKONOMİ</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>Ranch Simulator Finans</h3>
-                        <p>Çiftlik imparatorluğunuzu kurarken en hızlı nakit akışını sağlayan peynir, et ve entegre tarım döngülerinin matematiksel analizleri.</p>
-                        <a href="#" class="card-link">İncele →</a>
-                    </div>
-                </div>
-
-                <!-- CARD 3: RANCH SIMULATOR MAP -->
-                <div class="premium-card">
-                    <div class="card-img-holder">
-                        <img src="hero-bg.jpg" alt="Sandbox Open World">
-                        <span class="card-overlay-tag">KEŞİF</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>Açık Dünya & Sandbox</h3>
-                        <p>Büyük haritalardaki gizli ticaret noktaları, avcılık rotaları, burger restoranı teslimatları ve en karlı lojistik yolları.</p>
-                        <a href="#" class="card-link">İncele →</a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- HARDWARE ZONE -->
-        <section class="section-padding" id="hardware" style="background: #050505;">
-            <div class="section-header">
-                <h2>ELITE <span>HARDWARE LAB</span></h2>
-                <p>Ultra Performanslı Parçalar ve Canavar Sistemler</p>
-            </div>
-
-            <div class="hardware-showcase">
-                <h3 class="hw-title">Sınırları Zorlayan <span>Donanım Gücü</span></h3>
-                <p class="hw-desc">
-                    Yeni nesil mimarilerle darboğazları tamamen ortadan kaldırın. Geleceğin teknolojileri, ultra yüksek grafik ayarları için güç kaynakları ve bileşen uyumluluk testleri bu köşede buluşuyor.
-                </p>
-                <a href="#" class="vip-badge" style="max-width: 220px; text-align: center;">DONANIMLARI GÖR</a>
-            </div>
-        </section>
-
-        <!-- LIFESTYLE SEKTÖRÜ -->
-        <section class="section-padding" id="lifestyle">
-            <div class="section-header">
-                <h2>ACTION & <span>URBAN LIFESTYLE</span></h2>
-                <p>Oyunun Ötesinde: Sokak Kültürü ve Akrobasi</p>
-            </div>
-
-            <div class="grid-premium">
-                <div class="premium-card" style="grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr; align-items: center;">
-                    <div class="card-img-holder" style="height: 100%;">
-                        <img src="skate.jpg" alt="Urban Freeride">
-                    </div>
-                    <div class="card-body" style="padding: 40px;">
-                        <span class="card-badge" style="background: #111; color: #bba15c; padding: 5px 10px; font-size: 11px; font-weight: 700; border-radius: 3px;">FREERIDE</span>
-                        <h3 style="margin-top: 15px; font-family: 'Cinzel', serif; font-size: 26px;">Sokakların Nabzı</h3>
-                        <p style="margin-top: 15px;">Şehir içinde sınır tanımayanlar için Urban stil akrobasi mekanikleri, dayanıklı ekipman modifikasyonları ve en zorlu hareketlerin teknik püf noktaları.</p>
-                    </div>
+    <!-- REHBER KARTLARI -->
+    <div class="container main-content" id="guides">
+        <h2 class="section-title">En Popüler Rehberler</h2>
+        
+        <div class="guide-grid">
+            <!-- KART 1: EKONOMİ -->
+            <div class="guide-card">
+                <img src="ranch.jpg" alt="Ranch Simulator Ekonomisi" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">Ekonomi</span>
+                    <h3>Peynir Üretim Döngüsü</h3>
+                    <p>İnek sütlerini küflü ve beyaz peynire dönüştürerek burger restoranına satmanın, en yüksek kazanç çarpanlarını yakalamanın matematiksel detayları.</p>
+                    <a href="#" class="card-btn">Devamını Oku →</a>
                 </div>
             </div>
-        </section>
 
-        <!-- FOOTER -->
-        <footer>
-            <div class="footer-logo">ELITE<span>GCLUB</span></div>
-            <p>© 2026 Premium Gaming Collective. Tüm Hakları Saklıdır.</p>
-        </footer>
+            <!-- KART 2: HARİTA -->
+            <div class="guide-card">
+                <img src="hero-bg.jpg" alt="Ranch Simulator Haritası" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">Keşif</span>
+                    <h3>Gizli Avcılık Rotaları</h3>
+                    <p>Haritadaki ayı, geyik ve kurt bölgelerini öğrenerek av eti ticaretinden ilk günlerde hızlıca sermaye biriktirme yolları.</p>
+                    <a href="#" class="card-btn">Devamını Oku →</a>
+                </div>
+            </div>
 
+            <!-- KART 3: GÜNCELLEME -->
+            <div class="guide-card">
+                <img src="hardware.jpg" alt="Ranch Simulator PC Donanım" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">Performans</span>
+                    <h3>PC Optimizasyon Ayarları</h3>
+                    <p>Büyük çiftliklerde hayvan sayısı arttıkça düşen FPS sorununu çözmek, akıcı bir açık dünya deneyimi yaşamak için en güncel donanım ve grafik ayarları.</p>
+                    <a href="#" class="card-link card-btn">Devamını Oku →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- REHBER TABLOSU -->
+        <div class="table-section" id="market">
+            <h3>Güncel Ürün Ticaret Kazançları</h3>
+            <p style="color: #a0aec0; font-size: 14px; margin-bottom: 15px;">Burger restoranı ve hırdavatçıda en çok kar ettiren ana kalemler:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ürün Adı</th>
+                        <th>Üretim Türü</th>
+                        <th>Ortalama Satış Fiyatı</th>
+                        <th>Kar Seviyesi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Küflü Peynir (Premium)</td>
+                        <td>Mandıracılık</td>
+                        <td>Yüksek Fiyat</td>
+                        <td style="color: #2ed573;">★★★★★</td>
+                    </tr>
+                    <tr>
+                        <td>Domuz Eti</td>
+                        <td>Hayvancılık</td>
+                        <td>Yüksek Fiyat</td>
+                        <td style="color: #2ed573;">★★★★☆</td>
+                    </tr>
+                    <tr>
+                        <td>Beyaz Peynir</td>
+                        <td>Mandıracılık</td>
+                        <td>Orta Fiyat</td>
+                        <td style="color: #ffa502;">★★★☆☆</td>
+                    </tr>
+                    <tr>
+                        <td>Geyik Eti</td>
+                        <td>Avcılık</td>
+                        <td>Hızlı Nakit</td>
+                        <td style="color: #ffa502;">★★★☆☆</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Ranch Simulator Türkiye Fan Topluluğu. Tüm Hakları Saklıdır.</p>
+    </footer>
 
 </body>
 </html>
