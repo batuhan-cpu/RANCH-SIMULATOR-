@@ -98,7 +98,7 @@
         .hero {
             height: 75vh;
             background: linear-gradient(to top, #070707 5%, rgba(7,7,7,0.3) 60%, rgba(7,7,7,0.8) 100%), 
-                        url('https://images.alphacoders.com/943/943138.jpg') no-repeat center center;
+                        url('https://cdn2.unrealengine.com/rdr2-2560x1440-410705461.jpg') no-repeat center center;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -118,8 +118,8 @@
         .section-header h2 span { color: #bba15c; }
         .section-header p { font-size: 13px; color: #555555; margin-top: 5px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
 
-        /* YENİ PREMIUM OYUNLAR SEKTÖRÜ (4 KOLONLU ŞIK GRID) */
-        .grid-games { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        /* YENİ PREMIUM OYUNLAR SEKTÖRÜ (5 KOLONLU ŞIK GRID) */
+        .grid-games { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
         .grid-premium { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 
         .premium-card {
@@ -138,7 +138,7 @@
 
         .card-img-holder {
             width: 100%;
-            height: 240px;
+            height: 260px; /* Dikey lansman afişleri için ideal yükseklik */
             overflow: hidden;
             position: relative;
             background: #111;
@@ -165,9 +165,9 @@
             border-radius: 2px;
         }
 
-        .card-body { padding: 25px; }
-        .card-body h3 { font-size: 18px; color: #ffffff; margin-bottom: 12px; font-weight: 700; letter-spacing: 0.5px; }
-        .card-body p { font-size: 12px; color: #888888; line-height: 1.6; margin-bottom: 20px; font-weight: 400; }
+        .card-body { padding: 20px; }
+        .card-body h3 { font-size: 16px; color: #ffffff; margin-bottom: 10px; font-weight: 700; letter-spacing: 0.5px; }
+        .card-body p { font-size: 11px; color: #888888; line-height: 1.6; margin-bottom: 15px; font-weight: 400; }
 
         .card-link {
             font-size: 11px;
@@ -186,7 +186,7 @@
         /* HARDWARE ZONE */
         .hardware-showcase {
             background: linear-gradient(to right, #090909 40%, rgba(9,9,9,0.2) 100%), 
-                        url('https://images.alphacoders.com/134/1344602.png') no-repeat center center;
+                        url('https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1798010/page_bg_raw.jpg') no-repeat center center;
             background-size: cover;
             border: 1px solid #161616;
             border-radius: 4px;
@@ -219,6 +219,7 @@
 
     <div class="container">
 
+        <!-- HEADER NAV -->
         <header>
             <div class="logo-area">
                 <div class="logo-text">ELITE<span>GCLUB</span></div>
@@ -233,6 +234,7 @@
             <a href="#" class="vip-badge">VIP PORTAL</a>
         </header>
 
+        <!-- HERO SECTION (RDR2 KAPAK RESMİ) -->
         <section class="hero" id="home">
             <div class="hero-tag">Sadece En İyiler İçin</div>
             <h1 class="hero-title">Oyun Dünyasının Üst Segment Deneyimi</h1>
@@ -241,6 +243,7 @@
             </p>
         </section>
 
+        <!-- PREMIUM OYUNLAR SEKTÖRÜ (GERÇEK BUFF GÖRSELLER) -->
         <section class="section-padding" id="premium-games" style="background: #050505; border-bottom: 1px solid #111;">
             <div class="section-header">
                 <h2>PREMIUM <span>OYUN ARŞİVİ</span></h2>
@@ -249,62 +252,67 @@
 
             <div class="grid-games">
                 
+                <!-- OYUN 1: RDR2 RESMİ DIKEY KAPAK -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.alphacoders.com/917/917810.jpg" alt="Red Dead Redemption 2">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/library_600x900_2x.jpg" alt="Red Dead Redemption 2">
                         <span class="card-overlay-tag">AAA</span>
                     </div>
                     <div class="card-body">
                         <h3>Red Dead Redemption 2</h3>
-                        <p>Vahşi batının son dönemlerinde geçen, ultra gerçekçi grafikler ve açık dünya mekanikleri ile sınırları zorlayan başyapıt.</p>
+                        <p>Vahşi batının son dönemlerinde geçen ultra gerçekçi başyapıt.</p>
                         <a href="#" class="card-link">İncele →</a>
                     </div>
                 </div>
 
+                <!-- OYUN 2: GTA 5 RESMİ DIKEY KAPAK -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.alphacoders.com/441/441711.jpg" alt="GTA 5">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/library_600x900_2x.jpg" alt="GTA 5">
                         <span class="card-overlay-tag">AKSİYON</span>
                     </div>
                     <div class="card-body">
                         <h3>Grand Theft Auto V</h3>
-                        <p>Los Santos sokaklarında geçen, bitmeyen aksiyonu ve devasa online moduyla PC dünyasının eskimeyen lideri.</p>
+                        <p>Los Santos sokaklarında bitmeyen aksiyonuyla PC dünyasının lideri.</p>
                         <a href="#" class="card-link">İncele →</a>
                     </div>
                 </div>
 
+                <!-- OYUN 3: GOD OF WAR RAGNAROK DIKEY KAPAK -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.alphacoders.com/128/1288636.jpg" alt="God of War Ragnarök">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/library_600x900_2x.jpg" alt="God of War Ragnarök">
                         <span class="card-overlay-tag">MİTOLOJİ</span>
                     </div>
                     <div class="card-body">
                         <h3>God of War Ragnarök</h3>
-                        <p>Kratos ve Atreus'un İskandinav mitolojisindeki kıyamet savaşını konu alan, muazzam dövüş hissiyatlı yeni nesil PC deneyimi.</p>
+                        <p>Kratos ve Atreus'un İskandinav mitolojisindeki kıyamet savaşı.</p>
                         <a href="#" class="card-link">İncele →</a>
                     </div>
                 </div>
 
+                <!-- OYUN 4: RESIDENT EVIL 4 REMAKE DIKEY KAPAK -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.alphacoders.com/100/1004664.jpg" alt="Resident Evil">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/library_600x900_2x.jpg" alt="Resident Evil 4">
                         <span class="card-overlay-tag">KORKU</span>
                     </div>
                     <div class="card-body">
-                        <h3>Resident Evil Serisi</h3>
-                        <p>RE Engine motorunun gücüyle yeniden doğan hayatta kalma-korku klasiği. En derin analizler ve bulmaca çözümleri.</p>
+                        <h3>Resident Evil 4</h3>
+                        <p>RE Engine motorunun gücüyle yeniden doğan hayatta kalma klasiği.</p>
                         <a href="#" class="card-link">İncele →</a>
                     </div>
                 </div>
 
+                <!-- OYUN 5: SHADOW OF THE TOMB RAIDER DIKEY KAPAK -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.alphacoders.com/605/605658.jpg" alt="Tomb Raider">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/750920/library_600x900_2x.jpg" alt="Tomb Raider">
                         <span class="card-overlay-tag">MACERA</span>
                     </div>
                     <div class="card-body">
                         <h3>Tomb Raider</h3>
-                        <p>Lara Croft ile antik mezarlıkları, tehlikeli tapınakları keşfettiğimiz, sinematik aksiyonu en üst düzeyde yaşatan efsane seri.</p>
+                        <p>Lara Croft ile sinematik aksiyonu en üst düzeyde yaşatan efsane seri.</p>
                         <a href="#" class="card-link">İncele →</a>
                     </div>
                 </div>
@@ -312,6 +320,7 @@
             </div>
         </section>
 
+        <!-- GENEL KATEGORİ HUB (YÜKLENEN RESİMLER) -->
         <section class="section-padding" id="hubs">
             <div class="section-header">
                 <h2>GENEL KULÜP <span>PORTALI</span></h2>
@@ -319,44 +328,48 @@
             </div>
 
             <div class="grid-premium">
+                <!-- RANCH SIMULATOR YERİNE STEAM SEED GÖRSELİ -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.alphacoders.com/112/1121010.jpg" alt="Ranch Simulator Profit">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1119730/header.jpg" alt="Ranch Simulator">
                         <span class="card-overlay-tag">EKONOMİ</span>
                     </div>
                     <div class="card-body">
                         <h3>Ranch Simulator Finans</h3>
-                        <p>Çiftlik imparatorluğunuzu kurarken en hızlı nakit akışını sağlayan peynir, et ve entegre tarım döngülerinin matematiksel analizleri.</p>
+                        <p>Çiftlik imparatorluğunuzu kurarken en hızlı nakit akışını sağlayan üretim döngüleri.</p>
                         <a href="#" class="card-link">İncele →</a>
                     </div>
                 </div>
 
+                <!-- PUBG MOBILE / ATILIM GÖRSELİ -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images2.alphacoders.com/902/902781.jpg" alt="PUBG Mobile">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1323470/header.jpg" alt="PUBG PC/Mobile">
                         <span class="card-overlay-tag">MOBİL</span>
                     </div>
                     <div class="card-body">
                         <h3>PUBG Mobile Arena</h3>
-                        <p>Cihaz sınırlarını zorlayan 120 FPS akıcılık ayarları, en net ses kasma equalizer frekansları ve hassasiyet kodları.</p>
+                        <p>Cihaz sınırlarını zorlayan 120 FPS akıcılık ayarları ve ses kasma frekansları.</p>
                         <a href="#" class="card-link">İncele →</a>
                     </div>
                 </div>
 
+                <!-- CYBERPUNK AÇIK DÜNYA SEÇENEĞİ -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.alphacoders.com/129/1290616.jpg" alt="Sandbox Open World">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077">
                         <span class="card-overlay-tag">KEŞİF</span>
                     </div>
                     <div class="card-body">
-                        <h3>Açık Dünya PC Simülasyonları</h3>
-                        <p>Büyük haritalardaki gizli ticaret noktaları, avcılık rotaları, burger restoranı teslimatları ve en karlı lojistik yolları.</p>
+                        <h3>Açık Dünya Simülasyonları</h3>
+                        <p>Büyük haritalardaki gizli ticaret noktaları ve en karlı lojistik yolları.</p>
                         <a href="#" class="card-link">İncele →</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- HARDWARE ZONE -->
         <section class="section-padding" id="hardware" style="background: #050505;">
             <div class="section-header">
                 <h2>ELITE <span>HARDWARE LAB</span></h2>
@@ -366,12 +379,13 @@
             <div class="hardware-showcase">
                 <h3 class="hw-title">Sınırları Zorlayan <span>Donanım Gücü</span></h3>
                 <p class="hw-desc">
-                    Yeni nesil mimarilerle darboğazları tamamen ortadan kaldırın. Geleceğin teknolojileri, ultra yüksek grafik ayarları için güç kaynakları ve bileşen uyumluluk testleri bu köşede buluşuyor.
+                    Yeni nesil mimarilerle darboğazları tamamen ortadan kaldırın. Geleceğin işlemci ve ekran kartı teknolojileri için en optimum parça uyumluluk testleri.
                 </p>
                 <a href="#" class="vip-badge" style="max-width: 220px; text-align: center;">DONANIMLARI GÖR</a>
             </div>
         </section>
 
+        <!-- LIFESTYLE SEKTÖRÜ -->
         <section class="section-padding" id="lifestyle">
             <div class="section-header">
                 <h2>ACTION & <span>URBAN LIFESTYLE</span></h2>
@@ -381,17 +395,18 @@
             <div class="grid-premium">
                 <div class="premium-card" style="grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr; align-items: center;">
                     <div class="card-img-holder" style="height: 100%;">
-                        <img src="https://images3.alphacoders.com/109/1091380.jpg" alt="Urban Freeride">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1271710/header.jpg" alt="Urban Action">
                     </div>
                     <div class="card-body" style="padding: 40px;">
                         <span class="card-badge" style="background: #111; color: #bba15c; padding: 5px 10px; font-size: 11px; font-weight: 700; border-radius: 3px;">FREERIDE</span>
                         <h3 style="margin-top: 15px; font-family: 'Cinzel', serif; font-size: 26px;">Sokakların Nabzı</h3>
-                        <p style="margin-top: 15px;">Şehir içinde sınır tanımayanlar için Urban stil akrobasi mekanikleri, dayanıklı ekipman modifikasyonları ve en zorlu hareketlerin teknik püf noktaları.</p>
+                        <p style="margin-top: 15px;">Şehir içinde sınır tanımayanlar için Urban stil akrobasi mekanikleri, dayanıklı ekipman modifikasyonları ve en zorlu hareketlerin püf noktaları.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- FOOTER -->
         <footer>
             <div class="footer-logo">ELITE<span>GCLUB</span></div>
             <p>© 2026 Premium Gaming Collective. Tüm Hakları Saklıdır.</p>
