@@ -42,12 +42,7 @@
             z-index: 1000;
         }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
+        .logo-area { display: flex; align-items: center; gap: 10px; }
         .logo-text {
             font-family: 'Cinzel', serif;
             font-size: 24px;
@@ -55,18 +50,9 @@
             color: #ffffff;
             letter-spacing: 2px;
         }
+        .logo-text span { color: #bba15c; text-shadow: 0 0 10px rgba(187, 161, 92, 0.3); }
 
-        .logo-text span {
-            color: #bba15c;
-            text-shadow: 0 0 10px rgba(187, 161, 92, 0.3);
-        }
-
-        nav {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-
+        nav { display: flex; gap: 35px; list-style: none; }
         nav a {
             color: #999999;
             text-decoration: none;
@@ -78,11 +64,7 @@
             position: relative;
             padding: 5px 0;
         }
-
-        nav a:hover, nav a.active {
-            color: #bba15c;
-        }
-
+        nav a:hover, nav a.active { color: #bba15c; }
         nav a::after {
             content: '';
             position: absolute;
@@ -93,10 +75,7 @@
             background: #bba15c;
             transition: width 0.3s ease;
         }
-
-        nav a:hover::after {
-            width: 100%;
-        }
+        nav a:hover::after { width: 100%; }
 
         .vip-badge {
             border: 1px solid #bba15c;
@@ -109,7 +88,6 @@
             text-decoration: none;
             transition: background 0.3s, color 0.3s;
         }
-
         .vip-badge:hover {
             background: #bba15c;
             color: #030303;
@@ -119,8 +97,8 @@
         /* HERO PREMIUM BANNER */
         .hero {
             height: 75vh;
-            background: linear-gradient(to top, #070707 5%, rgba(7,7,7,0.4) 60%, rgba(7,7,7,0.8) 100%), 
-                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1920') no-repeat center center;
+            background: linear-gradient(to top, #070707 5%, rgba(7,7,7,0.3) 60%, rgba(7,7,7,0.8) 100%), 
+                        url('https://images.alphacoders.com/943/943138.jpg') no-repeat center center;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -129,75 +107,20 @@
             border-bottom: 1px solid rgba(255,255,255,0.02);
         }
 
-        .hero-tag {
-            font-size: 12px;
-            font-weight: 800;
-            color: #bba15c;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        .hero-title {
-            font-family: 'Cinzel', serif;
-            font-size: 64px;
-            color: #ffffff;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            max-width: 800px;
-        }
-
-        .hero-desc {
-            font-size: 14px;
-            color: #aaaaaa;
-            max-width: 550px;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
+        .hero-tag { font-size: 12px; font-weight: 800; color: #bba15c; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px; }
+        .hero-title { font-family: 'Cinzel', serif; font-size: 64px; color: #ffffff; line-height: 1.1; margin-bottom: 25px; max-width: 800px; }
+        .hero-desc { font-size: 14px; color: #aaaaaa; max-width: 550px; line-height: 1.8; margin-bottom: 40px; font-weight: 300; }
 
         /* SECTION STYLES */
-        .section-padding {
-            padding: 90px 60px;
-        }
+        .section-padding { padding: 90px 60px; }
+        .section-header { margin-bottom: 50px; position: relative; }
+        .section-header h2 { font-family: 'Cinzel', serif; font-size: 36px; color: #ffffff; letter-spacing: 1px; }
+        .section-header h2 span { color: #bba15c; }
+        .section-header p { font-size: 13px; color: #555555; margin-top: 5px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
 
-        .section-header {
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .section-header h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 36px;
-            color: #ffffff;
-            letter-spacing: 1px;
-        }
-
-        .section-header h2 span {
-            color: #bba15c;
-        }
-
-        .section-header p {
-            font-size: 13px;
-            color: #555555;
-            margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-
-        .grid-premium {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        /* YENİ PREMIUM OYUNLAR SEKTÖRÜ (GÖRSEL ODAKLI GRID) */
-        .grid-games {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
+        /* YENİ PREMIUM OYUNLAR SEKTÖRÜ (4 KOLONLU ŞIK GRID) */
+        .grid-games { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .grid-premium { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 
         .premium-card {
             background: #0c0c0c;
@@ -207,7 +130,6 @@
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
         }
-
         .premium-card:hover {
             transform: translateY(-8px);
             border-color: #bba15c;
@@ -216,22 +138,18 @@
 
         .card-img-holder {
             width: 100%;
-            height: 220px;
+            height: 240px;
             overflow: hidden;
             position: relative;
             background: #111;
         }
-
         .card-img-holder img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
         }
-
-        .premium-card:hover .card-img-holder img {
-            transform: scale(1.05);
-        }
+        .premium-card:hover .card-img-holder img { transform: scale(1.05); }
 
         .card-overlay-tag {
             position: absolute;
@@ -247,25 +165,9 @@
             border-radius: 2px;
         }
 
-        .card-body {
-            padding: 25px;
-        }
-
-        .card-body h3 {
-            font-size: 18px;
-            color: #ffffff;
-            margin-bottom: 12px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .card-body p {
-            font-size: 12px;
-            color: #888888;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
+        .card-body { padding: 25px; }
+        .card-body h3 { font-size: 18px; color: #ffffff; margin-bottom: 12px; font-weight: 700; letter-spacing: 0.5px; }
+        .card-body p { font-size: 12px; color: #888888; line-height: 1.6; margin-bottom: 20px; font-weight: 400; }
 
         .card-link {
             font-size: 11px;
@@ -279,15 +181,12 @@
             gap: 5px;
             transition: color 0.3s;
         }
-
-        .card-link:hover {
-            color: #ffffff;
-        }
+        .card-link:hover { color: #ffffff; }
 
         /* HARDWARE ZONE */
         .hardware-showcase {
             background: linear-gradient(to right, #090909 40%, rgba(9,9,9,0.2) 100%), 
-                        url('https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1200') no-repeat center center;
+                        url('https://images.alphacoders.com/134/1344602.png') no-repeat center center;
             background-size: cover;
             border: 1px solid #161616;
             border-radius: 4px;
@@ -298,22 +197,9 @@
             margin-top: 40px;
         }
 
-        .hw-title {
-            font-family: 'Cinzel', serif;
-            font-size: 28px;
-            color: #fff;
-            margin-bottom: 15px;
-        }
-
+        .hw-title { font-family: 'Cinzel', serif; font-size: 28px; color: #fff; margin-bottom: 15px; }
         .hw-title span { color: #bba15c; }
-
-        .hw-desc {
-            font-size: 13px;
-            color: #888888;
-            max-width: 500px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
+        .hw-desc { font-size: 13px; color: #888888; max-width: 500px; line-height: 1.7; margin-bottom: 25px; }
 
         /* FOOTER DEKORASYON */
         footer {
@@ -324,29 +210,15 @@
             justify-content: space-between;
             align-items: center;
         }
-
-        .footer-logo {
-            font-family: 'Cinzel', serif;
-            font-size: 18px;
-            color: #ffffff;
-            letter-spacing: 1px;
-        }
-
+        .footer-logo { font-family: 'Cinzel', serif; font-size: 18px; color: #ffffff; letter-spacing: 1px; }
         .footer-logo span { color: #bba15c; }
-
-        footer p {
-            font-size: 11px;
-            color: #444444;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
+        footer p { font-size: 11px; color: #444444; font-weight: 600; letter-spacing: 0.5px; }
     </style>
 </head>
 <body>
 
     <div class="container">
 
-        <!-- HEADER NAV -->
         <header>
             <div class="logo-area">
                 <div class="logo-text">ELITE<span>GCLUB</span></div>
@@ -361,7 +233,6 @@
             <a href="#" class="vip-badge">VIP PORTAL</a>
         </header>
 
-        <!-- HERO SECTION -->
         <section class="hero" id="home">
             <div class="hero-tag">Sadece En İyiler İçin</div>
             <h1 class="hero-title">Oyun Dünyasının Üst Segment Deneyimi</h1>
@@ -370,19 +241,17 @@
             </p>
         </section>
 
-        <!-- HARİCİ BÖLÜM: PREMIUM OYUNLAR SEKTÖRÜ (GÖRSELLER DOĞRUDAN LİNKLENDİ) -->
         <section class="section-padding" id="premium-games" style="background: #050505; border-bottom: 1px solid #111;">
             <div class="section-header">
                 <h2>PREMIUM <span>OYUN ARŞİVİ</span></h2>
-                <p>Sınırları Zorlayan Grafik Ve Hikayeler (Lansman Görselleriyle)</p>
+                <p>Sınırları Zorlayan Grafik Ve Hikayeler (Orijinal Afişler)</p>
             </div>
 
             <div class="grid-games">
                 
-                <!-- OYUN 1: RDR2 -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?q=80&w=600" alt="Red Dead Redemption 2">
+                        <img src="https://images.alphacoders.com/917/917810.jpg" alt="Red Dead Redemption 2">
                         <span class="card-overlay-tag">AAA</span>
                     </div>
                     <div class="card-body">
@@ -392,10 +261,9 @@
                     </div>
                 </div>
 
-                <!-- OYUN 2: GTA 5 -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600" alt="GTA 5">
+                        <img src="https://images.alphacoders.com/441/441711.jpg" alt="GTA 5">
                         <span class="card-overlay-tag">AKSİYON</span>
                     </div>
                     <div class="card-body">
@@ -405,10 +273,9 @@
                     </div>
                 </div>
 
-                <!-- OYUN 3: GOD OF WAR RAGNAROK -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?q=80&w=600" alt="God of War Ragnarök">
+                        <img src="https://images.alphacoders.com/128/1288636.jpg" alt="God of War Ragnarök">
                         <span class="card-overlay-tag">MİTOLOJİ</span>
                     </div>
                     <div class="card-body">
@@ -418,10 +285,9 @@
                     </div>
                 </div>
 
-                <!-- OYUN 4: RESIDENT EVIL SERISI -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=600" alt="Resident Evil">
+                        <img src="https://images.alphacoders.com/100/1004664.jpg" alt="Resident Evil">
                         <span class="card-overlay-tag">KORKU</span>
                     </div>
                     <div class="card-body">
@@ -431,10 +297,9 @@
                     </div>
                 </div>
 
-                <!-- OYUN 5: TOMB RAIDER -->
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600" alt="Tomb Raider">
+                        <img src="https://images.alphacoders.com/605/605658.jpg" alt="Tomb Raider">
                         <span class="card-overlay-tag">MACERA</span>
                     </div>
                     <div class="card-body">
@@ -447,7 +312,6 @@
             </div>
         </section>
 
-        <!-- GENEL KATEGORİ HUB -->
         <section class="section-padding" id="hubs">
             <div class="section-header">
                 <h2>GENEL KULÜP <span>PORTALI</span></h2>
@@ -457,7 +321,7 @@
             <div class="grid-premium">
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?q=80&w=600" alt="Ranch Simulator Profit">
+                        <img src="https://images.alphacoders.com/112/1121010.jpg" alt="Ranch Simulator Profit">
                         <span class="card-overlay-tag">EKONOMİ</span>
                     </div>
                     <div class="card-body">
@@ -469,7 +333,7 @@
 
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600" alt="PUBG Mobile">
+                        <img src="https://images2.alphacoders.com/902/902781.jpg" alt="PUBG Mobile">
                         <span class="card-overlay-tag">MOBİL</span>
                     </div>
                     <div class="card-body">
@@ -481,7 +345,7 @@
 
                 <div class="premium-card">
                     <div class="card-img-holder">
-                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600" alt="Sandbox Open World">
+                        <img src="https://images.alphacoders.com/129/1290616.jpg" alt="Sandbox Open World">
                         <span class="card-overlay-tag">KEŞİF</span>
                     </div>
                     <div class="card-body">
@@ -493,7 +357,6 @@
             </div>
         </section>
 
-        <!-- HARDWARE ZONE -->
         <section class="section-padding" id="hardware" style="background: #050505;">
             <div class="section-header">
                 <h2>ELITE <span>HARDWARE LAB</span></h2>
@@ -509,7 +372,6 @@
             </div>
         </section>
 
-        <!-- LIFESTYLE SEKTÖRÜ -->
         <section class="section-padding" id="lifestyle">
             <div class="section-header">
                 <h2>ACTION & <span>URBAN LIFESTYLE</span></h2>
@@ -519,7 +381,7 @@
             <div class="grid-premium">
                 <div class="premium-card" style="grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr; align-items: center;">
                     <div class="card-img-holder" style="height: 100%;">
-                        <img src="https://images.unsplash.com/photo-1564982024251-d92c90414772?q=80&w=800" alt="Urban Freeride">
+                        <img src="https://images3.alphacoders.com/109/1091380.jpg" alt="Urban Freeride">
                     </div>
                     <div class="card-body" style="padding: 40px;">
                         <span class="card-badge" style="background: #111; color: #bba15c; padding: 5px 10px; font-size: 11px; font-weight: 700; border-radius: 3px;">FREERIDE</span>
@@ -530,7 +392,6 @@
             </div>
         </section>
 
-        <!-- FOOTER -->
         <footer>
             <div class="footer-logo">ELITE<span>GCLUB</span></div>
             <p>© 2026 Premium Gaming Collective. Tüm Hakları Saklıdır.</p>
