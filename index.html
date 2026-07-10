@@ -350,3 +350,134 @@
                         <span class="card-overlay-tag" style="background:#bba15c; color:#000;">BEKLENEN</span>
                     </div>
                     <div class="card-body">
+                        <h3 style="color: #bba15c;">Grand Theft Auto VI</h3>
+                        <p>Vice City'e geri dönüyoruz. Oyun dünyasının en büyük lansmanı.</p>
+                        
+                        <div class="countdown-container">
+                            <div class="countdown-title">Çıkışa Kalan Süre</div>
+                            <div class="countdown-timer" id="gta-timer">Yükleniyor...</div>
+                        </div>
+                        <a href="#" class="card-link">Detaylar →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section-padding" id="hubs">
+            <div class="section-header">
+                <h2>GENEL KULÜP <span>PORTALI</span></h2>
+                <p>Simülasyon, Donanım Ve Mekanik Dünyası</p>
+            </div>
+
+            <div class="grid-premium">
+                <div class="premium-card">
+                    <div class="card-img-holder">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1119730/header.jpg" alt="Ranch Simulator">
+                        <span class="card-overlay-tag">EKONOMİ</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Ranch Simulator Finans</h3>
+                        <p>Çiftlik imparatorluğunuzu kurarken en hızlı nakit akışını sağlayan peynir ve et üretim döngüleri.</p>
+                        <a href="#" class="card-link">İncele →</a>
+                    </div>
+                </div>
+
+                <div class="premium-card">
+                    <div class="card-img-holder">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244210/header.jpg" alt="Assetto Corsa">
+                        <span class="card-overlay-tag">SİMÜLASYON</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Yarış ve Otomobil Lab</h3>
+                        <p>Pistlerin tozunu yutmak isteyenler için direksiyon setleri, ultra gerçekçi fizik ayarları ve modifikasyon rehberleri.</p>
+                        <a href="#" class="card-link">İncele →</a>
+                    </div>
+                </div>
+
+                <div class="premium-card">
+                    <div class="card-img-holder">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077">
+                        <span class="card-overlay-tag">KEŞİF</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Açık Dünya PC Deneyimleri</h3>
+                        <p>Büyük haritalardaki gizli görev yolları, ticaret rotaları ve grafik sınırlarını zorlayan ışın izleme teknolojileri.</p>
+                        <a href="#" class="card-link">İncele →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding" id="hardware" style="background: #050505;">
+            <div class="section-header">
+                <h2>ELITE <span>HARDWARE LAB</span></h2>
+                <p>Ultra Performanslı Parçalar ve Canavar Sistemler</p>
+            </div>
+
+            <div class="hardware-showcase">
+                <h3 class="hw-title">Sınırları Zorlayan <span>Donanım Gücü</span></h3>
+                <p class="hw-desc">
+                    Yeni nesil mimarilerle darboğazları tamamen ortadan kaldırın. Geleceğin işlemci ve ekran kartı teknolojileri için en optimum parça uyumluluk testleri.
+                </p>
+                <a href="#" class="vip-badge" style="max-width: 220px; text-align: center;">DONANIMLARI GÖR</a>
+            </div>
+        </section>
+
+        <section class="section-padding" id="lifestyle">
+            <div class="section-header">
+                <h2>ACTION & <span>URBAN LIFESTYLE</span></h2>
+                <p>Oyunun Ötesinde: Sokak Kültürü ve Akrobasi</p>
+            </div>
+
+            <div class="grid-premium">
+                <div class="premium-card" style="grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr; align-items: center;">
+                    <div class="card-img-holder" style="height: 100%;">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1271710/header.jpg" alt="Urban Action">
+                    </div>
+                    <div class="card-body" style="padding: 40px;">
+                        <span class="card-badge" style="background: #111; color: #bba15c; padding: 5px 10px; font-size: 11px; font-weight: 700; border-radius: 3px;">FREERIDE</span>
+                        <h3 style="margin-top: 15px; font-family: 'Cinzel', serif; font-size: 26px;">Sokakların Nabzı</h3>
+                        <p style="margin-top: 15px;">Şehir içinde sınır tanımayanlar için Urban stil akrobasi mekanikleri, dayanıklı ekipman modifikasyonları ve en zorlu hareketlerin teknik püf noktaları.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-logo">ELITE<span>GCLUB</span></div>
+            <p>© 2026 Premium Gaming Collective. Tüm Hakları Saklıdır.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Hedef Tarih: Sonbahar 2025/2026 planına göre stabil bir sayaç kuruldu (Değiştirilebilir)
+        const targetDate = new Date("December 31, 2026 00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference < 0) {
+                document.getElementById("gta-timer").innerHTML = "Lansman Başladı!";
+                return;
+            }
+
+            // Matematiksel Canlı Zaman Hesaplama
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // Ekrana Canlı Basma (Sayfa yenilense de kaldığı yerden akmaya devam eder)
+            document.getElementById("gta-timer").innerHTML = days + "g " + hours + "s " + minutes + "d " + seconds + "sn";
+        }
+
+        // Her 1 saniyede bir sayacı tetikle
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // İlk açılışta boş kalmasın diye hemen çalıştır
+    </script>
+
+</body>
+</html
