@@ -3,192 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ranch Simulator Türkçe Rehber & Fan Sitesi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Vanguard Gaming | Premium Oyun Rehberleri & Kültür Platformu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS RESET & TEMEL YAPI */
+        /* ELİT RENK PALETİ VE PREMIUM CSS YAPI */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
         html { scroll-behavior: smooth; }
         body { 
-            background-color: #050505; 
-            color: #bcbbba; 
+            background-color: #030303; 
+            color: #b3b3b3; 
             display: flex; 
             justify-content: center; 
             padding: 0;
             overflow-x: hidden;
+            letter-spacing: 0.5px;
         }
 
         .wrapper { 
             width: 100%; 
             max-width: 1440px; 
-            background: #0d0b09 linear-gradient(to bottom, rgba(13,11,9,0.5) 0%, rgba(5,5,5,0.98) 900px);
+            background: #070707 linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(3,3,3,1) 1200px);
             position: relative;
         }
 
-        /* ANA HERO ARKA PLANI */
+        /* PREMIUM HERO ARKA PLANI */
         .main-hero-bg {
-            background: linear-gradient(to right, rgba(13,11,9,0.95) 25%, rgba(13,11,9,0.4) 60%, rgba(13,11,9,0.1) 100%), 
-                        url('1000073821.jpg') no-repeat center center;
+            background: linear-gradient(to right, #030303 15%, rgba(3,3,3,0.6) 50%, rgba(3,3,3,0) 100%), 
+                        url('resim1.jpg') no-repeat center center;
             background-size: cover;
+            border-bottom: 1px solid rgba(215, 163, 61, 0.15);
         }
 
-        /* 1. ÜST NAVİGASYON BARI */
+        /* 1. LÜKS ÜST NAVİGASYON BARI */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 70px;
-            background: rgba(0,0,0,0.85);
-            border-bottom: 1px solid rgba(215, 163, 61, 0.2);
+            padding: 30px 80px;
+            background: rgba(3, 3, 3, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(215, 163, 61, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         
-        .logo-block { display: flex; flex-direction: column; align-items: center; line-height: 1; }
-        .logo-main { color: #ffffff; font-size: 22px; font-weight: 900; letter-spacing: -1px; font-family: 'Oswald', sans-serif; font-style: italic; }
-        .logo-sub { color: #d7a33d; font-size: 9px; letter-spacing: 3px; margin-top: 1px; font-weight: bold; }
+        .logo-block { display: flex; flex-direction: column; align-items: flex-start; line-height: 1; }
+        .logo-main { 
+            color: #ffffff; 
+            font-size: 26px; 
+            font-weight: 400; 
+            letter-spacing: 4px; 
+            font-family: 'Marcellus', serif; 
+            background: linear-gradient(135deg, #fff 0%, #d7a33d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo-sub { color: #8e8e8e; font-size: 9px; letter-spacing: 5px; margin-top: 5px; font-weight: 600; text-transform: uppercase; }
         
-        nav { display: flex; gap: 28px; list-style: none; }
-        nav a { color: #a1a09f; text-decoration: none; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
+        nav { display: flex; gap: 32px; list-style: none; }
+        nav a { 
+            color: #999; 
+            text-decoration: none; 
+            font-size: 12px; 
+            font-weight: 400; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: #d7a33d;
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after, nav a.active::after { width: 100%; }
         nav a:hover, nav a.active { color: #d7a33d; }
         
-        .header-right { display: flex; align-items: center; gap: 1px; }
-        .btn-nav-buy { 
-            background: #d7a33d; 
-            color: #110e0a; 
+        .btn-nav-gold { 
+            background: transparent; 
+            color: #d7a33d; 
             text-decoration: none; 
-            padding: 10px 22px; 
+            padding: 10px 24px; 
             font-size: 11px; 
-            font-weight: 700; 
-            border-radius: 4px;
-            letter-spacing: 0.5px;
+            font-weight: 600; 
+            border: 1px solid #d7a33d;
+            border-radius: 0px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+        }
+        .btn-nav-gold:hover {
+            background: #d7a33d;
+            color: #030303;
+            box-shadow: 0 0 15px rgba(215, 163, 61, 0.4);
         }
 
-        /* 2. HERO ALANI */
+        /* 2. ELİT HERO BANNER */
         .hero-section {
             position: relative;
-            padding: 140px 70px 160px 70px;
+            padding: 160px 80px 200px 80px;
+        }
+
+        .gold-tag {
+            color: #d7a33d;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
         }
 
         .giant-title {
-            position: relative;
-            display: inline-block;
-            font-weight: 700;
+            font-family: 'Marcellus', serif;
+            font-weight: 400;
             color: #ffffff;
-            font-size: 82px;
-            line-height: 0.75;
-            letter-spacing: -3px;
-            margin-bottom: 25px;
-            font-family: 'Oswald', sans-serif;
-            text-shadow: 3px 3px 0px #000;
-        }
-        .giant-title span {
-            display: block;
-            font-size: 36px;
-            letter-spacing: 5px;
-            margin-top: 4px;
-            text-shadow: 2px 2px 0px #000;
-            color: #d7a33d;
+            font-size: 64px;
+            line-height: 1.1;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            max-width: 700px;
         }
 
         .hero-text {
-            max-width: 500px;
-            color: #b0afae;
-            font-size: 13px;
-            line-height: 1.7;
-            margin-bottom: 35px;
+            max-width: 550px;
+            color: #8c8c8c;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            font-weight: 300;
         }
         
-        .hero-btns { display: flex; gap: 12px; }
-        .btn-main-buy {
+        .btn-main-gold {
             background: #d7a33d;
-            color: #110e0a;
+            color: #030303;
             text-decoration: none;
-            padding: 13px 24px;
-            font-size: 11px;
-            font-weight: 700;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            padding: 15px 35px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+        .btn-main-gold:hover {
+            background: #fff;
+            box-shadow: 0 0 25px rgba(255,255,255,0.2);
         }
 
-        /* REHBER SEKSİYON TASARIMLARI */
+        /* SEKSİYON BAŞLIKLARI */
+        .section-header-block {
+            text-align: center;
+            margin-bottom: 60px;
+        }
         .section-heading {
-            font-family: 'Oswald', sans-serif;
-            font-size: 32px;
+            font-family: 'Marcellus', serif;
+            font-size: 36px;
             color: #fff;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
+            font-weight: 400;
+            margin-bottom: 12px;
         }
         .section-heading span { color: #d7a33d; }
-        .section-sub { color: #756f67; font-size: 13px; margin-bottom: 30px; font-weight: bold; }
+        .section-sub { color: #666; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
 
-        /* 3. 4'LÜ GERÇEK OYUN GALERİSİ */
-        .gallery-section { padding: 40px 70px; background: #060504; }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-        }
-        .gallery-grid .img-wrapper {
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-            border-radius: 4px;
-            border: 1px solid #1a1510;
-        }
-        .gallery-grid img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); transition: 0.3s; }
-        .gallery-grid img:hover { filter: brightness(1); transform: scale(1.03); }
-
-        /* 4. KART SİSTEMİ */
-        .cards-section { padding: 60px 70px; background: #080706; border-top: 1px solid rgba(255,255,255,0.02); }
+        /* 3. ÖNE ÇIKAN OYUNLAR KATEGORİSİ */
+        .categories-section { padding: 100px 80px; background: #070707; }
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 30px;
         }
-        .info-card {
-            background: #110f0d;
-            border: 1px solid #241e17;
-            border-radius: 6px;
+        .luxury-card {
+            background: #0c0c0c;
+            border: 1px solid #161616;
             overflow: hidden;
-            transition: 0.3s;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .info-card:hover { border-color: #d7a33d; transform: translateY(-5px); }
-        .info-card img { width: 100%; height: 200px; object-fit: cover; }
-        .card-content { padding: 20px; }
-        .card-content h4 { font-family: 'Oswald', sans-serif; font-size: 20px; color: #fff; margin-bottom: 8px; }
-        .card-content p { font-size: 12px; line-height: 1.6; color: #a1a09f; margin-bottom: 12px; }
-        .card-badge { display: inline-block; background: #241e17; color: #d7a33d; font-size: 11px; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
+        .luxury-card:hover { 
+            border-color: #d7a33d; 
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .img-container {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+        .luxury-card img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            filter: grayscale(30%) brightness(0.8); 
+            transition: all 0.6s ease;
+        }
+        .luxury-card:hover img { 
+            filter: grayscale(0%) brightness(1); 
+            transform: scale(1.05); 
+        }
+        .card-content { padding: 30px; }
+        .card-game-title { font-family: 'Marcellus', serif; font-size: 22px; color: #fff; margin-bottom: 15px; letter-spacing: 1px; }
+        .card-text { font-size: 13px; line-height: 1.7; color: #7c7c7c; margin-bottom: 20px; font-weight: 300; }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #161616; padding-top: 15px; }
+        .card-badge { color: #d7a33d; font-size: 11px; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; }
+        .card-link { color: #fff; text-decoration: none; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
+        .card-link:hover { color: #d7a33d; }
 
-        /* 5. HARİTA BÖLÜMÜ */
-        .map-section { padding: 60px 70px; background: #060504; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
-        .map-image-box { width: 100%; height: 350px; border-radius: 6px; overflow: hidden; border: 1px solid #241e17; }
-        .map-image-box img { width: 100%; height: 100%; object-fit: cover; }
-        .map-details h3 { font-family: 'Oswald', sans-serif; font-size: 28px; color: #fff; margin-bottom: 15px; }
-        .map-details p { font-size: 13px; line-height: 1.7; color: #878685; margin-bottom: 15px; }
-
-        /* 6. STEAM YORUMLARI KARTLARI */
-        .reviews-section { padding: 60px 70px; background: #080706; }
-        .reviews-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .steam-card { background: #0f1620; border: 1px solid #1c2838; padding: 20px; border-radius: 4px; }
-        .card-meta { display: flex; justify-content: space-between; font-size: 11px; font-weight: bold; color: #66c0f4; margin-bottom: 8px; }
-        .card-body-text { color: #acb2b8; font-size: 12px; line-height: 1.6; }
-
+        /* 4. PREMIUM ETKİNLİK / COUTURE REHBER ALANI */
+        .featured-editorial { 
+            padding: 100px 80px; 
+            background: #030303; 
+            display: grid; 
+            grid-template-columns: 1fr 1.2fr; 
+            gap: 60px; 
+            align-items: center;
+            border-top: 1px solid rgba(215, 163, 61, 0.05);
+        }
+        .editorial-img-box { width: 100%; height: 450px; border: 1px solid #161616; overflow: hidden; position: relative; }
+        .editorial-img-box img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); }
+        .editorial-content h3 { font-family: 'Marcellus', serif; font-size: 40px; color: #fff; margin-bottom: 25px; letter-spacing: 2px; line-height: 1.2; }
+        .editorial-content p { font-size: 14px; line-height: 1.9; color: #888; margin-bottom: 20px; font-weight: 300; }
+        
         /* FOOTER */
         footer {
-            background: #040404;
-            padding: 40px 70px;
-            border-top: 1px solid rgba(255,255,255,0.02);
+            background: #020202;
+            padding: 60px 80px;
+            border-top: 1px solid #111;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .footer-logo { font-family: 'Oswald', sans-serif; font-size: 20px; color: #fff; font-style: italic; }
+        .footer-logo { font-family: 'Marcellus', serif; font-size: 22px; color: #fff; letter-spacing: 3px; }
         .footer-logo span { color: #d7a33d; }
-        footer p { color: #52504d; font-size: 11px; font-weight: bold; }
+        footer p { color: #444; font-size: 12px; letter-spacing: 1px; }
     </style>
 </head>
 <body>
@@ -196,161 +250,199 @@
     <div class="wrapper">
         <div class="main-hero-bg">
 
-            <!-- NAVBAR -->
+            <!-- LÜKS NAVBAR -->
             <header>
                 <div class="logo-block">
-                    <div class="logo-main">RANCH</div>
-                    <div class="logo-sub">SIMULATOR</div>
+                    <div class="logo-main">VANGUARD</div>
+                    <div class="logo-sub">PREMIUM GAMING</div>
                 </div>
                 <nav>
-                    <a href="#anasayfa" class="active">Ana Sayfa</a>
-                    <a href="#galeri">Galeri</a>
-                    <a href="#hayvanlar">Hayvanlar</a>
-                    <a href="#araclar">Araçlar</a>
-                    <a href="#harita">Harita</a>
-                    <a href="#yorumlar">Yorumlar</a>
+                    <a href="#anasayfa" class="active">KÜLTÜR</a>
+                    <a href="#mobil">MOBİL ESPOR</a>
+                    <a href="#pc-konsol">PC & KONSOL</a>
+                    <a href="#simulator">SIMÜLASYON</a>
+                    <a href="#editorial">YAZARLAR</a>
                 </nav>
-                <div class="header-right">
-                    <a href="https://store.steampowered.com/app/1119730/Ranch_Simulator/" target="_blank" class="btn-nav-buy">STEAM'DE İNCELE</a>
+                <div>
+                    <a href="#" class="btn-nav-gold">VIP REHBER</a>
                 </div>
             </header>
 
-            <!-- HERO BANNER -->
+            <!-- ELİT HERO BANNER -->
             <section class="hero-section" id="anasayfa">
-                <div class="giant-title">
-                    RANCH
-                    <span>SIMULATOR TÜRKİYE</span>
-                </div>
+                <span class="gold-tag">Geleceğin Dijital Sanatı</span>
+                <h1 class="giant-title">Oyun Dünyasının En Seçkin Rehber Kültürü</h1>
                 <p class="hero-text">
-                    Büyükbabanızdan kalan çökmüş çiftliği devralın. Sıfırdan inşa edin, hayvancılık yapın, tarlalarınızı sürün ve arkadaşlarınızla kooperatif modda devasa bir imparatorluk kurun. En karlı taktikler ve rehberler burada!
+                    Sadece oyun oynamıyoruz; piksellerin arkasındaki mekanikleri, en kusursuz espor hassasiyetlerini ve milyar dolarlık oyun imparatorluklarının gizli stratejilerini analiz ediyoruz. En lüks oyun deneyimi burada başlar.
                 </p>
-                <div class="hero-btns">
-                    <a href="https://store.steampowered.com/app/1119730/Ranch_Simulator/" target="_blank" class="btn-main-buy">HEMEN SATIN AL (STEAM)</a>
-                </div>
+                <a href="#pc-konsol" class="btn-main-gold">PREMIUM KEŞİF</a>
             </section>
 
         </div>
 
-        <!-- 4'LÜ GERÇEK GALERİ BÖLÜMÜ -->
-        <section class="gallery-section" id="galeri">
-            <h3 class="section-heading">RANCH LIFE <span>GALERİSİ</span></h3>
-            <p class="section-sub">Sizden gelen gerçek oyun içi kesitler ve çiftlik hayatı.</p>
-            <div class="gallery-grid">
-                <div class="img-wrapper"><img src="1000073821.jpg" alt="Büyük Çiftlik Ahırı"></div>
-                <div class="img-wrapper"><img src="1000073822.jpg" alt="Araç Filosu"></div>
-                <div class="img-wrapper"><img src="1000073825.jpg" alt="Ahır İçi Hayat"></div>
-                <div class="img-wrapper"><img src="1000073823.jpg" alt="Arazi Sürüşü"></div>
+        <!-- OYUN KATEGORİLERİ VE ELİT KARTLAR -->
+        <section class="categories-section" id="mobil">
+            <div class="section-header-block">
+                <h2 class="section-heading">MOBİL ESPORUN <span>ZİRVESİ</span></h2>
+                <p class="section-sub">Milyonların Yarıştığı Arenalarda Elit Taktikler</p>
             </div>
-        </section>
-
-        <!-- HAYVANLAR REHBERİ -->
-        <section class="cards-section" id="hayvanlar">
-            <h3 class="section-heading">HAYVANLAR <span>& EN KARLI YETİŞTİRME</span></h3>
-            <p class="section-sub">Hangi hayvan ne kadar kazandırır? Çiftliğin ekonomisini uçuracak rehber.</p>
+            
             <div class="cards-grid">
-                
-                <div class="info-card">
-                    <img src="1000073825.jpg" alt="İnekler">
+                <!-- PUBG MOBILE KARTI -->
+                <div class="luxury-card">
+                    <div class="img-container"><img src="resim2.jpg" alt="PUBG Mobile"></div>
                     <div class="card-content">
-                        <h4>İnekler & Peynir Sektörü</h4>
-                        <p>Süt ve gelişmiş peynir üretimi için idealdir. Kovaları doldurun, mayalayın ve dükkanlara satarak düzenli bir günlük gelir akışı yakalayın.</p>
-                        <span class="card-badge">💰 Yüksek Kazanç</span>
+                        <h4 class="card-game-title">PUBG Mobile Pro Seviye</h4>
+                        <p class="card-text">Gecikmesiz 90 FPS cihaz ayarları, turnuva düzeyinde jiroskop hassasiyetleri ve harita rotasyon tüyoları.</p>
+                        <div class="card-footer">
+                            <span class="card-badge">🎯 ESPOR REHBERİ</span>
+                            <a href="#" class="card-link">İNCELE →</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="info-card">
-                    <img src="1000073824.jpg" alt="Tavuklar">
+                <!-- BRAWL STARS KARTI -->
+                <div class="luxury-card">
+                    <div class="img-container"><img src="resim5.jpg" alt="Brawl Stars"></div>
                     <div class="card-content">
-                        <h4>Tavuklar & Yumurta</h4>
-                        <p>Oyuna yeni başlayanlar için en ucuz sermayeli hayvandır. Otomatik kümeslerle hızlıca ürerler ve yumurtaları temiz nakit sağlar.</p>
-                        <span class="card-badge">⚡ Hızlı Başlangıç</span>
+                        <h4 class="card-game-title">Brawl Stars Meta Analizi</h4>
+                        <p class="card-text">Aylık karakter tier listeleri, kupa kasma şablonları ve şampiyonluk ligi takım kompozisyonları.</p>
+                        <div class="card-footer">
+                            <span class="card-badge">💎 META ANALİZİ</span>
+                            <a href="#" class="card-link">İNCELE →</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="info-card">
-                    <img src="1000073825.jpg" alt="Domuzlar">
+                <!-- CODM KARTI -->
+                <div class="luxury-card">
+                    <div class="img-container"><img src="resim2.jpg" alt="Call of Duty Mobile"></div>
                     <div class="card-content">
-                        <h4>Domuzlar & Et Üretimi</h4>
-                        <p>Çiftliğin en masraflı ama büyüdüğünde eti en pahalıya satılan hayvanıdır. Büyük mezbahalar kurarak tek seferde parayı kırabilirsiniz.</p>
-                        <span class="card-badge">💎 Maksimum Gelir</span>
+                        <h4 class="card-game-title">COD Mobile Elite Sınıf</h4>
+                        <p class="card-text">Ranked maçları domine etmenizi sağlayacak en iyi silah eklentileri ve gizli harita konumları.</p>
+                        <div class="card-footer">
+                            <span class="card-badge">🔱 ELITE TACTICS</span>
+                            <a href="#" class="card-link">İNCELE →</a>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ARAÇLAR REHBERİ -->
-        <section class="cards-section" id="araclar" style="background: #060504;">
-            <h3 class="section-heading">GELİŞMİŞ <span>ARAÇLAR & EKİPMANLAR</span></h3>
-            <p class="section-sub">İşlerinizi hızlandıracak, ağır yükleri taşıyacak en iyi traktör ve kamyonetler.</p>
+        <!-- PC VE KONSOL SEKSİYONU -->
+        <section class="categories-section" id="pc-konsol" style="background: #030303; border-top: 1px solid rgba(215, 163, 61, 0.05);">
+            <div class="section-header-block">
+                <h2 class="section-heading">PC & KONSOL <span>BAŞYAPITLARI</span></h2>
+                <p class="section-sub">Yeni Nesil Grafikler, Muazzam Hikayeler</p>
+            </div>
+            
             <div class="cards-grid">
-                
-                <div class="info-card">
-                    <img src="1000073822.jpg" alt="Kamyonet">
+                <!-- GTA 6 KARTI -->
+                <div class="luxury-card">
+                    <div class="img-container"><img src="resim4.jpg" alt="GTA VI"></div>
                     <div class="card-content">
-                        <h4>Taşıma Araçları & Pikaplar</h4>
-                        <p>Kasasında domuz, inek taşıyabileceğiniz, hırdavatçıdan aldığınız kalasları ve çimentoları çiftliğe nakletmenin en hızlı yolu.</p>
-                        <span class="card-badge">📦 Lojistik Desteği</span>
+                        <h4 class="card-game-title">Grand Theft Auto VI</h4>
+                        <p class="card-text">Vice City'nin yeni nesil harita detayları, sızan görev mekanikleri ve grafik optimizasyon beklentileri.</p>
+                        <div class="card-footer">
+                            <span class="card-badge">🔥 GELECEK NESİL</span>
+                            <a href="#" class="card-link">İNCELE →</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="info-card">
-                    <img src="1000073822.jpg" alt="Traktör">
+                <!-- VALORANT KARTI -->
+                <div class="luxury-card">
+                    <div class="img-container"><img src="resim4.jpg" alt="Valorant"></div>
                     <div class="card-content">
-                        <h4>Büyük Tarım Traktörü & Biçerdöver</h4>
-                        <p>Geniş arazileri saniyeler içinde sürmek, tohum ekmek ve un/buğday hasatlarını toplamak için çiftliğin mekanize gücü.</p>
-                        <span class="card-badge">🌾 Tarla Uzmanı</span>
+                        <h4 class="card-game-title">Valorant Radiant Elit</h4>
+                        <p class="card-text">Profesyonel oyuncuların crosshair kodları, line-up rehberleri ve ekonomi yönetimi stratejileri.</p>
+                        <div class="card-footer">
+                            <span class="card-badge">👑 RADIANT REHBER</span>
+                            <a href="#" class="card-link">İNCELE →</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="info-card">
-                    <img src="1000073822.jpg" alt="ATV">
+                <!-- CS2 KARTI -->
+                <div class="luxury-card">
+                    <div class="img-container"><img src="resim4.jpg" alt="Counter-Strike 2"></div>
                     <div class="card-content">
-                        <h4>ATV & Küçük Ulaşım Araçları</h4>
-                        <p>Vahşi doğada avlanmaya çıkarken veya haritanın diğer ucundaki dükkanlara hızlıca gidip gelirken yakıttan tasarruf ettiren çevik araçlar.</p>
-                        <span class="card-badge">🏎️ Hızlı Ulaşım</span>
+                        <h4 class="card-game-title">Counter-Strike 2 Pro</h4>
+                        <p class="card-text">Yenilenen sub-tick sistemi, en efektif bomba (smoke) noktaları ve FPS arttırma kodları.</p>
+                        <div class="card-footer">
+                            <span class="card-badge">⚡ MASTER LEVEL</span>
+                            <a href="#" class="card-link">İNCELE →</a>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- HARİTA BÖLÜMÜ -->
-        <section class="map-section" id="harita">
-            <div class="map-image-box">
-                <img src="1000073823.jpg" alt="Ranch Simulator Harita">
+        <!-- SİMÜLASYON DÜNYASI -->
+        <section class="categories-section" id="simulator">
+            <div class="section-header-block">
+                <h2 class="section-heading">SİMÜLASYON <span>İMPARATORLUĞU</span></h2>
+                <p class="section-sub">Sıfırdan Zirveye Ekonomik Simülatörler</p>
             </div>
-            <div class="map-details">
-                <h3>BÜYÜK HARİTA <span>VE KEŞİF NOKTALARI</span></h3>
-                <p>Ranch Simulator haritası sadece sizin çiftliğinizden ibaret değil! Haritanın derinliklerinde avlayabileceğiniz geyikler, ayılar ve kurtlar sizi bekliyor.</p>
-                <p>Ayrıca hırdavatçı, araba galerisi ve et/süt ürünlerinizi en yüksek fiyata satabileceğiniz yerel burger restoranı gibi kritik ticaret noktalarının konumlarını bu harita rehberimizle keşfedin.</p>
+            
+            <div class="cards-grid">
+                <!-- RANCH SİMÜLATÖR KARTI -->
+                <div class="luxury-card">
+                    <div class="img-container"><img src="resim3.jpg" alt="Ranch Simulator"></div>
+                    <div class="card-content">
+                        <h4 class="card-game-title">Ranch Simulator Ekonomi</h4>
+                        <p class="card-text">Büyükbaş hayvancılıkta maksimum kar marjı, otomatik çiftlik düzenleri ve endüstriyel üretim zinciri.</p>
+                        <div class="card-footer">
+                            <span class="card-badge">🚜 ÇİFTLİK LİDERİ</span>
+                            <a href="#" class="card-link">İNCELE →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FM KARTI -->
+                <div class="luxury-card">
+                    <div class="img-container"><img src="resim3.jpg" alt="Football Manager"></div>
+                    <div class="card-content">
+                        <h4 class="card-game-title">Football Manager Elit</h4>
+                        <p class="card-text">Dünya futbolunun en yetenekli genç oyuncuları (Wonderkids) ve yenilmez taktik şablonları.</p>
+                        <div class="card-footer">
+                            <span class="card-badge">⚽ TAKTİK DEHASI</span>
+                            <a href="#" class="card-link">İNCELE →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ETS 2 KARTI -->
+                <div class="luxury-card">
+                    <div class="img-container"><img src="resim3.jpg" alt="Euro Truck Simulator 2"></div>
+                    <div class="card-content">
+                        <h4 class="card-game-title">ETS 2 Lojistik Devleri</h4>
+                        <p class="card-text">Avrupa haritasının en karlı sevkiyat rotaları, şirket büyütme tüyoları ve direksiyon set ayarları.</p>
+                        <div class="card-footer">
+                            <span class="card-badge">🚚 LOJİSTİK AKADEMİSİ</span>
+                            <a href="#" class="card-link">İNCELE →</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- STEAM YORUMLARI -->
-        <section class="reviews-section" id="yorumlar">
-            <h3 class="section-heading">OYUNCU <span>YORUMLARI</span></h3>
-            <p class="section-sub">Steam topluluğunun Ranch Simulator hakkında yaptığı en popüler incelemeler.</p>
-            <div class="reviews-layout">
-                <div class="steam-card">
-                    <div class="card-meta"><span>👍 Tavsiye Ediliyor</span><span>87 Saat</span></div>
-                    <p class="card-body-text">"Arkadaş ekibiyle girildiğinde zamanın nasıl geçtiğini anlamıyorsunuz. Çiftliği büyütmek inanılmaz tatmin edici."</p>
-                </div>
-                <div class="steam-card">
-                    <div class="card-meta"><span>👍 Tavsiye Ediliyor</span><span>120 Saat</span></div>
-                    <p class="card-body-text">"Gerçekçi peynir ve et yapma mekanikleri çok iyi düşünülmüş. Kamyonete inek yükleyip satmaya gitmek tam bir esnaflık simülasyonu!"</p>
-                </div>
-                <div class="steam-card">
-                    <div class="card-meta"><span>👍 Tavsiye Ediliyor</span><span>45 Saat</span></div>
-                    <p class="card-body-text">"Grafikleri ve atmosferi çok samimi. Akşam işten/okuldan gelip kafa dağıtmak, iki tavuk yemlemek için birebir."</p>
-                </div>
+        <!-- PREMIUM BAŞYAZI ALANI -->
+        <section class="featured-editorial" id="editorial">
+            <div class="editorial-img-box">
+                <img src="resim1.jpg" alt="Vanguard Editorial">
+            </div>
+            <div class="editorial-content">
+                <h3>Vanguard Kültürüne Davetlisiniz</h3>
+                <p>Biz sıradan haber siteleri gibi kopya içerikler üretmiyoruz. Bu çatı altında yayınlanan her rehber, saatler süren testlerin ve profesyonel analizlerin sonucudur.</p>
+                <p>Amacımız, Türk oyuncu topluluğuna dünya standartlarında, lüks, sade ve tamamen bilgi odaklı bir premium kütüphane sunmaktır. Sitemiz sürekli olarak en güncel meta analizleriyle genişletilmektedir.</p>
             </div>
         </section>
 
         <!-- FOOTER -->
         <footer>
-            <div class="footer-logo">RANCH <span>SIMULATOR</span></div>
-            <p>© 2026 Tüm Hakları Saklıdır. Ranch Simulator Türkiye Fan & Rehber Portalı.</p>
+            <div class="footer-logo">VANGUARD <span>GAMING</span></div>
+            <p>© 2026 Vanguard Premium Media Corporation. Tüm Hakları Saklıdır.</p>
         </footer>
 
     </div>
