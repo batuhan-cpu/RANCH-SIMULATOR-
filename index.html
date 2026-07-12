@@ -87,6 +87,7 @@
             letter-spacing: 2px;
             text-decoration: none;
             transition: background 0.3s, color 0.3s;
+            cursor: pointer;
         }
         .vip-badge:hover {
             background: #bba15c;
@@ -170,8 +171,8 @@
             border-radius: 2px;
         }
 
-        .card-body { padding: 15px; }
-        .card-body h3 { font-size: 15px; color: #ffffff; margin-bottom: 8px; font-weight: 700; letter-spacing: 0.5px; }
+        .card-body { padding: 15px; display: flex; flex-direction: column; height: calc(100% - 260px); justify-content: space-between; }
+        .card-body h3 { font-size: 14px; color: #ffffff; margin-bottom: 8px; font-weight: 700; letter-spacing: 0.5px; }
         .card-body p { font-size: 11px; color: #888888; line-height: 1.5; margin-bottom: 12px; font-weight: 400; }
 
         /* GERI SAYIM */
@@ -181,7 +182,7 @@
             border-radius: 4px;
             padding: 10px 5px;
             text-align: center;
-            margin-top: 10px;
+            margin-bottom: 12px;
         }
         .countdown-title {
             font-size: 9px;
@@ -193,7 +194,7 @@
         }
         .countdown-timer {
             font-family: 'Cinzel', serif;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             color: #ffffff;
             letter-spacing: 0.5px;
@@ -206,12 +207,102 @@
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 5px;
             transition: color 0.3s;
+            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+            text-align: left;
         }
         .card-link:hover { color: #ffffff; }
+
+        /* DİNAMİK AÇILIR İNCELEME MENÜSÜ (MODAL INTERFACE) */
+        .review-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(3, 3, 3, 0.92);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        .review-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            background: #090909;
+            border: 1px solid rgba(187, 161, 92, 0.3);
+            width: 90%;
+            max-width: 850px;
+            max-height: 85vh;
+            border-radius: 6px;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+            transform: scale(0.95);
+            transition: transform 0.4s ease;
+        }
+        .review-modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        /* MODAL GÖRSEL GALERİSİ (SOLDAN SAĞA SIRALI) */
+        .modal-gallery {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            background: #040404;
+            overflow-x: auto;
+            border-bottom: 1px solid #161616;
+        }
+        .modal-gallery::-webkit-scrollbar { height: 6px; }
+        .modal-gallery::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        .modal-gallery::-webkit-scrollbar-thumb:hover { background: #bba15c; }
+        
+        .modal-gallery img {
+            height: 160px;
+            object-fit: cover;
+            border-radius: 3px;
+            border: 1px solid #222;
+            transition: border-color 0.3s;
+            flex-shrink: 0;
+        }
+        .modal-gallery img:hover { border-color: #bba15c; }
+
+        /* MODAL METİN ALANI */
+        .modal-body { padding: 35px; }
+        .modal-game-title { font-family: 'Cinzel', serif; font-size: 26px; color: #fff; margin-bottom: 10px; }
+        .modal-game-title span { color: #bba15c; }
+        .modal-game-tag { display: inline-block; background: rgba(187, 161, 92, 0.1); border: 1px solid #bba15c; color: #bba15c; font-size: 10px; font-weight: 800; padding: 3px 10px; letter-spacing: 1px; margin-bottom: 25px; border-radius: 2px; }
+        
+        .modal-text-block { font-size: 13.5px; color: #aaaaaa; line-height: 1.8; font-weight: 300; }
+        .modal-text-block h4 { font-size: 15px; color: #fff; margin: 20px 0 8px 0; font-weight: 700; letter-spacing: 0.5px; }
+        .modal-text-block h4::before { content: '// '; color: #bba15c; }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 28px;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 10;
+        }
+        .close-modal-btn:hover { color: #bba15c; }
 
         /* HARDWARE ZONE & DIAGNOSTICS */
         .hardware-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 40px; }
@@ -279,7 +370,6 @@
 
     <div class="container">
 
-        <!-- HEADER NAV -->
         <header>
             <div class="logo-area">
                 <div class="logo-text">ELITE<span>GCLUB</span></div>
@@ -291,10 +381,9 @@
                 <a href="#lab">OPTIMİZASYON LAB</a>
                 <a href="#contact">VIP BAĞLANTI</a>
             </nav>
-            <a href="#" class="vip-badge">VIP PORTAL</a>
+            <button class="vip-badge" onclick="openReview('gta6')">LATEST PREVIEW</button>
         </header>
 
-        <!-- HERO SECTION -->
         <section class="hero" id="home">
             <div class="hero-tag">Sadece En İyiler İçin</div>
             <h1 class="hero-title">Oyun Dünyasının Üst Segment Deneyimi</h1>
@@ -303,7 +392,6 @@
             </p>
         </section>
 
-        <!-- PREMIUM OYUNLAR SEKTÖRÜ (GTA 6 GÖRSELİ GÜNCELLENDİ) -->
         <section class="section-padding" id="premium-games" style="background: #050505; border-bottom: 1px solid #111;">
             <div class="section-header">
                 <h2>PREMIUM <span>OYUN ARŞİVİ</span></h2>
@@ -312,93 +400,98 @@
 
             <div class="grid-games">
                 
-                <!-- OYUN 1: RDR2 -->
                 <div class="premium-card">
                     <div class="card-img-holder">
                         <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/library_600x900_2x.jpg" alt="Red Dead Redemption 2">
                         <span class="card-overlay-tag">AAA</span>
                     </div>
                     <div class="card-body">
-                        <h3>Red Dead Redemption 2</h3>
-                        <p>Vahşi batının son dönemlerinde geçen ultra gerçekçi başyapıt.</p>
-                        <a href="#" class="card-link">İncele →</a>
+                        <div>
+                            <h3>Red Dead Redemption 2</h3>
+                            <p>Vahşi batının son dönemlerinde geçen ultra gerçekçi başyapıt.</p>
+                        </div>
+                        <button class="card-link" onclick="openReview('rdr2')">İncele →</button>
                     </div>
                 </div>
 
-                <!-- OYUN 2: GTA 5 -->
                 <div class="premium-card">
                     <div class="card-img-holder">
                         <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/library_600x900_2x.jpg" alt="GTA 5">
                         <span class="card-overlay-tag">AKSİYON</span>
                     </div>
                     <div class="card-body">
-                        <h3>Grand Theft Auto V</h3>
-                        <p>Los Santos sokaklarında bitmeyen efsane PC deneyimi.</p>
-                        <a href="#" class="card-link">İncele →</a>
+                        <div>
+                            <h3>Grand Theft Auto V</h3>
+                            <p>Los Santos sokaklarında bitmeyen efsane PC deneyimi.</p>
+                        </div>
+                        <button class="card-link" onclick="openReview('gta5')">İncele →</button>
                     </div>
                 </div>
 
-                <!-- OYUN 3: GOD OF WAR RAGNAROK -->
                 <div class="premium-card">
                     <div class="card-img-holder">
                         <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/library_600x900_2x.jpg" alt="God of War Ragnarök">
                         <span class="card-overlay-tag">MİTOLOJİ</span>
                     </div>
                     <div class="card-body">
-                        <h3>God of War Ragnarök</h3>
-                        <p>Kratos ve Atreus'un İskandinav mitolojisindeki büyük savaşı.</p>
-                        <a href="#" class="card-link">İncele →</a>
+                        <div>
+                            <h3>God of War Ragnarök</h3>
+                            <p>Kratos ve Atreus'un İskandinav mitolojisindeki büyük savaşı.</p>
+                        </div>
+                        <button class="card-link" onclick="openReview('gowr')">İncele →</button>
                     </div>
                 </div>
 
-                <!-- OYUN 4: RESIDENT EVIL 4 -->
                 <div class="premium-card">
                     <div class="card-img-holder">
                         <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/library_600x900_2x.jpg" alt="Resident Evil 4">
                         <span class="card-overlay-tag">KORKU</span>
                     </div>
                     <div class="card-body">
-                        <h3>Resident Evil 4</h3>
-                        <p>RE Engine motoruyla yeniden doğan hayatta kalma klasiği.</p>
-                        <a href="#" class="card-link">İncele →</a>
+                        <div>
+                            <h3>Resident Evil 4</h3>
+                            <p>RE Engine motoruyla yeniden doğan hayatta kalma klasiği.</p>
+                        </div>
+                        <button class="card-link" onclick="openReview('re4')">İncele →</button>
                     </div>
                 </div>
 
-                <!-- OYUN 5: SHADOW OF THE TOMB RAIDER -->
                 <div class="premium-card">
                     <div class="card-img-holder">
                         <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/750920/library_600x900_2x.jpg" alt="Tomb Raider">
                         <span class="card-overlay-tag">MACERA</span>
                     </div>
                     <div class="card-body">
-                        <h3>Tomb Raider</h3>
-                        <p>Lara Croft ile sinematik aksiyonu en üst düzeyde yaşatan seri.</p>
-                        <a href="#" class="card-link">İncele →</a>
+                        <div>
+                            <h3>Tomb Raider</h3>
+                            <p>Lara Croft ile sinematik aksiyonu en üst düzeyde yaşatan seri.</p>
+                        </div>
+                        <button class="card-link" onclick="openReview('tomb')">İncele →</button>
                     </div>
                 </div>
 
-                <!-- OYUN 6: GTA 6 VE KESİN AÇILACAK AKAMAI CDN GÖRSELİ -->
                 <div class="premium-card gta-special-card">
                     <div class="card-img-holder">
                         <img src="https://shared.akamai.steamstatic.com/store_item_assets/epic/offers/64ba015aefc84cb1997d020d88ad4a14/offer-image.jpg" alt="GTA 6 Official">
                         <span class="card-overlay-tag" style="background:#bba15c; color:#000;">BEKLENEN</span>
                     </div>
                     <div class="card-body">
-                        <h3 style="color: #bba15c;">Grand Theft Auto VI</h3>
-                        <p>Vice City sokakları ve yeni nesil grafik devrimi yaklaşıyor.</p>
-                        
-                        <div class="countdown-container">
-                            <div class="countdown-title">Çıkışa Kalan Süre</div>
-                            <div class="countdown-timer" id="gta-timer">Yükleniyor...</div>
+                        <div>
+                            <h3 style="color: #bba15c;">Grand Theft Auto VI</h3>
+                            <p>Vice City sokakları ve yeni nesil grafik devrimi yaklaşıyor.</p>
+                            
+                            <div class="countdown-container">
+                                <div class="countdown-title">Çıkışa Kalan Süre</div>
+                                <div class="countdown-timer" id="gta-timer">Yükleniyor...</div>
+                            </div>
                         </div>
-                        <a href="#" class="card-link">Detaylar →</a>
+                        <button class="card-link" onclick="openReview('gta6')">Detaylar →</button>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- KATEGORİ HUB -->
         <section class="section-padding" id="hubs">
             <div class="section-header">
                 <h2>GENEL KULÜP <span>PORTALI</span></h2>
@@ -412,9 +505,11 @@
                         <span class="card-overlay-tag">EKONOMİ</span>
                     </div>
                     <div class="card-body">
-                        <h3>Ranch Simulator Finans</h3>
-                        <p>Çiftlik imparatorluğunuzu kurarken en hızlı nakit akışını sağlayan üretim döngüleri.</p>
-                        <a href="#" class="card-link">İncele →</a>
+                        <div>
+                            <h3>Ranch Simulator Finans</h3>
+                            <p>Çiftlik imparatorluğunuzu kurarken en hızlı nakit akışını sağlayan üretim döngüleri.</p>
+                        </div>
+                        <button class="card-link" onclick="openReview('ranch')">İncele →</button>
                     </div>
                 </div>
 
@@ -424,9 +519,11 @@
                         <span class="card-overlay-tag">SİMÜLASYON</span>
                     </div>
                     <div class="card-body">
-                        <h3>Yarış ve Otomobil Lab</h3>
-                        <p>Pistlerin tozunu yutmak isteyenler için direksiyon setleri ve gerçekçi fizik ayarları.</p>
-                        <a href="#" class="card-link">İncele →</a>
+                        <div>
+                            <h3>Yarış ve Otomobil Lab</h3>
+                            <p>Pistlerin tozunu yutmak isteyenler için direksiyon setleri ve gerçekçi fizik ayarları.</p>
+                        </div>
+                        <button class="card-link" onclick="openReview('assetto')">İncele →</button>
                     </div>
                 </div>
 
@@ -436,15 +533,16 @@
                         <span class="card-overlay-tag">KEŞİF</span>
                     </div>
                     <div class="card-body">
-                        <h3>Açık Dünya PC Deneyimleri</h3>
-                        <p>Büyük haritalardaki gizli görev yolları ve ışın izleme teknolojileri.</p>
-                        <a href="#" class="card-link">İncele →</a>
+                        <div>
+                            <h3>Açık Dünya PC Deneyimleri</h3>
+                            <p>Büyük haritalardaki gizli görev yolları ve ışın izleme teknolojileri.</p>
+                        </div>
+                        <button class="card-link" onclick="openReview('cyber')">İncele →</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- HARDWARE ZONE & YENİ TELEMETRİ PANELİ -->
         <section class="section-padding" id="hardware" style="background: #050505;">
             <div class="section-header">
                 <h2>ELITE <span>HARDWARE LAB</span></h2>
@@ -460,7 +558,6 @@
                     <a href="#" class="vip-badge" style="max-width: 220px; text-align: center;">DONANIMLARI GÖR</a>
                 </div>
 
-                <!-- YENİ: DİJİTAL CANLI TELEMETRİ GÖSTERGESİ -->
                 <div class="telemetry-panel">
                     <div class="telemetry-title">SİSTEM ANALİZİ</div>
                     <div class="stat-box">
@@ -483,7 +580,6 @@
             </div>
         </section>
 
-        <!-- YENİ: OPTIMIZATION LAB TABLOSU -->
         <section class="section-padding" id="lab">
             <div class="section-header">
                 <h2>ELITE FPS & <span>AUDIO LAB</span></h2>
@@ -522,7 +618,6 @@
             </table>
         </section>
 
-        <!-- YENİ: VIP BAĞLANTI FORMU -->
         <section class="section-padding contact-section" id="contact">
             <div class="section-header">
                 <h2>VIP PORTAL <span>BAĞLANTISI</span></h2>
@@ -537,7 +632,6 @@
             </form>
         </section>
 
-        <!-- FOOTER -->
         <footer>
             <div class="footer-logo">ELITE<span>GCLUB</span></div>
             <p>© 2026 Premium Gaming Collective. Tüm Hakları Saklıdır.</p>
@@ -545,36 +639,197 @@
 
     </div>
 
-    <!-- JAVASCRIPT: GERİ SAYIM & TELEMETRİ -->
-    <script>
-        // GTA 6 Canlı Geri Sayım
-        const targetDate = new Date("December 31, 2026 00:00:00").getTime();
+    <div class="review-modal" id="reviewModal">
+        <div class="modal-content">
+            <button class="close-modal-btn" onclick="closeReview()">×</button>
+            
+            <div class="modal-gallery" id="modalGallery">
+                </div>
+            
+            <div class="modal-body">
+                <h2 class="modal-game-title" id="modalTitle">Oyun Adı</h2>
+                <span class="modal-game-tag" id="modalTag">KATEGORİ</span>
+                <div class="modal-text-block" id="modalText">
+                    </div>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        // OYUNLARIN RESMİ EKRAN GÖRÜNTÜLERİ VE DETAYLI UZUN İNCELEME VERİLERİ
+        const gameDatabase = {
+            gta6: {
+                title: "Grand Theft Auto VI",
+                tag: "AKSİYON / AÇIK DÜNYA",
+                gallery: [
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_6851b997977eb37b0ad9206ad69c9b689df920f3.1920x1080.jpg",
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_891e4685ff87e178125b290cb9b6cd80e69d74f2.1920x1080.jpg",
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_937fae3f19e48dfd370125da95ba32431cf65d34.1920x1080.jpg"
+                ],
+                text: `
+                    <h4>Genel Bakış ve Beklentiler</h4>
+                    <p>Grand Theft Auto VI, oyun dünyasının şimdiye kadar gördüğü en büyük teknik sıçramayı gerçekleştirmeye hazırlanıyor. Yenilenen RAGE Engine oyun motoru sayesinde Vice City sokakları, gerçek zamanlı ışık kırılmaları, ultra yoğun yapay zeka kalabalığı ve kusursuz dinamik hava durumlarıyla tamamen canlı bir dünyaya dönüşüyor.</p>
+                    <h4>Hikaye ve Karakter Dinamikleri</h4>
+                    <p>Leonida eyaletinin neon ışıklı sokaklarından çamurlu bataklıklarına kadar uzanan bu haritada, Jason ve Lucia adındaki iki ana karakterin suç dolu serüvenine ortak olacağız. Karakterler arası geçiş mekanikleri çok daha pürüzsüz hale getirilirken, her bir karakterin kendine has yetenek havuzları ve çevreyle olan etkileşimleri derinleştirildi.</p>
+                    <h4>Grafik ve Donanım Gereksinimleri</h4>
+                    <p>Oyunun PC sürümünde yapay zeka tabanlı doku işleme, gelişmiş Ray Tracing (Işın İzleme) ve global aydınlatma teknolojileri standart olarak sunulacak. Bu canavarı en yüksek ayarlarda akıcı oynamak için yeni nesil donanımlar ve optimize edilmiş sistem mimarileri şart olacak.</p>
+                `
+            },
+            rdr2: {
+                title: "Red Dead Redemption 2",
+                tag: "AAA / SİNEMATİK MACERA",
+                gallery: [
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_0953a968bd0034a0eb9473859871587d6cf6289b.1920x1080.jpg",
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_66b5683b58406f5223e7f607c70f3f2d250d4f10.1920x1080.jpg",
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_691e84dfa189f783637cb26b86dbe3b4e72382e8.1920x1080.jpg"
+                ],
+                text: `
+                    <h4>Vahşi Batının Kusursuz Sonu</h4>
+                    <p>Arthur Morgan ve Van der Linde çetesinin çöküş dönemini ele alan RDR2, açık dünya oyunlarında çıtayı kimsenin ulaşamayacağı bir yere koydu. Detay seviyesi o kadar yüksek ki, doğadaki ekosistemden atınızın fiziksel tepkilerine kadar her şey milimetrik hesaplanmış durumda.</p>
+                    <h4>Mekaniksel Kusursuzluk</h4>
+                    <p>Silahların temizlenme ihtiyacından Arthur'un kilo dengesine, kasabalardaki her bir bireyin kendine ait 24 saatlik döngüsünden avcılık sistemine kadar oyun her an yaşayan bir simülasyon hissi sunuyor. Elite sistemlerde 4K ultra ayarlarda sunduğu manzaralar adeta birer sanat eseri değerinde.</p>
+                `
+            },
+            gta5: {
+                title: "Grand Theft Auto V",
+                tag: "AKSİYON / ONLINE WORLD",
+                gallery: [
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_c3959c98b671a5f45814bfbaf6f4a7c1f8d95133.1920x1080.jpg",
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_eef547b744fe6df2980fa24be67be361bc9be20d.1920x1080.jpg"
+                ],
+                text: `
+                    <h4>Los Santos Efsanesi</h4>
+                    <p>Üç farklı karakterin hikayesini tek bir havuzda birleştiren GTA V, çıkışının üzerinden yıllar geçmesine rağmen popülerliğini asla kaybetmedi. Los Santos'un devasa haritası hem hikaye moduyla hem de bitmek bilmeyen aksiyon dolu online sunucularıyla oyuncuları kendine bağlamaya devam ediyor.</p>
+                `
+            },
+            gowr: {
+                title: "God of War Ragnarök",
+                tag: "AKSİYON / MİTOLOJİ",
+                gallery: [
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/ss_49fdbead50db238a37803eb6152a5ca4eb307f89.1920x1080.jpg",
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/ss_cbf59489437ff24976451e5127d14cb35dbf58d0.1920x1080.jpg"
+                ],
+                text: `
+                    <h4>Dokuz Diyarın Kıyameti</h4>
+                    <p>Kratos ve Atreus'un kader çizgilerini İskandinav mitolojisinin kalbine işleyen yapım, dövüş mekaniklerindeki ağırlık hissi ve pürüzsüz kamera teknikleriyle öne çıkıyor. PC sürümündeki geniş ekran desteği ve kilitsiz kare hızları sayesinde savaşlar hiç olmadığı kadar akıcı.</p>
+                `
+            },
+            re4: {
+                title: "Resident Evil 4",
+                tag: "KORKU / SURVIVAL",
+                gallery: [
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_df96b865507efbc0b9cae47d486be2be25cf46c2.1920x1080.jpg",
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_ccde4d284e3e3b3c3330f2f3f9fbb77ffcd3589b.1920x1080.jpg"
+                ],
+                text: `
+                    <h4>Korkunun Yeniden Doğuşu</h4>
+                    <p>Leon S. Kennedy'nin başkanın kızını kurtarmak için Avrupa'nın lanetli bir köyüne yaptığı yolculuk, modern RE Engine motoruyla baştan aşağı yeniden yaratıldı. Atmosferdeki karanlık tonlar ve ses mühendisliği, oyuncuyu sürekli bir tetikte olma durumunda tutuyor.</p>
+                `
+            },
+            tomb: {
+                title: "Shadow of the Tomb Raider",
+                tag: "MACERA / KEŞİF",
+                gallery: [
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/750920/ss_821d9609a341e88849b56f8f533a04918e7e1e4a.1920x1080.jpg",
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/750920/ss_96ff0a7d9b736b43bcfeef90998f48039600a944.1920x1080.jpg"
+                ],
+                text: `
+                    <h4>Maya Kıyametine Karşı</h4>
+                    <p>Lara Croft'un orman derinliklerinde, antik mezarlarda ve tuzaklarla dolu tapınaklarda hayatta kalma mücadelesi. Grafik kartlarının sınırlarını zorlayan bitki örtüsü detayları ve gölgelendirmelerle tam bir görsel şölen.</p>
+                `
+            },
+            ranch: {
+                title: "Ranch Simulator",
+                tag: "SİMÜLASYON / EKONOMİ",
+                gallery: [
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1119730/ss_8a09f87f4c0ee18204892c554e48b3260c6cb2a4.1920x1080.jpg",
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1119730/ss_9c34e7daee361008d74ba19df0e3184b23259837.1920x1080.jpg"
+                ],
+                text: `
+                    <h4>Çiftlik İmparatorluğu Finans Stratejileri</h4>
+                    <p>Büyükbabanızın eski çiftliğini devralıp bölgenin en büyük üretim tesisine dönüştürmek sizin elinizde. İnşaat mekanikleri, hayvancılık, avcılık ve et/peynir üretim fabrikasyon döngüleriyle derin bir ekonomik simülasyon sunuyor. En hızlı nakit akışını sağlamak için parça parça optimizasyonlar kulübümüzde listelenmiştir.</p>
+                `
+            },
+            assetto: {
+                title: "Assetto Corsa Yarış Laboratuvarı",
+                tag: "MOTORSPORTS / SİMÜLASYON",
+                gallery: [
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244210/ss_27150c9502626e2e50cf5823df973b0f5b9d3e5f.1920x1080.jpg",
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244210/ss_164bdf62002167fc7f5703f8a00045610ec1f21a.1920x1080.jpg"
+                ],
+                text: `
+                    <h4>Gerçekçi Asfalt Simülasyonu</h4>
+                    <p>Gelişmiş fizik motoru, lazer taramalı resmi pistleri ve modlama dünyasının sınırsız gücüyle Assetto Corsa yarış simülasyonlarının lideri konumunda. Direksiyon hassasiyetleri, FFB ayarları ve custom araç modifikasyonları için en kararlı rehberler bu hub altında.</p>
+                `
+            },
+            cyber: {
+                title: "Cyberpunk 2077",
+                tag: "SCI-FI / RPG",
+                gallery: [
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/ss_9ba579b769edae67f70b6d6f54c9c0f994ea9f2e.1920x1080.jpg",
+                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/ss_b8364b638f22fa2ffbeba951911c43236e7886b6.1920x1080.jpg"
+                ],
+                text: `
+                    <h4>Night City Sokak Kültürü</h4>
+                    <p>Neon ışıkların altındaki karanlık distopya. Ray Tracing Overdrive moduyla ekran kartlarını eriten efsanevi grafik kalitesi, sibernetik implant geliştirmeleri ve alternatif hikaye finalleriyle donatılmış devasa bir rol yapma şaheseri.</p>
+                `
+            }
+        };
+
+        // DETAY MENÜSÜNÜ AÇMA FONKSİYONU
+        function openReview(gameKey) {
+            const game = gameDatabase[gameKey];
+            if (!game) return;
+
+            // Başlık ve Etiket Güncelleme
+            document.getElementById('modalTitle').innerHTML = game.title;
+            document.getElementById('modalTag').innerHTML = game.tag;
+            document.getElementById('modalText').innerHTML = game.text;
+
+            // Galeri Görsellerini Soldan Sağa Yerleştirme
+            const galleryContainer = document.getElementById('modalGallery');
+            galleryContainer.innerHTML = ""; // İçini temizle
+            game.gallery.forEach(imgUrl => {
+                const imgTag = document.createElement('img');
+                imgTag.src = imgUrl;
+                imgTag.alt = game.title + " Screenshot";
+                galleryContainer.appendChild(imgTag);
+            });
+
+            // Menüyü Görünür Yapma
+            document.getElementById('reviewModal').classList.add('active');
+            document.body.style.overflow = "hidden"; // Alttaki sayfa kaymasın
+        }
+
+        // DETAY MENÜSÜNÜ KAPATMA FONKSİYONU
+        function closeReview() {
+            document.getElementById('reviewModal').classList.remove('active');
+            document.body.style.overflow = "auto"; // Kaydırmayı geri aç
+        }
+
+        // GTA 6 Canlı Geri Sayım (Yenilenince Sıfırlanmaz)
+        const targetDate = new Date("December 31, 2026 00:00:00").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
             const difference = targetDate - now;
-
             if (difference < 0) {
                 document.getElementById("gta-timer").innerHTML = "Lansman Başladı!";
                 return;
             }
-
             const days = Math.floor(difference / (1000 * 60 * 60 * 24));
             const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
             document.getElementById("gta-timer").innerHTML = days + "g " + hours + "s " + minutes + "d " + seconds + "sn";
         }
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // Canlı Donanım Telemetri Simülasyonu
+        // Donanım Telemetri Simülasyonu
         function updateTelemetry() {
             const cpu = Math.floor(Math.random() * (45 - 8 + 1)) + 8;
             const gpu = Math.floor(Math.random() * (68 - 38 + 1)) + 38;
             const ram = (Math.random() * (7.8 - 4.2) + 4.2).toFixed(1);
-
             document.getElementById("cpu-load").innerHTML = cpu + "%";
             document.getElementById("gpu-temp").innerHTML = gpu + "°C";
             document.getElementById("ram-usage").innerHTML = ram + " GB";
@@ -582,6 +837,5 @@
         setInterval(updateTelemetry, 1500);
         updateTelemetry();
     </script>
-
 </body>
 </html>
