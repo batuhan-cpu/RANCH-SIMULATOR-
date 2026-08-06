@@ -1,383 +1,189 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELITE GAMING CLUB | Premium PC & Hardware Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700&family=Montserrat:wght=300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        /* LUXURY ELITE THEME BASE */
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
-        html { scroll-behavior: smooth; }
-        body { background-color: #030303; color: #d1d1d1; overflow-x: hidden; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İyi Ki Doğdun!</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #050515 0%, #101432 60%, #1a1b35 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        /* CUSTOM SCROLLBAR */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #bba15c; border-radius: 4px; }
+    /* Arka Plan Yıldızlar */
+    .stars {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+                  radial-gradient(2px 2px at 40px 70px, #ffffffa6, rgba(0,0,0,0)),
+                  radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+                  radial-gradient(2px 2px at 160px 120px, #fff, rgba(0,0,0,0));
+      background-size: 200px 200px;
+      animation: twinkle 4s infinite alternate;
+    }
 
-        .container { width: 100%; max-width: 1440px; margin: 0 auto; background: #070707; box-shadow: 0 0 50px rgba(0,0,0,0.8); }
+    @keyframes twinkle {
+      0% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
 
-        /* NAVIGATION BAR */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 60px; background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(187, 161, 92, 0.15); position: sticky; top: 0; z-index: 1000; }
-        .logo-area { display: flex; align-items: center; gap: 10px; }
-        .logo-text { font-family: 'Cinzel', serif; font-size: 24px; font-weight: 700; color: #ffffff; letter-spacing: 2px; }
-        .logo-text span { color: #bba15c; text-shadow: 0 0 10px rgba(187, 161, 92, 0.3); }
+    /* Dağ Silüeti */
+    .mountains {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(to top, #020208 20%, transparent 100%);
+      clip-path: polygon(0% 100%, 15% 40%, 35% 80%, 50% 20%, 65% 70%, 85% 30%, 100% 100%);
+      z-index: 1;
+    }
 
-        nav { display: flex; gap: 35px; list-style: none; }
-        nav a { color: #999999; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.4s ease; position: relative; padding: 5px 0; }
-        nav a:hover, nav a.active { color: #bba15c; }
-        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: #bba15c; transition: width 0.3s ease; }
-        nav a:hover::after { width: 100%; }
+    /* Mektup Konteynırı */
+    .container {
+      position: relative;
+      z-index: 10;
+      cursor: pointer;
+    }
 
-        .vip-badge { border: 1px solid #bba15c; padding: 10px 20px; border-radius: 3px; color: #bba15c; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-decoration: none; transition: background 0.3s, color 0.3s; cursor: pointer; background: transparent; }
-        .vip-badge:hover { background: #bba15c; color: #030303; box-shadow: 0 0 15px rgba(187, 161, 92, 0.4); }
+    /* Kalp Zarf Tasarımı */
+    .envelope {
+      width: 160px;
+      height: 140px;
+      background: #e63946;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+      transition: transform 0.3s ease;
+      animation: float 3s ease-in-out infinite;
+    }
 
-        /* HERO BANNER */
-        .hero { height: 75vh; background: linear-gradient(to top, #070707 5%, rgba(7,7,7,0.3) 60%, rgba(7,7,7,0.8) 100%), url('https://cdn2.unrealengine.com/rdr2-2560x1440-410705461.jpg') no-repeat center center; background-size: cover; display: flex; flex-direction: column; justify-content: center; padding: 0 60px; border-bottom: 1px solid rgba(255,255,255,0.02); }
-        .hero-title { font-family: 'Cinzel', serif; font-size: 64px; color: #ffffff; line-height: 1.1; margin-bottom: 25px; max-width: 800px; }
+    .envelope:hover {
+      transform: scale(1.05);
+    }
 
-        .section-padding { padding: 90px 60px; }
-        .section-header { margin-bottom: 50px; }
-        .section-header h2 { font-family: 'Cinzel', serif; font-size: 36px; color: #ffffff; letter-spacing: 1px; }
-        .section-header h2 span { color: #bba15c; }
-        .section-header p { font-size: 13px; color: #555555; margin-top: 5px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
 
-        .grid-games { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
-        
-        .premium-card { background: #0c0c0c; border: 1px solid #161616; border-radius: 4px; overflow: hidden; transition: all 0.4s ease; position: relative; }
-        .premium-card:hover { transform: translateY(-8px); border-color: #bba15c; box-shadow: 0 10px 30px rgba(0,0,0,0.7); z-index: 5; }
-        .gta-special-card { border: 1px solid rgba(187, 161, 92, 0.4) !important; box-shadow: 0 0 15px rgba(187, 161, 92, 0.1); }
+    /* Kalp Mührü */
+    .heart-seal {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      width: 40px;
+      height: 40px;
+      background: #ff758f;
+      z-index: 3;
+      transition: opacity 0.4s ease;
+    }
 
-        .card-img-holder { width: 100%; height: 260px; overflow: hidden; position: relative; background: #111; }
-        .card-img-holder img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .premium-card:hover .card-img-holder img { transform: scale(1.05); }
+    .heart-seal::before, .heart-seal::after {
+      content: '';
+      width: 40px;
+      height: 40px;
+      background: #ff758f;
+      border-radius: 50%;
+      position: absolute;
+    }
 
-        .card-overlay-tag { position: absolute; top: 15px; right: 15px; background: rgba(3, 3, 3, 0.85); border: 1px solid #bba15c; color: #bba15c; font-size: 10px; font-weight: 800; padding: 4px 10px; letter-spacing: 1px; border-radius: 2px; }
+    .heart-seal::before { top: -20px; left: 0; }
+    .heart-seal::after { left: 20px; top: 0; }
 
-        .card-body { padding: 15px; display: flex; flex-direction: column; height: calc(100% - 260px); justify-content: space-between; }
-        .card-body h3 { font-size: 14px; color: #ffffff; margin-bottom: 8px; font-weight: 700; }
+    /* Zarf Kapakları */
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      border-left: 80px solid transparent;
+      border-right: 80px solid transparent;
+      border-top: 75px solid #d62828;
+      transform-origin: top;
+      transition: transform 0.6s ease;
+      z-index: 2;
+    }
 
-        .card-link { font-size: 11px; color: #bba15c; text-decoration: none; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; background: none; border: none; outline: none; text-align: left; }
-        .card-link:hover { color: #ffffff; }
+    /* İçinden Çıkan Kağıt */
+    .letter {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 0;
+      background: #fffdf9;
+      border-radius: 8px;
+      padding: 0 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      overflow: hidden;
+      transition: height 0.8s ease 0.4s, bottom 0.8s ease 0.4s, padding 0.4s ease 0.4s;
+      z-index: 1;
+      text-align: center;
+      color: #333;
+    }
 
-        /* YENİ NESİL DEV MODAL (AÇILIR PENCERE) */
-        .review-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 3, 3, 0.95); backdrop-filter: blur(20px); z-index: 2000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
-        .review-modal.active { opacity: 1; pointer-events: auto; }
-        
-        .modal-content { 
-            background: #070707; 
-            border: 1px solid rgba(187, 161, 92, 0.3); 
-            width: 95%; 
-            max-width: 1250px; 
-            height: 85vh; 
-            border-radius: 6px; 
-            position: relative; 
-            box-shadow: 0 30px 80px rgba(0,0,0,0.9); 
-            transform: scale(0.95); 
-            transition: transform 0.4s ease; 
-            display: flex;
-            flex-direction: column;
-        }
-        .review-modal.active .modal-content { transform: scale(1); }
+    /* Açılma Animasyon Sınıfları */
+    .container.open .envelope::before {
+      transform: rotateX(180deg);
+      z-index: 0;
+    }
 
-        .close-modal-btn { position: absolute; top: 15px; right: 20px; background: none; border: none; color: #888; font-size: 32px; cursor: pointer; transition: color 0.3s; z-index: 10; }
-        .close-modal-btn:hover { color: #bba15c; }
+    .container.open .heart-seal {
+      opacity: 0;
+    }
 
-        .modal-layout { display: grid; grid-template-columns: 2.5fr 1fr; gap: 30px; padding: 40px; height: 100%; overflow: hidden; }
+    .container.open .letter {
+      height: 280px;
+      bottom: -60px;
+      padding: 25px 20px;
+      z-index: 5;
+    }
 
-        .modal-left { display: flex; flex-direction: column; height: 100%; overflow: hidden; }
+    .letter h2 {
+      color: #e63946;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
 
-        /* GALERİ BÖLÜMÜ */
-        .modal-gallery-wrapper { margin-bottom: 20px; flex-shrink: 0; }
-        .modal-game-title { font-family: 'Cinzel', serif; font-size: 32px; color: #fff; margin-bottom: 5px; }
-        .modal-game-tag { display: inline-block; color: #bba15c; font-size: 11px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; }
-        
-        .modal-gallery { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 15px; }
-        .modal-gallery::-webkit-scrollbar { height: 6px; }
-        .modal-gallery::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
-        .modal-gallery::-webkit-scrollbar-thumb:hover { background: #bba15c; }
-        .modal-gallery img { height: 240px; width: auto; object-fit: cover; border-radius: 4px; border: 1px solid #222; flex-shrink: 0; transition: border-color 0.3s; }
-        .modal-gallery img:hover { border-color: #bba15c; }
-
-        /* UZATILMIŞ AÇIKLAMA BÖLÜMÜ (SCROLL EKLENDİ) */
-        .modal-text-block { 
-            flex: 1; /* Kalan boşluğu tamamen doldurur */
-            background: #0a0a0a;
-            padding: 25px;
-            border-radius: 4px;
-            border-left: 3px solid #bba15c;
-            font-size: 11.5px; 
-            color: #999; 
-            line-height: 1.9; 
-            font-weight: 400; 
-            overflow-y: auto; /* Yazı uzun olursa kendi içinde kayar */
-        }
-        .modal-text-block h4 { font-size: 14px; color: #fff; margin-bottom: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
-        .modal-text-block p { margin-bottom: 15px; }
-        .modal-text-block p:last-child { margin-bottom: 0; }
-        .modal-text-block b { color: #ccc; }
-
-        /* SAĞ PANEL */
-        .modal-right { background: #090909; border: 1px solid #161616; border-radius: 4px; padding: 25px; display: flex; flex-direction: column; gap: 30px; overflow-y: auto; }
-
-        .panel-title { font-family: 'Cinzel', serif; font-size: 14px; color: #fff; border-bottom: 1px solid #222; padding-bottom: 10px; margin-bottom: 15px; letter-spacing: 1px; }
-        
-        .review-section { display: flex; flex-direction: column; gap: 10px; }
-        .review-status { font-size: 20px; font-weight: 800; margin-bottom: 5px; }
-        
-        .bar-label { display: flex; justify-content: space-between; font-size: 10px; font-weight: 700; color: #888; text-transform: uppercase; margin-bottom: 3px; }
-        .progress-bg { width: 100%; height: 6px; background: #1a1a1a; border-radius: 3px; overflow: hidden; margin-bottom: 12px; }
-        .progress-pos { height: 100%; background: #00ff66; border-radius: 3px; transition: width 1s ease; }
-        .progress-neg { height: 100%; background: #ff3333; border-radius: 3px; transition: width 1s ease; }
-
-        .price-list { display: flex; flex-direction: column; gap: 10px; }
-        .price-item { display: flex; justify-content: space-between; align-items: center; background: #111; padding: 12px 15px; border-radius: 3px; border: 1px solid #222; font-size: 12px; transition: border-color 0.3s; }
-        .price-item:hover { border-color: #bba15c; }
-        .store-name { color: #aaa; font-weight: 600; }
-        .store-price { color: #bba15c; font-weight: 800; font-family: 'Cinzel', serif; font-size: 14px; }
-    </style>
+    .letter p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #4a4a4a;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <div class="logo-area">
-                <div class="logo-text">ELITE<span>GCLUB</span></div>
-            </div>
-            <nav>
-                <a href="#premium-games" class="active">OYUN ARŞİVİ</a>
-            </nav>
-            <button class="vip-badge" onclick="openReview('gta6')">GTA 6 ÖNİZLEME</button>
-        </header>
+  <div class="stars"></div>
+  <div class="mountains"></div>
 
-        <section class="section-padding" id="premium-games" style="background: #050505; min-height: 100vh;">
-            <div class="section-header">
-                <h2>PREMIUM <span>OYUN ARŞİVİ</span></h2>
-                <p>Canlı Fiyatlar, İncelemeler ve Genişletilmiş Veritabanı</p>
-            </div>
-
-            <div class="grid-games">
-                <div class="premium-card">
-                    <div class="card-img-holder"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/library_600x900_2x.jpg" alt="RDR2"></div>
-                    <div class="card-body">
-                        <div><h3>Red Dead Redemption 2</h3></div>
-                        <button class="card-link" onclick="openReview('rdr2')">Detaylı İncele →</button>
-                    </div>
-                </div>
-
-                <div class="premium-card">
-                    <div class="card-img-holder"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/library_600x900_2x.jpg" alt="GTA 5"></div>
-                    <div class="card-body">
-                        <div><h3>Grand Theft Auto V</h3></div>
-                        <button class="card-link" onclick="openReview('gta5')">Detaylı İncele →</button>
-                    </div>
-                </div>
-
-                <!-- YENİ EKLENEN OYUN -->
-                <div class="premium-card">
-                    <div class="card-img-holder"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1119730/library_600x900_2x.jpg" alt="Ranch Simulator"></div>
-                    <div class="card-body">
-                        <div><h3>Ranch Simulator</h3></div>
-                        <button class="card-link" onclick="openReview('ranch')">Detaylı İncele →</button>
-                    </div>
-                </div>
-
-                <div class="premium-card">
-                    <div class="card-img-holder"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/library_600x900_2x.jpg" alt="God of War Ragnarök"></div>
-                    <div class="card-body">
-                        <div><h3>God of War Ragnarök</h3></div>
-                        <button class="card-link" onclick="openReview('gowr')">Detaylı İncele →</button>
-                    </div>
-                </div>
-
-                <div class="premium-card">
-                    <div class="card-img-holder"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/library_600x900_2x.jpg" alt="Resident Evil 4"></div>
-                    <div class="card-body">
-                        <div><h3>Resident Evil 4</h3></div>
-                        <button class="card-link" onclick="openReview('re4')">Detaylı İncele →</button>
-                    </div>
-                </div>
-
-                <div class="premium-card gta-special-card">
-                    <div class="card-img-holder">
-                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/epic/offers/64ba015aefc84cb1997d020d88ad4a14/offer-image.jpg" alt="GTA 6 Official">
-                        <span class="card-overlay-tag" style="background:#bba15c; color:#000;">BEKLENEN</span>
-                    </div>
-                    <div class="card-body">
-                        <div><h3 style="color: #bba15c;">Grand Theft Auto VI</h3></div>
-                        <button class="card-link" onclick="openReview('gta6')">Detaylı İncele →</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <div class="container" onclick="openLetter()">
+    <div class="envelope">
+      <div class="heart-seal"></div>
     </div>
-
-    <!-- DİNAMİK DEV DETAY PANELİ -->
-    <div class="review-modal" id="reviewModal">
-        <div class="modal-content">
-            <button class="close-modal-btn" onclick="closeReview()">×</button>
-            <div class="modal-layout">
-                <div class="modal-left">
-                    <div class="modal-gallery-wrapper">
-                        <h2 class="modal-game-title" id="modalTitle">Oyun Adı</h2>
-                        <div class="modal-game-tag" id="modalTag">KATEGORİ</div>
-                        <div class="modal-gallery" id="modalGallery"></div>
-                    </div>
-                    
-                    <div class="modal-text-block" id="modalText"></div>
-                </div>
-
-                <div class="modal-right">
-                    <div>
-                        <div class="panel-title">STEAM YORUMLARI</div>
-                        <div class="review-status" id="reviewLabel">Çok Olumlu</div>
-                        <div class="review-section">
-                            <div>
-                                <div class="bar-label"><span>Olumlu İnceleme</span> <span id="posPercent">%90</span></div>
-                                <div class="progress-bg"><div class="progress-pos" id="posBar" style="width: 0%;"></div></div>
-                            </div>
-                            <div>
-                                <div class="bar-label"><span>Olumsuz İnceleme</span> <span id="negPercent">%10</span></div>
-                                <div class="progress-bg"><div class="progress-neg" id="negBar" style="width: 0%;"></div></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="panel-title">GÜNCEL MAĞAZA FİYATLARI</div>
-                        <div class="price-list">
-                            <div class="price-item"><span class="store-name">STEAM</span><span class="store-price" id="priceSteam"></span></div>
-                            <div class="price-item"><span class="store-name">EPIC GAMES</span><span class="store-price" id="priceEpic"></span></div>
-                            <div class="price-item"><span class="store-name">KONSOL (PS/XBOX)</span><span class="store-price" id="priceConsole"></span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="letter">
+      <h2>İyi Ki Doğdun! ❤️</h2>
+      <p>
+        Dünyanın en yüksek zirvesinde, yıldızların tam altında seninle olmak gibiydi seni tanımak... <br><br>
+        Yeni yaşın sana tüm güzellikleri, mutluluğu ve huzuru getirsin. Doğum günün kutlu olsun!
+      </p>
     </div>
+  </div>
 
-    <script>
-        // METİNLER UZATILDI VE GÖRSELLER ÇOĞALTILDI
-        const gameDatabase = {
-            gta6: {
-                title: "Grand Theft Auto VI",
-                tag: "AKSİYON / AÇIK DÜNYA REVRİMİ",
-                gallery: [
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_6851b997977eb37b0ad9206ad69c9b689df920f3.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_891e4685ff87e178125b290cb9b6cd80e69d74f2.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_937fae3f19e48dfd370125da95ba32431cf65d34.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_eef547b744fe6df2980fa24be67be361bc9be20d.1920x1080.jpg"
-                ],
-                text: "<h4>Yeni Nesil Devrim</h4><p>Grand Theft Auto VI, oyun dünyasının şimdiye kadar gördüğü en büyük teknik sıçramayı gerçekleştirmeye hazırlanıyor. Yenilenen ve modifiye edilen <b>RAGE Engine</b> oyun motoru sayesinde Vice City sokakları, gerçek zamanlı ışık kırılmaları (Ray Tracing), ultra yoğun yapay zeka kalabalığı ve kusursuz dinamik hava durumlarıyla tamamen nefes alan canlı bir dünyaya dönüşüyor.</p><p>Sadece görsel bir şölen değil, aynı zamanda devasa bir simülasyon sunulacak. İç mekanların inanılmaz çeşitliliği, sokaktaki her NPC'nin kendi günlük yaşantısına, rutinine ve yapay zekasına sahip olması oyunu farklı bir boyuta taşıyor. Araç sürüş fiziklerinin çok daha ağır, detaylı ve gerçekçi bir yapıya bürünmesi bekleniyor.</p><p>Lucia ve Jason'ın Bonnie ve Clyde tarzı hikayesi, bu nefes kesici açık dünyada sinematik bir başyapıt kalitesinde işlenecek. Sosyal medya dinamikleri, çeteler arası savaşlar ve detaylı soygun planlamaları ile yüzlerce saatlik kesintisiz bir macera bizleri bekliyor.</p>",
-                reviews: { label: "BEKLENİYOR", pos: 0, neg: 0, color: "#bba15c" },
-                prices: { steam: "Yakında", epic: "Yakında", console: "Yakında" }
-            },
-            rdr2: {
-                title: "Red Dead Redemption 2",
-                tag: "AAA / SİNEMATİK MACERA",
-                gallery: [
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_0953a968bd0034a0eb9473859871587d6cf6289b.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_66b5683b58406f5223e7f607c70f3f2d250d4f10.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_691e84dfa189f783637cb26b86dbe3b4e72382e8.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_49547d2fb86c738e4a9ba75eb375d0865e5264b9.1920x1080.jpg"
-                ],
-                text: "<h4>Vahşi Batının Kusursuz Sonu</h4><p>Arthur Morgan ve Van der Linde çetesinin çöküş dönemini ele alan RDR2, açık dünya oyunlarında çıtayı kimsenin ulaşamayacağı bir yere koydu. Detay seviyesi o kadar yüksek ki, doğadaki ekosistemden atınızın fiziksel tepkilerine, çamur ve karın deformasyonundan silahlarınızın kirlenip tutukluk yapmasına kadar her şey milimetrik hesaplanmış durumda.</p><p>Hikaye anlatımı konusunda endüstri standardı kabul edilen bu yapım, 60 saatten uzun süren ana senaryosu boyunca oyuncuyu adeta bir western filminin başrolü yapıyor. Çetenizle kampa döndüğünüzde ateş başında söylenen şarkılar, karakterlerin sizinle olan etkileşimi ve kararlarınızın dünyaya yansıması inanılmaz bir bağ kurmanızı sağlıyor.</p><p>Grafiksel olarak PC donanımlarını sonuna kadar zorlayan bir yapısı var. Işıklandırma motoru, hacimsel sisler ve su fizikleri hala günümüzdeki pek çok yeni oyuna taş çıkartacak seviyede.</p>",
-                reviews: { label: "Son Derece Olumlu", pos: 94, neg: 6, color: "#00ff66" },
-                prices: { steam: "$19.79", epic: "₺379,00", console: "₺469,00" }
-            },
-            ranch: {
-                title: "Ranch Simulator",
-                tag: "SİMÜLASYON / CO-OP",
-                gallery: [
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1119730/ss_37a28e8ad1e6ab6c3547285de41f92c1cd557e28.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1119730/ss_026ce218e20257321dd006deec0bb2cffeb617ed.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1119730/ss_752a7852c00a4ceb2e3cc19dfa7f8042459b33a5.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1119730/ss_e1f574d754b2d399c54e3d6fdb0d0725a3d027bc.1920x1080.jpg"
-                ],
-                text: "<h4>Çiftlik Hayatının Zirvesi</h4><p>Büyükbabanın yadigarı olan bu eski, çürümeye yüz tutmuş çiftliği eski görkemli günlerine döndürmek tamamen senin ellerinde. İster tek tabanca takıl, istersen arkadaşlarınla 4 kişiye kadar co-op modda bir araya gelip bu devasa açık dünyada hayvancılık, tarım ve inşaat imparatorluğunu kur.</p><p><b>Detaylı İnşaat ve Ekonomi:</b> Sadece hayvan beslemekle kalmıyorsun; çekiç ve testereni eline alıp kendi evini, ahırlarını, kümeslerini ve garajını sıfırdan inşa edebiliyorsun. Çiftliğinin gelirlerini artırmak için ormanda yaban hayatı avlayabilir, et ve süt ürünlerini kasabadaki markette satarak bütçeni katlayabilirsin.</p><p>Oyundaki araç mekanikleri ve fizik motoru da oldukça tatmin edici. Eski pikabını modifiye edebilir, kasasına domuzları ve odunları yükleyip kasaba yollarında zorlu arazilerle mücadele edebilirsin. Gerçekçi bir ekonomik büyüme simülasyonu arayanlar için bulunmaz bir nimet.</p>",
-                reviews: { label: "Çok Olumlu", pos: 84, neg: 16, color: "#00ff66" },
-                prices: { steam: "$14.99", epic: "₺285,00", console: "₺350,00" }
-            },
-            gta5: {
-                title: "Grand Theft Auto V",
-                tag: "AKSİYON / ONLINE WORLD",
-                gallery: [
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_c3959c98b671a5f45814bfbaf6f4a7c1f8d95133.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_eef547b744fe6df2980fa24be67be361bc9be20d.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_937fae3f19e48dfd370125da95ba32431cf65d34.1920x1080.jpg"
-                ],
-                text: "<h4>Los Santos Efsanesi</h4><p>Üç farklı karakterin (Michael, Trevor, Franklin) hikayesini tek bir havuzda birleştiren GTA V, çıkışının üzerinden yıllar geçmesine rağmen endüstriyi domine etmeye devam ediyor. Karakterler arası geçiş mekaniği, oyun dünyasına getirilmiş en büyük yeniliklerden biri olarak tarihe geçti.</p><p>Los Santos'un devasa haritası hem hikaye moduyla hem de bitmek bilmeyen aksiyon dolu online sunucularıyla oyuncuları kendine bağlıyor. <b>GTA Online</b> tarafında eklenen devasa soygun (Heist) görevleri, gece kulübü işletmeciliği ve araç modifikasyonları oyunu sürekli taze tutuyor.</p><p>PC platformunda FiveM gibi rol yapma (Roleplay) sunucularının da desteğiyle, oyunun ömrü adeta sonsuzluğa uzanmış durumda.</p>",
-                reviews: { label: "Çok Olumlu", pos: 87, neg: 13, color: "#00ff66" },
-                prices: { steam: "$14.99", epic: "₺275,00", console: "₺319,00" }
-            },
-            gowr: {
-                title: "God of War Ragnarök",
-                tag: "AKSİYON / MİTOLOJİ",
-                gallery: [
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/ss_49fdbead50db238a37803eb6152a5ca4eb307f89.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/ss_cbf59489437ff24976451e5127d14cb35dbf58d0.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/ss_75e0dfa212ad12a76db4fb8c2fc0b411d31062ee.1920x1080.jpg"
-                ],
-                text: "<h4>Dokuz Diyarın Kıyameti</h4><p>Kratos ve Atreus'un kader çizgilerini İskandinav mitolojisinin kalbine işleyen yapım, babalık ve tanrılık arasındaki ince çizgiyi mükemmel bir senaryo ile işliyor. İlk oyunun üzerine eklenen yeni yetenek ağaçları, silahlar ve kombo sistemleriyle dövüş mekaniklerindeki ağırlık hissi kusursuz bir seviyeye ulaşmış durumda.</p><p>Özellikle Leviathan Baltası ve Kaos Kılıçları arasındaki geçişler, düşman türlerine göre strateji yapmanızı zorunlu kılıyor. PC sürümündeki geniş ekran desteği (Ultrawide), kilitsiz kare hızları ve NVIDIA DLSS 3 desteği sayesinde savaşlar hiç olmadığı kadar akıcı ve göz alıcı.</p><p>Valhalla ek paketiyle birlikte oyunun tekrar oynanabilirliği de ciddi oranda artırıldı.</p>",
-                reviews: { label: "Son Derece Olumlu", pos: 91, neg: 9, color: "#00ff66" },
-                prices: { steam: "$49.99", epic: "₺1.499,00", console: "₺1.899,00" }
-            },
-            re4: {
-                title: "Resident Evil 4 Remake",
-                tag: "KORKU / SURVIVAL",
-                gallery: [
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_df96b865507efbc0b9cae47d486be2be25cf46c2.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_ccde4d284e3e3b3c3330f2f3f9fbb77ffcd3589b.1920x1080.jpg",
-                    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_81e3a1f87968ff26759d5c41498b5b7caeb8a370.1920x1080.jpg"
-                ],
-                text: "<h4>Korkunun Yeniden Doğuşu</h4><p>Orijinal oyunun ruhunu bozmadan, modern oyun dünyasının tüm nimetlerini kullanan bir başyapıt. Leon S. Kennedy'nin Avrupa'nın lanetli bir köyüne yaptığı o meşhur yolculuk, Capcom'un tescilli RE Engine motoruyla baştan aşağı yeniden yaratıldı.</p><p>Atmosferdeki karanlık tonlar, gelişmiş gölgelendirmeler ve üç boyutlu ses mühendisliği, oyuncuyu sürekli bir tetikte olma durumunda tutuyor. Mühimmat yönetiminin stresi ve Ganado'ların zekileşmiş yapay zekası hayatta kalma hissini doruklara çıkarıyor.</p><p>Ayrıca yeni eklenen bıçak savuşturma (Parry) mekaniği, yakın dövüşlere harika bir dinamizm katmış durumda.</p>",
-                reviews: { label: "Son Derece Olumlu", pos: 97, neg: 3, color: "#00ff66" },
-                prices: { steam: "$29.99", epic: "₺899,00", console: "₺1.200,00" }
-            }
-        };
+  <script>
+    function openLetter() {
+      const container = document.querySelector('.container');
+      container.classList.toggle('open');
+    }
+  </script>
 
-        function openReview(gameKey) {
-            const game = gameDatabase[gameKey];
-            if (!game) return;
-
-            document.getElementById('modalTitle').innerHTML = game.title;
-            document.getElementById('modalTag').innerHTML = game.tag;
-            document.getElementById('modalText').innerHTML = game.text;
-
-            const galleryContainer = document.getElementById('modalGallery');
-            galleryContainer.innerHTML = "";
-            game.gallery.forEach(imgUrl => {
-                const imgTag = document.createElement('img');
-                imgTag.src = imgUrl;
-                galleryContainer.appendChild(imgTag);
-            });
-
-            document.getElementById('reviewLabel').innerHTML = game.reviews.label;
-            document.getElementById('reviewLabel').style.color = game.reviews.color;
-            document.getElementById('posPercent').innerHTML = "%" + game.reviews.pos;
-            document.getElementById('negPercent').innerHTML = "%" + game.reviews.neg;
-
-            // Barların animasyonlu dolması için önce sıfırlayıp sonra dolduruyoruz
-            document.getElementById('posBar').style.width = "0%";
-            document.getElementById('negBar').style.width = "0%";
-            setTimeout(() => {
-                document.getElementById('posBar').style.width = game.reviews.pos + "%";
-                document.getElementById('negBar').style.width = game.reviews.neg + "%";
-            }, 50);
-
-            document.getElementById('priceSteam').innerHTML = game.prices.steam;
-            document.getElementById('priceEpic').innerHTML = game.prices.epic;
-            document.getElementById('priceConsole').innerHTML = game.prices.console;
-
-            document.getElementById('reviewModal').classList.add('active');
-            document.body.style.overflow = "hidden";
-        }
-
-        function closeReview() {
-            document.getElementById('reviewModal').classList.remove('active');
-            document.body.style.overflow = "auto";
-        }
-    </script>
 </body>
 </html>
