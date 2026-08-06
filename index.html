@@ -3,48 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>İyi Ki Doğdun!</title>
+  <title>İyi Ki Doğdun Cimcimem!</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
       height: 100vh;
       overflow: hidden;
-      background: linear-gradient(to bottom, #050515 0%, #101432 60%, #1a1b35 100%);
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
       display: flex;
       justify-content: center;
       align-items: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
     }
 
-    /* Arka Plan Yıldızlar */
-    .stars {
+    /* Yıldız Gökyüzü */
+    .stars-container {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
-                  radial-gradient(2px 2px at 40px 70px, #ffffffa6, rgba(0,0,0,0)),
-                  radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
-                  radial-gradient(2px 2px at 160px 120px, #fff, rgba(0,0,0,0));
-      background-size: 200px 200px;
-      animation: twinkle 4s infinite alternate;
-      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
     }
 
-    @keyframes twinkle {
-      0% { opacity: 0.5; }
-      100% { opacity: 1; }
+    .star {
+      position: absolute;
+      background-color: white;
+      border-radius: 50%;
+      animation: pulse var(--duration) infinite ease-in-out alternate;
     }
 
-    /* Dağ Silüeti */
+    @keyframes pulse {
+      0% { opacity: 0.2; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1.3); box-shadow: 0 0 8px #fff; }
+    }
+
+    /* Kayan Yıldızlar */
+    .shooting-star {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(-45deg, rgba(255,255,255,1), rgba(255,255,255,0));
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
+      animation: tail 3s ease-in-out infinite, shooting 3s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes tail {
+      0% { width: 0; }
+      30% { width: 120px; }
+      100% { width: 0; }
+    }
+
+    @keyframes shooting {
+      0% { transform: translateX(0) translateY(0) rotate(-35deg); opacity: 1; }
+      100% { transform: translateX(-600px) translateY(600px) rotate(-35deg); opacity: 0; }
+    }
+
+    .shooting-star:nth-child(1) { top: 10%; right: 20%; animation-delay: 1s; }
+    .shooting-star:nth-child(2) { top: 25%; right: 40%; animation-delay: 4s; }
+    .shooting-star:nth-child(3) { top: 5%; right: 60%; animation-delay: 7s; }
+
+    /* Dağ Silüetleri */
     .mountains {
       position: absolute;
       bottom: 0;
       width: 100%;
-      height: 250px;
-      background: linear-gradient(to top, #020208 20%, transparent 100%);
-      clip-path: polygon(0% 100%, 15% 40%, 35% 80%, 50% 20%, 65% 70%, 85% 30%, 100% 100%);
+      height: 280px;
+      background: linear-gradient(to top, #040609 30%, transparent 100%);
+      clip-path: polygon(0% 100%, 12% 45%, 28% 85%, 45% 25%, 62% 75%, 80% 35%, 100% 100%);
+      z-index: 2;
+    }
+
+    .mountains-back {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 350px;
+      background: linear-gradient(to top, #0c1424 20%, transparent 100%);
+      clip-path: polygon(0% 100%, 20% 30%, 40% 70%, 60% 20%, 80% 60%, 100% 40%, 100% 100%);
+      opacity: 0.6;
       z-index: 1;
-      pointer-events: none;
+    }
+
+    /* Müzik Butonu */
+    .music-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .music-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
     }
 
     /* Mektup Konteynırı */
@@ -52,18 +115,18 @@
       position: relative;
       z-index: 10;
       cursor: pointer;
+      margin-top: 50px;
     }
 
-    /* Kalp Zarf Tasarımı */
     .envelope {
-      width: 160px;
+      width: 200px;
       height: 140px;
       background: #e63946;
       position: relative;
       border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+      box-shadow: 0 15px 35px rgba(230, 57, 70, 0.4);
       transition: transform 0.3s ease;
-      animation: float 3s ease-in-out infinite;
+      animation: float 3.5s ease-in-out infinite;
     }
 
     .envelope:hover {
@@ -72,45 +135,45 @@
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-12px); }
     }
 
     /* Kalp Mührü */
     .heart-seal {
       position: absolute;
-      top: 40%;
+      top: 45%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-45deg);
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       background: #ff758f;
-      z-index: 3;
+      z-index: 4;
       transition: opacity 0.4s ease;
     }
 
     .heart-seal::before, .heart-seal::after {
       content: '';
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       background: #ff758f;
       border-radius: 50%;
       position: absolute;
     }
 
-    .heart-seal::before { top: -20px; left: 0; }
-    .heart-seal::after { left: 20px; top: 0; }
+    .heart-seal::before { top: -18px; left: 0; }
+    .heart-seal::after { left: 18px; top: 0; }
 
     /* Zarf Kapakları */
     .envelope::before {
       content: '';
       position: absolute;
       top: 0;
-      border-left: 80px solid transparent;
-      border-right: 80px solid transparent;
-      border-top: 75px solid #d62828;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-top: 85px solid #d62828;
       transform-origin: top;
       transition: transform 0.6s ease;
-      z-index: 2;
+      z-index: 3;
     }
 
     /* İçinden Çıkan Kağıt */
@@ -119,23 +182,32 @@
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 260px;
+      width: 310px;
       height: 0;
       background: #fffdf9;
-      border-radius: 8px;
+      border-radius: 12px;
       padding: 0 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      overflow-y: auto;
       transition: height 0.8s ease 0.4s, bottom 0.8s ease 0.4s, padding 0.4s ease 0.4s;
-      z-index: 1;
-      text-align: center;
+      z-index: 2;
+      text-align: left;
       color: #333;
+    }
+
+    /* Özelleştirilmiş Scrollbar */
+    .letter::-webkit-scrollbar {
+      width: 6px;
+    }
+    .letter::-webkit-scrollbar-thumb {
+      background: #ff758f;
+      border-radius: 10px;
     }
 
     /* Açılma Animasyon Sınıfları */
     .container.open .envelope::before {
       transform: rotateX(180deg);
-      z-index: 0;
+      z-index: 1;
     }
 
     .container.open .heart-seal {
@@ -143,47 +215,118 @@
     }
 
     .container.open .letter {
-      height: 280px;
-      bottom: -60px;
-      padding: 25px 20px;
+      height: 380px;
+      bottom: -100px;
+      padding: 25px 22px;
       z-index: 5;
     }
 
     .letter h2 {
       color: #e63946;
-      font-size: 20px;
-      margin-bottom: 12px;
+      font-size: 19px;
+      margin-bottom: 15px;
+      text-align: center;
+      line-height: 1.3;
     }
 
     .letter p {
       font-size: 14px;
-      line-height: 1.5;
-      color: #4a4a4a;
+      line-height: 1.6;
+      color: #444;
+      white-space: pre-line;
     }
   </style>
 </head>
 <body>
 
-  <div class="stars"></div>
+  <!-- Müzik -->
+  <button class="music-btn" onclick="toggleMusic(event)">🎵 Müzik Çal / Durdur</button>
+  <audio id="bg-music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Yıldızlar -->
+  <div class="stars-container" id="starsContainer">
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+  </div>
+
+  <!-- Dağlar -->
+  <div class="mountains-back"></div>
   <div class="mountains"></div>
 
+  <!-- Mektup -->
   <div class="container" onclick="openLetter()">
     <div class="envelope">
       <div class="heart-seal"></div>
     </div>
     <div class="letter">
-      <h2>İyi Ki Doğdun! ❤️</h2>
-      <p>
-        Dünyanın en yüksek zirvesinde, yıldızların tam altında seninle olmak gibiydi seni tanımak... <br><br>
-        Yeni yaşın sana tüm güzellikleri, mutluluğu ve huzuru getirsin. Doğum günün kutlu olsun!
-      </p>
+      <h2>İyi Ki Doğdun İyi Ki Benim Cimcimemsin ❤️</h2>
+      <p>İyi ki doğdun birtanem. 🤍 O gün iyi ki tanışmışız, iyi ki seni tanımışım. Seni çok seviyorum ve sana her geçen gün daha da aşık oluyorum. Hatta sen gitar çalarken var ya… o kadar tatlıydın ki. 🥹
+
+İnşallah hiç ayrılmayız. Hep birbirimizin hayatında oluruz, birlikte bir sürü güzel anı biriktiririz. Bugün 16 yaşına… pardon 15 yaşına girdin. 🥳 Yaşıtız hee HSHSHS. 😭
+
+İnşallah ileride kurduğumuz hayalleri birlikte yaşarız. Ülke ülke gezeriz, motorla gazlarız tabi 50cc ile. Sonra aynı evde yaşarız, sen ben kedimiz ve tabikide bebeğimiz olur. ☺️
+
+Seninle tanıştığım için kendimi gerçekten çok şanslı hissediyorum. Çünkü seninleyken kendim olabiliyorum. Beni olduğum gibi tanıyorsun, her halimi seviyorsun. Bu benim için tarif edemeyeceğim kadar değerli.
+
+Seni çok ama çok seviyorum yavrum. İyi ki doğdun, iyi ki varsın, iyi ki benim hayatımdasın. Doğum günün kutlu olsun güzelim. 🤍🎂</p>
     </div>
   </div>
 
   <script>
+    // Gerçekçi Rastgele Yıldız Üretimi
+    const starsContainer = id = document.getElementById('starsContainer');
+    const starCount = 120;
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      
+      const size = Math.random() * 3 + 1; // 1px - 4px arası boyut
+      const posX = Math.random() * 100;
+      const posY = Math.random() * 70; // Sadece gökyüzünde toplansın
+      const duration = Math.random() * 3 + 1.5;
+
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.left = `${posX}%`;
+      star.style.top = `${posY}%`;
+      star.style.setProperty('--duration', `${duration}s`);
+      
+      starsContainer.appendChild(star);
+    }
+
+    // Mektup Açma & Müzik Otomatik Başlatma
+    let audio = document.getElementById('bg-music');
+    let isPlaying = false;
+
     function openLetter() {
       const container = document.querySelector('.container');
-      container.classList.toggle('open');
+      container.classList.add('open');
+      
+      if (!isPlaying) {
+        playAudio();
+      }
+    }
+
+    function toggleMusic(e) {
+      e.stopPropagation(); // Mektuba tıklama tetiklenmesin
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+      } else {
+        playAudio();
+      }
+    }
+
+    function playAudio() {
+      audio.play().then(() => {
+        isPlaying = true;
+      }).catch(err => {
+        console.log("Müzik oynatma engellendi:", err);
+      });
     }
   </script>
 
